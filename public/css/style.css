@@ -87,7 +87,7 @@ h5{
     flex-direction: column;
   }
 
-  .row-div-a h2, p{
+  .title{
     display: none;
   }
 }
@@ -101,7 +101,7 @@ h5{
 }
 
 /* Navbar (left ) */
-#navbar{
+#about{
     margin-top: 90px;
     position: fixed;
     width: 25%;
@@ -110,32 +110,17 @@ h5{
     z-index:1;
 }
 
-
-.navigation{
-  padding:0 10px;
-}
-
-.nav-link{
+#about h2{
   color: white;
-  width: 100%;
-  font-size: 1.1rem;
-  padding: 0.5rem;
-  margin-top: 1.7rem;
-  /* background-color: #DD0426; */
-  float: left;
-  text-transform: uppercase;
-  border-bottom: 1px solid white;
+  margin: 2rem 0;
 }
 
-.nav-link a{
-  color: white;
+#about p{
+  padding: 1rem;
+  margin: 0;
+  text-align: justify;
+  color: rgb(179, 177, 177);
 }
-
-.nav-link span{
-  color: white;
-  float: right;
-}
-
 
 /* Main (right ) */
 #main{
@@ -203,7 +188,7 @@ h5{
 }
 
 @media only  screen and (max-width:600px){
-    #navbar{
+    #about{
         width: 100%;
         position: relative;
         z-index: -99;
