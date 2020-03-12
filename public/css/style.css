@@ -215,10 +215,13 @@ h5{
 
     #activities{
       flex-wrap: wrap;
+      justify-content: center;
+
     }
 
     #activities img{
-      width: 100%;
-      border-radius: 0;
+      /* width: 100%; */
+      /* border-radius: 0; */
+      margin: auto;
     }
 }
