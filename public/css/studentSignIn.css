@@ -1,0 +1,167 @@
+@import "style.css";
+
+*{
+ padding: 0;
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body{
+ font-family: 'Gudea', sans-serif;
+}
+
+
+.fixed-top{
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.cont{
+ width:320px;
+ margin-top: 2rem;
+ /* height: 400px; */
+ background-color: white;
+ color: #34363E;
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%,-50%);
+ box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+ border-radius: 3px;
+}
+
+.cont h3{
+ margin-top: 1rem;
+ padding: 16px;
+ font-weight: 400;
+}
+
+.cont .username, .cont .password{
+ display: flex;
+ height: 2.5rem;
+ overflow: hidden;
+}
+
+.cont i{
+ width: 40px;
+ text-align: center;
+ margin: auto 0;
+ color: #ada8a8;
+}
+
+.cont input{
+ width: 100%;
+ color: white;
+ box-shadow: 1px 1px solid rgba(179, 175, 175, 0.5);
+}
+
+.cont input[type = "text"],input[type = "password"]{
+ padding: 1.2rem 0;
+ color: #34363E;
+ /* font-size: 1rem; */
+ /* outline: 1px solid white; */
+ border: none;
+ outline: none;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.submit span{
+    font-size: 1.4rem;
+    padding: 0.8rem 0.3rem;
+}
+
+
+.cont button{
+ /* width: 100px; */
+ text-align: center;
+ height: 30px;
+ width: 120px;
+ font-weight: 700;
+ /* margin: 2rem 1.4rem 1.5rem 0; */
+ font-size: 0.9rem;
+ border-radius: 20px;
+ outline: none;
+ background-color: #fb5b5a;
+ border: 1px solid #fb5b5a;
+ color: white;
+ text-transform: capitalize;
+}
+
+
+.cont button:hover,.cont button:focus{
+ cursor: pointer;
+}
+
+.cont a{
+ color: rgb(114, 114, 116);
+ font-size: 0.9rem;
+}
+
+.cont a:hover, .cont a:focus{
+ color: black;
+}
+
+.cont p{
+ padding: 1rem 2rem 1.7rem 2.2rem;
+ font-size: 0.8rem;
+ color: rgb(126, 126, 133);
+}
+
+.cont .sign-up{
+ color: rgb(126, 126, 133);
+ text-decoration: underline;
+}
+
+.cont .sign-up:hover{
+ color: #34363E;
+}
+
+.dropdown-item:hover{
+ background-color: #fb5b5a;
+ color: white;
+}
+
+footer{
+ position: absolute;
+ bottom: 0;
+ text-align: center;
+ width: 100%;
+ font-size: .8rem;
+}
+
+@media (max-width : 600px){
+ .cont{
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+ }
+ 
+ .nav-item .nav-link{
+ /* margin: 0 15px; */
+ display: block;
+ width: 100%;
+ padding: 1rem 1rem;
+}
+
+.fa-sign-in{
+ padding: 10px;
+}
+
+.navbar-header{
+ margin: 0 0 0 2rem;
+ width: 250px;
+}
+
+.navbar-header h2{
+ margin: 0;
+ font-size: 0.9rem;
+}
+
+footer{
+ font-size: 0.8rem;
+}
+}

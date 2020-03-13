@@ -4,7 +4,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Login</title>
+ <title>Sign up</title>
 
     <!-- link stylesheets -->
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="nav-container">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                <a class="nav-link text-danger" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-danger" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="enrollment" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,28 +61,28 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Cadet Details</a>
+                    <a class="nav-link" href="#">Cadet Details</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Competitions</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Competitions</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Camps</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Camps</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Activities</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Activities</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Alumni</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Alumni</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Achievers</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Achievers</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Video</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Video</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ANO Point</a>
+                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ANO Point</a>
                 </li>
             </ul>
             </div>
@@ -92,24 +92,50 @@
 
     <!-- Container of Login  -->
     <div class="cont">
-    <h3>Sign In</h3>
+    <h3>Sign Up</h3>
     <div class="username">
-    <i class="fa fa-envelope" id="user"></i>
-    <input type="text" name="Username" id="username" placeholder="Email" required>
+        <i class="fa fa-info" id="user"></i>
+        <input type="text" id="username" placeholder="First Name" required>
+    </div>
+
+    <div class="username">
+        <i class="fa fa-info" id="user"></i>
+        <input type="text" id="username" placeholder="Last Name" required>
+    </div>
+
+    <div class="username">
+        <i class="fa fa-envelope" id="user"></i>
+        <input type="text" id="username" placeholder="Email" required>
     </div>
 
     <div class="password">
-    <i class="fa fa-key" id="pass"></i>
-    <input type="password" name="Password" id="password" placeholder="Password" required>
-    </div>
-    
-    <div class="btn">
-    <button type="button">LOG IN</button>
-    <a href="#" class="forgotten-pass">Forgotten password?</a>
+        <i class="fa fa-key" id="pass"></i>
+        <input type="password" id="password" placeholder="Password" required>
     </div>
 
+    <div class="password">
+        <i class="fa fa-key" id="pass"></i>
+        <input type="password" id="password" placeholder="Confirm Password" required>
+    </div>
+
+    <div class="submit">
+        <button type="button">Sign Up</button>
+        <div>
+            <a href="#">
+                <span class="fa fa-google-plus-square"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-facebook-official"></span>
+            </a>
+            <a href="#">
+                <span class="fa fa-twitter-square"></span>
+            </a>
+        </div>
+    </div>
+ 
+
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, quidem qui iure aliquam tempora praesentium mollitia possimus.
-    <a href="/Sing up/Sign_ups.html" class="sign-up">Sign up</a>
+    <a href="/Sing up/Sign_ups.html" class="sign-up">Sign in</a>
     </p>
     </div>
 
