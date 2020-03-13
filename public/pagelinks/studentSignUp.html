@@ -12,6 +12,16 @@
 
     <!-- custome stylesheet  -->
     <link rel="stylesheet" href="../css/studentSignIn.css">
+    
+    <style>
+        @media (max-width : 600px){
+            .cont{
+                align-items: flex-start;
+                margin: 0 auto;
+                height: 450px;
+            }
+        }
+    </style>
 
 </head>
 <body>
@@ -91,53 +101,56 @@
     
 
     <!-- Container of Login  -->
-    <div class="cont">
-    <h3>Sign Up</h3>
-    <div class="username">
-        <i class="fa fa-info" id="user"></i>
-        <input type="text" id="username" placeholder="First Name" required>
+    <div class="container">
+        <div class="cont">
+            <h3>Sign Up</h3>
+            <div class="username">
+                <i class="fa fa-info" id="user"></i>
+                <input type="text"  placeholder="First Name" required>
+            </div>
+        
+            <div class="username">
+                <i class="fa fa-info" id="user"></i>
+                <input type="text"  placeholder="Last Name" required>
+            </div>
+        
+            <div class="username">
+                <i class="fa fa-envelope" id="user"></i>
+                <input type="text"  placeholder="Email" required>
+            </div>
+        
+            <div class="password">
+                <i class="fa fa-key" id="pass"></i>
+                <input type="password"  placeholder="Password" required>
+            </div>
+        
+            <div class="password">
+                <i class="fa fa-key" id="pass"></i>
+                <input type="password"  placeholder="Confirm Password" required>
+            </div>
+        
+            <div class="submit">
+                <button type="button">Sign Up</button>
+                <div>
+                    <a href="#">
+                        <span class="fa fa-google-plus-square"></span>
+                    </a>
+                    <a href="#">
+                        <span class="fa fa-facebook-official"></span>
+                    </a>
+                    <a href="#">
+                        <span class="fa fa-twitter-square"></span>
+                    </a>
+                </div>
+            </div>
+         
+        
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, quidem qui iure aliquam tempora praesentium mollitia possimus.
+            <a href="/Sing up/Sign_ups.html" class="sign-up">Sign in</a>
+            </p>
+            </div>
     </div>
-
-    <div class="username">
-        <i class="fa fa-info" id="user"></i>
-        <input type="text" id="username" placeholder="Last Name" required>
-    </div>
-
-    <div class="username">
-        <i class="fa fa-envelope" id="user"></i>
-        <input type="text" id="username" placeholder="Email" required>
-    </div>
-
-    <div class="password">
-        <i class="fa fa-key" id="pass"></i>
-        <input type="password" id="password" placeholder="Password" required>
-    </div>
-
-    <div class="password">
-        <i class="fa fa-key" id="pass"></i>
-        <input type="password" id="password" placeholder="Confirm Password" required>
-    </div>
-
-    <div class="submit">
-        <button type="button">Sign Up</button>
-        <div>
-            <a href="#">
-                <span class="fa fa-google-plus-square"></span>
-            </a>
-            <a href="#">
-                <span class="fa fa-facebook-official"></span>
-            </a>
-            <a href="#">
-                <span class="fa fa-twitter-square"></span>
-            </a>
-        </div>
-    </div>
- 
-
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, quidem qui iure aliquam tempora praesentium mollitia possimus.
-    <a href="/Sing up/Sign_ups.html" class="sign-up">Sign in</a>
-    </p>
-    </div>
+    
 
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>

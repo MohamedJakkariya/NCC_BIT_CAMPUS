@@ -6,8 +6,11 @@
  box-sizing: border-box;
 }
 
-body{
- font-family: 'Gudea', sans-serif;
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
 }
 
 
@@ -17,16 +20,15 @@ body{
 
 .cont{
  width:320px;
- margin-top: 2rem;
- /* height: 400px; */
+ /* margin-top: 2rem; */
+ height: auto;
  background-color: white;
  color: #34363E;
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%,-50%);
- box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+ position: relative;
+ box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+ -2px -2px 5px rgba(0,0,0,0.5);
  border-radius: 3px;
+ margin:auto;
 }
 
 .cont h3{
@@ -66,7 +68,7 @@ body{
 .submit{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .submit span{
@@ -135,33 +137,8 @@ footer{
 
 @media (max-width : 600px){
  .cont{
-  width: 100%;
-  height: auto;
-  margin-top: 1rem;
- }
- 
- .nav-item .nav-link{
- /* margin: 0 15px; */
- display: block;
- width: 100%;
- padding: 1rem 1rem;
-}
-
-.fa-sign-in{
- padding: 10px;
-}
-
-.navbar-header{
- margin: 0 0 0 2rem;
- width: 250px;
-}
-
-.navbar-header h2{
- margin: 0;
- font-size: 0.9rem;
-}
-
-footer{
- font-size: 0.8rem;
+    align-items: flex-start;
+    margin: 0 auto;
+    height: 350px;
 }
 }
