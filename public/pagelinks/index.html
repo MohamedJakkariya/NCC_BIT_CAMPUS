@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- link stylesheets -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
+
+    <!-- custome stylesheet  -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Slider cheetsheet -->
+    <link rel="stylesheet" href="../lib/slick-master/slick/slick.css" />
+    <link rel="stylesheet" href="../lib/slick-master/slick/slick-theme.css" />
+  </head>
+  <body>
+    <!--Global Toggler Icon  -->
+    <!-- <button class="btn toggle-btn slide-left" id="toggler">
+        <span class="fa fa-bars"></span>
+    </button> -->
+
+    <!-- 
+    ================================================
+                        Header section 
+    ================================================ 
+    -->
+    <header id="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <!-- nav brand  -->
+        <a class="navbar-brand row-div-a" href="#">
+          <img src="../img/logo.jpg" alt="" />
+          <div class="row-div title">
+            <h2>UCE(BIT Campus)</h2>
+            <p>2TN(BN) 13TH COY ANNA UNIVERSITY</p>
+          </div>
+        </a>
+
+        <!-- Toggler button  -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#nav-container"
+          aria-controls="nav-container"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav-container">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-danger" href="/index.html"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="enrollment"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Enrollment
+              </a>
+              <div class="dropdown-menu" aria-labelledby="enrollment">
+                <a class="dropdown-item" href="#">Staff</a>
+                <a class="dropdown-item" href="../pagelinks/dashboard.html"
+                  >Admin</a
+                >
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../pagelinks/studentSignUp.html"
+                  >Student</a
+                >
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="login-down"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Login
+              </a>
+              <div class="dropdown-menu" aria-labelledby="login-down">
+                <a class="dropdown-item" href="#">Staff</a>
+                <a class="dropdown-item" href="#">Admin</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../pagelinks/studentSignIn.html"
+                  >Student</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cadet Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Competitions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Camps</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Activities</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Alumni</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Achievers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Video</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >ANO Point</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- 
+    ================================================
+                        Container section 
+    ================================================ 
+    -->
+    <main id="cargo">
+      <!-- 
+        ================================================
+                            Main section (right)
+        ================================================ 
+        -->
+      <!-- Main content  -->
+      <section id="main">
+        <!-- 
+            ================================================
+                                Slide Show(Notification)
+            ================================================ 
+            -->
+        <section class="lazy slider">
+          <div>
+            <img src="../img/modal-1.jpg" />
+          </div>
+          <div>
+            <img src="../img/modal-2.jpg" />
+          </div>
+          <div>
+            <img src="../img/modal-3.jpg" />
+          </div>
+          <div>
+            <img src="../img/modal-4.jpg" />
+          </div>
+        </section>
+
+        <!-- 
+            ================================================
+                                Slide Show(Gallery)
+            ================================================ 
+            -->
+        <hr id="border" />
+
+        <h2>Gallery</h2>
+        <section class="center-slide">
+          <div>
+            <img src="../img/modal-1.jpg" />
+          </div>
+          <div>
+            <img src="../img/modal-2.jpg" />
+          </div>
+          <div>
+            <img src="../img/modal-3.jpg" />
+            <!-- <img src="../img/modal-1.jpg">  -->
+          </div>
+          <div>
+            <img src="../img/modal-4.jpg" />
+          </div>
+        </section>
+
+        <hr id="border" />
+        <!-- 
+            ================================================
+                                Activities
+            ================================================ 
+            -->
+
+        <h2 id="activity-head">Activities</h2>
+
+        <section id="activities">
+          <div>
+            <a href="../pagelinks/gallery.html">
+              <img src="../img/modal-1.jpg" alt="" />
+              <h5>Water Day Rally</h5>
+            </a>
+          </div>
+          <div>
+            <a href="../pagelinks/gallery.html">
+              <img src="../img/modal-2.jpg" alt="" />
+              <h5>SWATCH BHARATH</h5>
+            </a>
+          </div>
+          <div>
+            <a href="../pagelinks/gallery.html">
+              <img src="../img/modal-3.jpg" alt="" />
+              <h5>YOGA DAY</h5>
+            </a>
+          </div>
+          <div>
+            <a href="../pagelinks/gallery.html">
+              <img src="../img/modal-3.jpg" alt="" />
+              <h5>NCC DAY</h5>
+            </a>
+          </div>
+          <div>
+            <a href="../pagelinks/gallery.html">
+              <img src="../img/modal-3.jpg" alt="" />
+              <h5>ARMY DAY</h5>
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <!-- 
+        ================================================
+                            Navigation section (left)
+        ================================================ 
+        -->
+      <!-- Navigation Bar -->
+      <section id="about">
+        <div>
+          <h2>ABOUT#1</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
+            dolores soluta et velit illo doloremque quas hic dolor id, quod
+            officia commodi numquam sint molestiae necessitatibus sapiente rem?
+            Necessitatibus, et.
+          </p>
+        </div>
+        <div>
+          <h2>ABOUT#2</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
+            dolores soluta et velit illo doloremque quas hic dolor id, quod
+            officia commodi numquam sint molestiae necessitatibus sapiente rem?
+            Necessitatibus, et.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script Links  -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery/jquery-migrate.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/slick-master/slick/slick.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        // For hide and show effect
+        $('#toggler').click(function() {
+          $('p').toggle();
+        });
+
+        // Slide show
+        $('.lazy').slick({
+          infinite: true,
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 1500,
+          fade: true,
+          cssEase: 'linear'
+        });
+
+        // Center slide
+        $('.center-slide').slick({
+          centerMode: true,
+          centerPadding: '0px',
+          slidesToShow: 3,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
