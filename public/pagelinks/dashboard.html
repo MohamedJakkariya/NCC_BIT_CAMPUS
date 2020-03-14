@@ -1,253 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>Dash Board</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dash Board</title>
 
     <!-- link stylesheets -->
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
 
     <!-- custome stylesheet  -->
-    <link rel="stylesheet" href="../css/dashboard.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
     <!-- 
     ================================================
                         Header section 
     ================================================ 
     -->
     <header id="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <!-- nav brand  -->
-          <a class="navbar-brand row-div-a" href="#">
-            <img src="../img/logo.jpg" alt="">
-            <div class="row-div title">
-              <h2>UCE(BIT Campus)
-              </h2>
-              <p>2TN(BN) 13TH COY ANNA UNIVERSITY </p>
-            </div>
-          </a>
-  
-          <!-- Toggler button  -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-container" aria-controls="nav-container" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="nav-container">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link text-danger" href="/index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="enrollment" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Enrollment
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="enrollment">
-                      <a class="dropdown-item" href="#">Staff</a>
-                      <a class="dropdown-item" href="#">Admin</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="../pagelinks/studentSignUp.html">Student</a>
-                  </div>
-              </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="login-down" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Login
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="login-down">
-                      <a class="dropdown-item" href="#">Staff</a>
-                      <a class="dropdown-item" href="#">Admin</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="../pagelinks/studentSignIn.html">Student</a>
-                  </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Cadet Details</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Competitions</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Camps</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Activities</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Alumni</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Achievers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Video</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ANO Point</a>
-              </li>
-            </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <!-- nav brand  -->
+        <a class="navbar-brand row-div-a" href="#">
+          <img src="../img/logo.jpg" alt="" />
+          <div class="row-div title">
+            <h2>UCE(BIT Campus)</h2>
+            <p>2TN(BN) 13TH COY ANNA UNIVERSITY</p>
           </div>
-        </nav>
-      </header>
+        </a>
 
-  <div class="container-box container-fluid">
-   
-        <!-- Side Section  -->
-        <div class="sidebar container p-3">
+        <!-- Toggler button  -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#nav-container"
+          aria-controls="nav-container"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="nav-container">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-danger" href="/index.html"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="enrollment"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Enrollment
+              </a>
+              <div class="dropdown-menu" aria-labelledby="enrollment">
+                <a class="dropdown-item" href="#">Staff</a>
+                <a class="dropdown-item" href="#">Admin</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../pagelinks/studentSignUp.html"
+                  >Student</a
+                >
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="login-down"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Login
+              </a>
+              <div class="dropdown-menu" aria-labelledby="login-down">
+                <a class="dropdown-item" href="#">Staff</a>
+                <a class="dropdown-item" href="#">Admin</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../pagelinks/studentSignIn.html"
+                  >Student</a
+                >
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cadet Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Competitions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Camps</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Activities</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Alumni</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Achievers</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >Video</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
+                >ANO Point</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-box container-fluid">
+      <!-- Side Section  -->
+      <div class="sidebar container p-3">
         <div class="first-search-field pt-3 pb-3">
-            <span class="eventLabel">Post an Event</span>
-            <a href="#" id="eventPostButton">
-            <span  class="fa fa-plus"></span>
-            </a>
+          <span class="eventLabel">Post an Event</span>
+          <a href="#" id="eventPostButton">
+            <span class="fa fa-plus"></span>
+          </a>
         </div>
 
         <h3>Keyword</h3>
 
         <div class="first-search-field">
-            <input type="text" placeholder="Enter keyword" class="top-search">
-            <span class="fa fa-search"></span>
+          <input type="text" placeholder="Enter keyword" class="top-search" />
+          <span class="fa fa-search"></span>
         </div>
 
         <h3>Filters</h3>
 
         <form action="#" method="POST">
-            <div class="first-search-field">
-                <input type="text" list="college-name" class="top-search" required
-                    placeholder="College Name">
-                <button type="submit"><span class="fa fa-search"></span></button>
-            </div>
+          <div class="first-search-field">
+            <input
+              type="text"
+              list="college-name"
+              class="top-search"
+              required
+              placeholder="College Name"
+            />
+            <button type="submit"><span class="fa fa-search"></span></button>
+          </div>
         </form>
 
         <form action="#" method="POST">
-            <div class="first-search-field">
-                <input autocomplete="off" type="text"  class="top-search" required
-                placeholder="Reg number">
-                <button type="submit"><span class="fa fa-search"></span></button>
-            </div>
+          <div class="first-search-field">
+            <input
+              autocomplete="off"
+              type="text"
+              class="top-search"
+              required
+              placeholder="Reg number"
+            />
+            <button type="submit"><span class="fa fa-search"></span></button>
+          </div>
         </form>
 
         <form action="#" method="POST">
-            <div class="first-search-field">
-                <input type="text" class="top-search" required
-                placeholder="Degree">
-                <button type="submit"><span class="fa fa-search"></span></button>
-            </div>
+          <div class="first-search-field">
+            <input
+              type="text"
+              class="top-search"
+              required
+              placeholder="Degree"
+            />
+            <button type="submit"><span class="fa fa-search"></span></button>
+          </div>
         </form>
 
         <form action="#" method="POST">
-            <div class="first-search-field">
-                <input type="text" class="top-search" required
-                placeholder="Skills">
-                <button type="submit"><span class="fa fa-search"></span></button>
-            </div>
+          <div class="first-search-field">
+            <input
+              type="text"
+              class="top-search"
+              required
+              placeholder="Skills"
+            />
+            <button type="submit"><span class="fa fa-search"></span></button>
+          </div>
         </form>
-    </div>
+      </div>
 
-   <!-- Main section  -->
-   <div class="main">
-
-    <div class="header">
-     <p class="pl-3"> <span id="value">1924</span> members in community</p>
-    </div>
-
-    <div class="member">
-        <div class="mem-img">
-            <img src="../img/modal-profile.jpg">
+      <!-- Main section  -->
+      <div class="main">
+        <div class="header">
+          <p class="pl-3"><span id="value">1924</span> members in community</p>
         </div>
-        <div class="member-detail">
-            <a href="#" class="member-name" >A. RAJA SEKARAN</a>
-            <input class="member-year" type="text" value="Student, class 2019" readonly>
-            <input class="member-degree" type="text" value="M.Sc Chemstry, Chemistry" readonly>
-            <input class="member-home-town" type="text" value="Tiruchirappalli" readonly>
-        </div>            
-        <button type="submit">view profile</button>
-    </div>
 
-    <div class="member">
-        <div class="mem-img">
-            <img src="../img/modal-profile.jpg">
-        </div>
-        <div class="member-detail">
-            <a href="#" class="member-name" >A. RAJA SEKARAN</a>
-            <input class="member-year" type="text" value="Student, class 2019" readonly>
-            <input class="member-degree" type="text" value="M.Sc Chemstry, Chemistry" readonly>
-            <input class="member-home-town" type="text" value="Tiruchirappalli" readonly>
-        </div>            
-        <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-        <div class="mem-img">
-            <img src="../img/modal-profile.jpg">
-        </div>
-        <div class="member-detail">
-            <a href="#" class="member-name" >A. RAJA SEKARAN</a>
-            <input class="member-year" type="text" value="Student, class 2019" readonly>
-            <input class="member-degree" type="text" value="M.Sc Chemstry, Chemistry" readonly>
-            <input class="member-home-town" type="text" value="Tiruchirappalli" readonly>
-        </div>            
-        <button type="submit">view profile</button>
-    </div>
-    
-
-    <div class="member">
-     <img src="../img/modal-profile.jpg">
-    
-     <div class="member-detail">
-      <a href="#" class="member-name">A. RAJA SEKARAN</a>
-      <p class="member-year">Student, class 2019</p>
-      <p class="member-degree">M.Sc Chemistry, Chemistry</p>
-      <p class="member-home-town">Tiruchirappalli</p>
-     </div>
+        <div class="member">
+          <div class="mem-img">
+            <img src="../img/modal-profile.jpg" />
+          </div>
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <input
+              class="member-year"
+              type="text"
+              value="Student, class 2019"
+              readonly
+            />
+            <input
+              class="member-degree"
+              type="text"
+              value="M.Sc Chemstry, Chemistry"
+              readonly
+            />
+            <input
+              class="member-home-town"
+              type="text"
+              value="Tiruchirappalli"
+              readonly
+            />
+          </div>
           <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <div class="mem-img">
+            <img src="../img/modal-profile.jpg" />
+          </div>
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <input
+              class="member-year"
+              type="text"
+              value="Student, class 2019"
+              readonly
+            />
+            <input
+              class="member-degree"
+              type="text"
+              value="M.Sc Chemstry, Chemistry"
+              readonly
+            />
+            <input
+              class="member-home-town"
+              type="text"
+              value="Tiruchirappalli"
+              readonly
+            />
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <div class="mem-img">
+            <img src="../img/modal-profile.jpg" />
+          </div>
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <input
+              class="member-year"
+              type="text"
+              value="Student, class 2019"
+              readonly
+            />
+            <input
+              class="member-degree"
+              type="text"
+              value="M.Sc Chemstry, Chemistry"
+              readonly
+            />
+            <input
+              class="member-home-town"
+              type="text"
+              value="Tiruchirappalli"
+              readonly
+            />
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <img src="../img/modal-profile.jpg" />
+
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <p class="member-year">Student, class 2019</p>
+            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+            <p class="member-home-town">Tiruchirappalli</p>
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <img src="../img/modal-profile.jpg" />
+
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <p class="member-year">Student, class 2019</p>
+            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+            <p class="member-home-town">Tiruchirappalli</p>
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <img src="../img/modal-profile.jpg" />
+
+          <div class="member-detail">
+            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <p class="member-year">Student, class 2019</p>
+            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+            <p class="member-home-town">Tiruchirappalli</p>
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+      </div>
     </div>
 
-    <div class="member">
-    <img src="../img/modal-profile.jpg">
-
-    <div class="member-detail">
-        <a href="#" class="member-name">A. RAJA SEKARAN</a>
-        <p class="member-year">Student, class 2019</p>
-        <p class="member-degree">M.Sc Chemistry, Chemistry</p>
-        <p class="member-home-town">Tiruchirappalli</p>
-    </div>
-        <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-    <img src="../img/modal-profile.jpg">
-
-    <div class="member-detail">
-        <a href="#" class="member-name">A. RAJA SEKARAN</a>
-        <p class="member-year">Student, class 2019</p>
-        <p class="member-degree">M.Sc Chemistry, Chemistry</p>
-        <p class="member-home-town">Tiruchirappalli</p>
-    </div>
-        <button type="submit">view profile</button>
-
-    </div>
-
-   </div>
-
-  </div>
-
- <!-- Script Links  -->
- <script src="../lib/jquery/jquery.min.js"></script>
- <script src="../lib/jquery/jquery-migrate.min.js"></script>
- <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-  <script>
-  $(".search-field").hover(
-    function () {
-      $(this).children('.show').show();
-    },
-    function () {
-      $(this).children('.show').hide();
-    }
-  );
-  
-  </script>
-</body>
+    <!-- Script Links  -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery/jquery-migrate.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $('.search-field').hover(
+        function() {
+          $(this)
+            .children('.show')
+            .show();
+        },
+        function() {
+          $(this)
+            .children('.show')
+            .hide();
+        }
+      );
+    </script>
+  </body>
 </html>
