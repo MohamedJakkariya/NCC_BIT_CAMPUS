@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 // Student signup route
 app.get('/student/signup', (req, res) => {
-  res.sendFile(__dirname + '/public/pagelinks/studentSignUp.html');
+  res.render('signup', { actionRoute: '/student/signup', who: 'Student' });
 });
 
 app.post('/student/signup', (req, res) => {
@@ -40,11 +40,27 @@ app.post('/student/signup', (req, res) => {
 
 // Student signin route
 app.get('/student/signin', (req, res) => {
-  res.sendFile(__dirname + '/public/pagelinks/studentSignIn.html');
+  res.render('signin', { actionRoute: '/student/signin', who: 'Student' });
 });
 
 app.post('/student/signin', (req, res) => {
   ms.read(sql, req.body.email, res);
+});
+
+// Admin signup route
+app.get('/admin/signup', (req, res) => {
+  res.render('signup', { actionRoute: '/admin/signup', who: 'Admin' });
+});
+
+app.post('/admin/signup', (req, res) => {});
+
+//Admin signin route
+app.get('/admin/signin', (req, res) => {
+  res.render('signin', { actionRoute: '/admin/signin', who: 'Admin' });
+});
+
+app.post('/admin/signin', (req, res) => {
+  res.render('dashboard');
 });
 
 // Port start

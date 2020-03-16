@@ -21,6 +21,7 @@ exports.read = (sql, email, res) => {
 
 exports.write = (sql, post, res) => {
   const tableName = 'studentLogin';
+
   sql.connection.query(`INSERT INTO ${tableName} SET ?`, post, function(
     error,
     results,
@@ -29,7 +30,7 @@ exports.write = (sql, post, res) => {
     if (error) throw error;
 
     // Print it
-    console.log('Successfully write -> ' + fields);
+    console.log('Successfully write -> ' + results);
 
     // Send response to the client
     res.sendFile(rootPath + '/public/pagelinks/success.html');

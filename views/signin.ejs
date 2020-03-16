@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+<%- include('nav') %>
+
+!-- Container of Login  -->
+<form action=<%= actionRoute %> method="post">
+  <div class="container">
+    <div class="cont">
+      <h3><%= who %> Sign In</h3>
+      <div class="username">
+        <i class="fa fa-envelope" id="user"></i>
+        <input type="text" placeholder="Email" name="email" required />
+      </div>
+
+      <div class="password">
+        <i class="fa fa-key" id="pass"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="btn">
+        <button type="submit">LOG IN</button>
+        <a href="#" class="forgotten-pass">Forgotten password?</a>
+      </div>
+
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        quidem qui iure aliquam tempora praesentium mollitia possimus.
+        <a href="/Sing up/Sign_ups.html" class="sign-up">Sign up</a>
+      </p>
+    </div>
+  </div>
+</form>
+
+<%- include('footer') %>

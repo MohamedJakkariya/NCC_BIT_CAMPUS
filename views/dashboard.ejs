@@ -1,0 +1,208 @@
+<!-- 
+================================================
+                    Header section 
+================================================ 
+-->
+<%- include('header') %>
+
+<!-- 
+================================================
+                    Navbar  
+================================================ 
+-->
+<%- include('nav') %>
+
+<!-- 
+================================================
+                    Container  
+================================================ 
+-->
+<div class="container-box container-fluid">
+  <!-- Side Section  -->
+  <div class="sidebar container p-3">
+    <div class="first-search-field pt-3 pb-3">
+      <span class="eventLabel">Post an Event</span>
+      <a href="#" id="eventPostButton">
+        <span class="fa fa-plus"></span>
+      </a>
+    </div>
+
+    <h3>Keyword</h3>
+
+    <div class="first-search-field">
+      <input type="text" placeholder="Enter keyword" class="top-search" />
+      <span class="fa fa-search"></span>
+    </div>
+
+    <h3>Filters</h3>
+
+    <form action="#" method="POST">
+      <div class="first-search-field">
+        <input
+          type="text"
+          list="college-name"
+          class="top-search"
+          required
+          placeholder="College Name"
+        />
+        <button type="submit"><span class="fa fa-search"></span></button>
+      </div>
+    </form>
+
+    <form action="#" method="POST">
+      <div class="first-search-field">
+        <input
+          autocomplete="off"
+          type="text"
+          class="top-search"
+          required
+          placeholder="Reg number"
+        />
+        <button type="submit"><span class="fa fa-search"></span></button>
+      </div>
+    </form>
+
+    <form action="#" method="POST">
+      <div class="first-search-field">
+        <input type="text" class="top-search" required placeholder="Degree" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+      </div>
+    </form>
+
+    <form action="#" method="POST">
+      <div class="first-search-field">
+        <input type="text" class="top-search" required placeholder="Skills" />
+        <button type="submit"><span class="fa fa-search"></span></button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Main section  -->
+  <div class="main">
+    <div class="header">
+      <p class="pl-3"><span id="value">1924</span> members in community</p>
+    </div>
+
+    <div class="member">
+      <div class="mem-img">
+        <img src="../img/modal-profile.jpg" />
+      </div>
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <input
+          class="member-year"
+          type="text"
+          value="Student, class 2019"
+          readonly
+        />
+        <input
+          class="member-degree"
+          type="text"
+          value="M.Sc Chemstry, Chemistry"
+          readonly
+        />
+        <input
+          class="member-home-town"
+          type="text"
+          value="Tiruchirappalli"
+          readonly
+        />
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+
+    <div class="member">
+      <div class="mem-img">
+        <img src="../img/modal-profile.jpg" />
+      </div>
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <input
+          class="member-year"
+          type="text"
+          value="Student, class 2019"
+          readonly
+        />
+        <input
+          class="member-degree"
+          type="text"
+          value="M.Sc Chemstry, Chemistry"
+          readonly
+        />
+        <input
+          class="member-home-town"
+          type="text"
+          value="Tiruchirappalli"
+          readonly
+        />
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+
+    <div class="member">
+      <div class="mem-img">
+        <img src="../img/modal-profile.jpg" />
+      </div>
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <input
+          class="member-year"
+          type="text"
+          value="Student, class 2019"
+          readonly
+        />
+        <input
+          class="member-degree"
+          type="text"
+          value="M.Sc Chemstry, Chemistry"
+          readonly
+        />
+        <input
+          class="member-home-town"
+          type="text"
+          value="Tiruchirappalli"
+          readonly
+        />
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+
+    <div class="member">
+      <img src="../img/modal-profile.jpg" />
+
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <p class="member-year">Student, class 2019</p>
+        <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+        <p class="member-home-town">Tiruchirappalli</p>
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+
+    <div class="member">
+      <img src="../img/modal-profile.jpg" />
+
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <p class="member-year">Student, class 2019</p>
+        <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+        <p class="member-home-town">Tiruchirappalli</p>
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+
+    <div class="member">
+      <img src="../img/modal-profile.jpg" />
+
+      <div class="member-detail">
+        <a href="#" class="member-name">A. RAJA SEKARAN</a>
+        <p class="member-year">Student, class 2019</p>
+        <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+        <p class="member-home-town">Tiruchirappalli</p>
+      </div>
+      <button type="submit">view profile</button>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>
