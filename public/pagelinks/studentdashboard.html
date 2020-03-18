@@ -6,6 +6,7 @@
 
     <!-- link stylesheets -->
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-grid.min.css">
     <link
       rel="stylesheet"
       href="../lib/font-awesome/css/font-awesome.min.css"
@@ -16,8 +17,122 @@
     <title>Dashboard</title>
   </head>
   <body>
+    <!-- Dashboard -->
+    <div class="dashboard row w-100 mx-auto ml-0">
+      <!-- Navigation menu  -->
+      <section class="profile-nav col-lg-3 mx-auto">
+        <img src="../img/modal-profile.jpg" alt="" />
+        <h2 class="profile-name">Mohamed Jack</h2>
 
-    
+        <div class="dash-links">
+          <a
+            class="nav-link"
+            href="#dashboard"
+          >
+            <i class="fa fa-dashboard"></i>
+            Dash Board
+          </a>
+          <a href="#qualification" class="nav-link">
+            <i class="fa fa-compass"></i>
+            Qualification
+          </a>
+          <a href="#address" class="nav-link">
+            <i class="fa fa-sellsy"></i>
+            Address
+          </a>
+          <a href="#medical-information" class="nav-link">
+            <i class="fa fa-book"></i>
+            Medical Information
+          </a>
+          <a href="#co-curricular" class="nav-link">
+            <i class="fa fa-envelope"></i>
+            Col Curricular Activities
+          </a>
+          <a href="#other-details" class="nav-link">
+            <i class="fa fa-area-chart"></i>
+            Other Details
+          </a>
+        </div>
+      </section>
+
+      <!-- Student showcase  -->
+      <section class="profile-showcase col-lg-6 mx-auto">
+        <div class="detail">
+          <h1 class="text-center"  id="dashboard">Unit Detail</h1>
+          <div class="info row">
+            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+          </div>
+
+          <div class="info row">
+            <p class="col-lg-3 col-sm-6 text-center">District</p>
+            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+          </div>
+
+          <div class="info row">
+            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+            <p class="col-lg-9 col-sm-6 text-center">Male</p>
+          </div>
+
+          <div class="info row">
+            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+          </div>
+
+          <div class="info row">
+            <p class="col-lg-3">State</p>
+            <p class="col-lg-9 text-center">Tamilnadu</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- profile-notification -->
+      <section class="profile-notification col-lg-3 bg-warning">
+        <h4 class="bg-secondary text-white">Current Notification</h4>
+
+        <!-- Main Notification -->
+        <div class="main-notification">
+          <!-- img slides  -->
+          <img src="../img/notification.jpg" alt="" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores,
+            illum!
+          </p>
+        </div>
+
+        <!-- Recent Notification  -->
+        <div class="recent-notification row">
+          <div class="time-icon-left col-2">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <div class="info-notify-right col-10">
+            <p class="text-primary">Just Now</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+          </div>
+        </div>
+
+        <div class="recent-notification row">
+          <div class="time-icon-left col-2">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <div class="info-notify-right col-10">
+            <p class="text-primary">Just Now</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+          </div>
+        </div>
+
+        <div class="recent-notification row">
+          <div class="time-icon-left col-2">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <div class="info-notify-right col-10">
+            <p class="text-primary">Just Now</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+          </div>
+        </div>
+      </section>
+    </div>
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/jquery/jquery-migrate.min.js"></script>
