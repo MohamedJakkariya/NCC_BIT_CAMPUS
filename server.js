@@ -63,6 +63,11 @@ app.post('/admin/signin', (req, res) => {
   res.render('dashboard');
 });
 
+// Testing route
+app.get('/student/profile', (req, res) => {
+  res.render('profile');
+});
+
 // Port start
 app.listen(4000, () => {
   console.log('Server running on port #4000');

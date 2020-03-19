@@ -1,311 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 
+================================================
+                    Header section 
+================================================ 
+-->
+<%- include('header') %>
 
-    <!-- link stylesheets -->
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-grid.min.css" />
-    <link
-      rel="stylesheet"
-      href="../lib/font-awesome/css/font-awesome.min.css"
-    />
+<!-- Dashboard toggle button for mobile first devices  -->
+<div class="mobile-toggler-div">
+  <button class="btn mobile-toggler">
+    <i class="fa fa-arrow-down"></i>
+  </button>
+</div>
 
-    <!-- custome stylesheet  -->
-    <link rel="stylesheet" href="../css/studentdashboard.css" />
+<!-- 
+================================================
+                    Navbar  
+================================================ 
+-->
 
-    <!-- Slider cheetsheet -->
-    <link rel="stylesheet" href="../lib/slick-master/slick/slick.css" />
-    <link rel="stylesheet" href="../lib/slick-master/slick/slick-theme.css" />
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <!-- Dashboard -->
-    <div class="dashboard row w-100 mx-auto ml-0">
-      <!-- Navigation menu  -->
-      <section class="profile-nav col-lg-3 mx-auto">
-        <img src="../img/modal-profile.jpg" alt="" />
-        <h2 class="profile-name">Mohamed Jack</h2>
+<%- include('nav') %>
 
-        <div class="dash-links">
-          <a class="nav-link" href="#dashboard">
-            <i class="fa fa-dashboard"></i>
-            Dash Board
-          </a>
-          <a href="#qualification" class="nav-link">
-            <i class="fa fa-compass"></i>
-            Qualification
-          </a>
-          <a href="#address" class="nav-link">
-            <i class="fa fa-sellsy"></i>
-            Address
-          </a>
-          <a href="#medical-info" class="nav-link">
-            <i class="fa fa-book"></i>
-            Medical Information
-          </a>
-          <a href="#co-curricular" class="nav-link">
-            <i class="fa fa-envelope"></i>
-            Col Curricular Activities
-          </a>
-          <a href="#other-details" class="nav-link">
-            <i class="fa fa-area-chart"></i>
-            Other Details
-          </a>
-        </div>
-      </section>
+<!-- Back top button  -->
+<button class="back-to-top btn">
+  <i class="fa fa-arrow-circle-o-up"></i>
+</button>
 
-      <!-- Student showcase  -->
-      <section class="profile-showcase col-lg-6 mx-auto">
-        <div class="detail m-5">
-          <h1 class="text-center" id="dashboard">Unit Detail</h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+<!-- Dashboard -->
+<div class="dashboard row">
+  <!-- Navigation menu  -->
+  <section class="profile-nav col-lg-3 w-100 mt-3">
+    <img src="../img/modal-profile.jpg" alt="" />
+    <h2 class="profile-name">Mohamed Jack</h2>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
+    <div class="dash-links">
+      <a class="nav-link" href="#dashboard">
+        <i class="fa fa-dashboard"></i>
+        Profile
+      </a>
+      <a href="#qualification" class="nav-link">
+        <i class="fa fa-compass"></i>
+        Qualification
+      </a>
+      <a href="#address" class="nav-link">
+        <i class="fa fa-sellsy"></i>
+        Address
+      </a>
+      <a href="#medical-info" class="nav-link">
+        <i class="fa fa-book"></i>
+        Medical Information
+      </a>
+      <a href="#co-curricular" class="nav-link">
+        <i class="fa fa-envelope"></i>
+        Co Curricular Activities
+      </a>
+      <a href="#other-details" class="nav-link">
+        <i class="fa fa-area-chart"></i>
+        Other Details
+      </a>
+    </div>
+  </section>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-            <p class="col-lg-9 col-sm-6 text-center">Male</p>
-          </div>
+  <!-- Student showcase  -->
+  <section class="profile-showcase col-lg-6 mx-auto">
+    <div class="detail">
+      <h1 class="text-center" id="dashboard">Unit Detail</h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">State</p>
-            <p class="col-lg-9 text-center">Tamilnadu</p>
-          </div>
-        </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+      </div>
 
-        <!-- Qualification -->
-        <div class="detail m-5">
-          <h1 class="text-center" id="qualification">Qualification</h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
-        </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">State</p>
+        <p class="col-lg-9 text-center">Tamilnadu</p>
+      </div>
+    </div>
 
-        <!-- Address  -->
-        <div class="detail m-5">
-          <h1 class="text-center" id="address">Address</h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+    <!-- Qualification -->
+    <div class="detail m-5">
+      <h1 class="text-center" id="qualification">Qualification</h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
+    </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-            <p class="col-lg-9 col-sm-6 text-center">Male</p>
-          </div>
+    <!-- Address  -->
+    <div class="detail m-5">
+      <h1 class="text-center" id="address">Address</h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">State</p>
-            <p class="col-lg-9 text-center">Tamilnadu</p>
-          </div>
-        </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+      </div>
 
-        <!-- Medical Info  -->
-        <div class="detail m-5">
-          <h1 class="text-center" id="medical-info">Medical Info</h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">State</p>
+        <p class="col-lg-9 text-center">Tamilnadu</p>
+      </div>
+    </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-            <p class="col-lg-9 col-sm-6 text-center">Male</p>
-          </div>
+    <!-- Medical Info  -->
+    <div class="detail m-5">
+      <h1 class="text-center" id="medical-info">Medical Info</h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">State</p>
-            <p class="col-lg-9 text-center">Tamilnadu</p>
-          </div>
-        </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+      </div>
 
-        <!-- Co-curricular Activities -->
-        <div class="detail m-5">
-          <h1 class="text-center" id="co-curricular">
-            Co-curricular Activities
-          </h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">State</p>
+        <p class="col-lg-9 text-center">Tamilnadu</p>
+      </div>
+    </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-            <p class="col-lg-9 col-sm-6 text-center">Male</p>
-          </div>
+    <!-- Co-curricular Activities -->
+    <div class="detail m-5">
+      <h1 class="text-center" id="co-curricular">
+        Co-curricular Activities
+      </h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">State</p>
-            <p class="col-lg-9 text-center">Tamilnadu</p>
-          </div>
-        </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+      </div>
 
-        <!-- Others 
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+      </div>
+
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">State</p>
+        <p class="col-lg-9 text-center">Tamilnadu</p>
+      </div>
+    </div>
+
+    <!-- Others 
          -->
-        <div class="detail m-5">
-          <h1 class="text-center" id="other-details">Other Details</h1>
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-            <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
-          </div>
+    <div class="detail m-5">
+      <h1 class="text-center" id="other-details">Other Details</h1>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
+        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">District</p>
-            <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">District</p>
+        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-            <p class="col-lg-9 col-sm-6 text-center">Male</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
+        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-            <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
+        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+      </div>
 
-          <div class="info row">
-            <p class="col-lg-3 col-sm-6 text-center">State</p>
-            <p class="col-lg-9 text-center">Tamilnadu</p>
-          </div>
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 text-center">State</p>
+        <p class="col-lg-9 text-center">Tamilnadu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- profile-notification -->
+  <section class="profile-notification col-lg-3">
+    <h4>Current Notification</h4>
+
+    <!-- Main Notification -->
+    <div class="news-slide">
+      <!-- img slides  -->
+      <section class="lazy slider">
+        <div class="img">
+          <img src="../img/modal-1.jpg" />
+          <p>
+            Event Title - 1
+          </p>
         </div>
-      </section>
-
-      <!-- profile-notification -->
-      <section class="profile-notification col-lg-3">
-        <h4>Current Notification</h4>
-
-        <!-- Main Notification -->
-        <div class="news-slide">
-          <!-- img slides  -->
-          <section class="lazy slider">
-            <div class="img">
-              <img src="../img/modal-1.jpg" />
-              <p>
-                Event Title - 1
-              </p>
-            </div>
-            <div class="img">
-              <img src="../img/modal-2.jpg" />
-              <p>
-                Event Title - 2
-              </p>
-            </div>
-            <div class="img">
-              <img src="../img/modal-3.jpg" />
-              <p>
-                Event Title - 3
-              </p>
-            </div>
-            <div class="img">
-              <img src="../img/modal-4.jpg" />
-              <p>
-                Event Title - 4
-              </p>
-            </div>
-          </section>
+        <div class="img">
+          <img src="../img/modal-2.jpg" />
+          <p>
+            Event Title - 2
+          </p>
         </div>
-
-        <!-- Recent Notification  -->
-        <div class="recent-notification row">
-          <div class="time-icon-left col-2">
-            <i class="fa fa-clock-o"></i>
-          </div>
-          <div class="info-notify-right col-10">
-            <p class="text-primary">Today</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-          </div>
+        <div class="img">
+          <img src="../img/modal-3.jpg" />
+          <p>
+            Event Title - 3
+          </p>
         </div>
-
-        <div class="recent-notification row">
-          <div class="time-icon-left col-2">
-            <i class="fa fa-clock-o"></i>
-          </div>
-          <div class="info-notify-right col-10">
-            <p class="text-primary">3 Days</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-          </div>
+        <div class="img">
+          <img src="../img/modal-4.jpg" />
+          <p>
+            Event Title - 4
+          </p>
         </div>
-
-        <div class="recent-notification row">
-            <div class="time-icon-left col-2">
-              <i class="fa fa-clock-o"></i>
-            </div>
-            <div class="info-notify-right col-10">
-              <p class="text-primary">2 Week</p>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-            </div>
-          </div>
       </section>
     </div>
-    <!-- Script Links  -->
-    <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/jquery/jquery-migrate.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../lib/slick-master/slick/slick.js"></script>
-    <script src="../js/main.js"></script>
 
-    <script>
-        $(document).ready(function() {
-          // Slide show
-          $('.lazy').slick({
-            infinite: true,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            fade: true,
-            cssEase: 'linear'
-          });
-        });
-      </script>
-  </body>
-</html>
+    <!-- Recent Notification  -->
+    <div class="recent-notification row">
+      <div class="time-icon-left col-2">
+        <i class="fa fa-clock-o"></i>
+      </div>
+      <div class="info-notify-right col-10">
+        <p class="text-primary">Today</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+    </div>
+
+    <div class="recent-notification row">
+      <div class="time-icon-left col-2">
+        <i class="fa fa-clock-o"></i>
+      </div>
+      <div class="info-notify-right col-10">
+        <p class="text-primary">3 Days</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+    </div>
+
+    <div class="recent-notification row">
+      <div class="time-icon-left col-2">
+        <i class="fa fa-clock-o"></i>
+      </div>
+      <div class="info-notify-right col-10">
+        <p class="text-primary">2 Week</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 
+================================================
+                    Footer section 
+================================================ 
+-->
+<%- include('footer') %>
