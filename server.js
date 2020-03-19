@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sql = require('./db/dbconnection');
 const ms = require('./db/manipulation');
+const bcrypt = require('bcrypt');
+const validation = require('./db/validation');
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -18,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.render('index');
-});  
+});
 
 // Student signup route
 app.get('/student/signup', (req, res) => {
@@ -27,15 +29,16 @@ app.get('/student/signup', (req, res) => {
 
 app.post('/student/signup', (req, res) => {
   //var post = { attribute_name_1  : value, attribute_name_1: 'value' };
+  bcrypt.hash(req.body.password, 10).then(function(hash) {
+    const post = {
+      email: req.body.email,
+      firstName: req.body.firstName,
+      secondName: req.body.secondName,
+      password: hash
+    };
+    ms.write(sql, post, res);
+  });
 
-  var post = {
-    email: req.body.email,
-    firstName: req.body.firstName,
-    secondName: req.body.secondName,
-    password: req.body.password
-  };
-
-  ms.write(sql, post, res);
 });
 
 // Student signin route
@@ -44,7 +47,7 @@ app.get('/student/signin', (req, res) => {
 });
 
 app.post('/student/signin', (req, res) => {
-  ms.read(sql, req.body.email, res);
+  validation.checkUser(req.body.email, req.body.password, res);
 });
 
 //Admin signin route

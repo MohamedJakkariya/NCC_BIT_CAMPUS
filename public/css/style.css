@@ -229,6 +229,26 @@ h5 {
 /* ===============================================
               Student signin
 =============================================== */
+
+/* Invalid handling  */
+#invalid{
+  border-radius: 5px;
+  height: 40px;
+}
+
+
+#invalid p{
+  text-align: center;
+  padding: 6px 0;
+  color: white;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+#invalid p i{
+  color: white;
+}
+
 .container {
   display: flex;
   width: 100vw;

@@ -14,7 +14,7 @@
     />
 
     <!-- custome stylesheet  -->
-    <link rel="stylesheet" href="../css/studentSignIn.css" />
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
     <header id="header">
@@ -135,6 +135,10 @@
       <div class="container">
         <div class="cont">
           <h3>Sign In</h3>
+          <div class="bg-danger" id="invalid">
+            <p>
+              <i class="fa fa-times"></i> Invalid Email/Password</p>
+          </div>
           <div class="username">
             <i class="fa fa-envelope" id="user"></i>
             <input type="text" placeholder="Email" name="email" required />
