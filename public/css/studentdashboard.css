@@ -1,3 +1,5 @@
+@import 'style.css';
+
 *{
     margin: 0;
     padding: 0;
@@ -8,20 +10,60 @@ h2{
     text-transform: uppercase;
 }
 
+.mobile-toggler{
+    position: relative;
+    background-color:#8A4F7D;
+    color: white;
+    display: none;
+}
+
+.back-to-top{
+    position: fixed;
+    bottom: 40px;
+    background: none;
+    color: #8A4F7D;
+    /* border-radius: 50%; */
+    z-index: 99;
+    font-size: 2rem;
+    right: 10px;
+}
+
+.mobile-toggler i{
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.title{
+    position: relative;
+}
+
 .dashboard{
     height: 100vh;
+    width: 100%;
+}
+
+@media (max-width:600px){
+    .dashboard{
+        margin-top: 1rem;
+        width: 104vw;
+    }
+
+    .mobile-toggler{
+        display: block;
+        top: 100px;
+        margin: auto;
+    }
 }
 
 .profile-nav{
     background: #EAE8FF;
-    height: 100vh;
+    /* height: 100vh; */
     position: fixed;
+    margin: 0rem;
 }
 
-@media (max-width: 600px){
-    .profile-nav{
-        position: relative;
-    }
+.profile-name{
+    margin: 0;
 }
 
 .profile-nav img{
@@ -37,10 +79,10 @@ h2{
 
 .profile-nav .dash-links{
     padding: 1rem;
+    padding-top: 0;
 }
 
 .profile-nav .dash-links a{
-    margin: 0.5rem 0;
     color:#AF3E4D;
     font-weight: 500;
 }
@@ -52,6 +94,23 @@ h2{
     border-radius: 3px;
     font-size: 1.4rem;
     background-color: #8A4F7D;    
+}
+
+@media (max-width: 600px){
+    .profile-nav{
+       position: relative;
+       margin: 0;
+       display: none;
+    }
+
+    .profile-nav img{
+        width: 70px;
+        height: 70px;
+    }
+
+    header{
+        margin: 0;
+    }
 }
 
 .profile-showcase{
@@ -90,6 +149,11 @@ h2{
 @media (max-width:600px){
     .profile-showcase .detail h1{
         font-size: 1.5rem;
+    }
+
+    .profile-showcase{
+        margin: 0;
+        padding: 0;
     }
 }
 

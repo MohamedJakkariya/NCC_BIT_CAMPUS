@@ -21,147 +21,17 @@
     <title>Dashboard</title>
   </head>
   <body>
-    <!-- Dashboard toggle button for mobile first devices  -->
-    <div class="mobile-toggler-div">
-      <button class="btn mobile-toggler">
-        <i class="fa fa-arrow-down"></i>
-      </button>
-    </div>
-
-
-    <!-- Back top button  -->
-    <button class="back-to-top btn">
-      <i class="fa fa-arrow-circle-o-up"></i>
-    </button>
-
-    <!-- 
-    ================================================
-                        Header section 
-    ================================================ 
-    -->
-    <header id="header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <!-- nav brand  -->
-        <a class="navbar-brand row-div-a" href="#">
-          <img src="../img/logo.jpg" alt="" />
-          <div class="row-div title">
-            <h2>UCE(BIT Campus)</h2>
-            <p>2TN(BN) 13TH COY ANNA UNIVERSITY</p>
-          </div>
-        </a>
-
-        <!-- Toggler button  -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#nav-container"
-          aria-controls="nav-container"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="nav-container">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link text-danger" href="/"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="enrollment"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Enrollment
-              </a>
-              <div class="dropdown-menu" aria-labelledby="enrollment">
-                <a class="dropdown-item" href="#">Staff</a>
-                <a class="dropdown-item" href="#">Admin</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/student/signup">Student</a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="login-down"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Login
-              </a>
-              <div class="dropdown-menu" aria-labelledby="login-down">
-                <a class="dropdown-item" href="#">Staff</a>
-                <a class="dropdown-item" href="/admin/signin">Admin</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/student/signin">Student</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cadet Details</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Competitions</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Camps</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Activities</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Alumni</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Achievers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >Video</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"
-                >ANO Point</a
-              >
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
     <!-- Dashboard -->
-    <div class="dashboard row">
+    <div class="dashboard row w-100 mx-auto ml-0">
       <!-- Navigation menu  -->
-      <section class="profile-nav col-lg-3 w-100 mt-3">
+      <section class="profile-nav col-lg-3 mx-auto">
         <img src="../img/modal-profile.jpg" alt="" />
         <h2 class="profile-name">Mohamed Jack</h2>
 
         <div class="dash-links">
           <a class="nav-link" href="#dashboard">
             <i class="fa fa-dashboard"></i>
-            Profile
+            Dash Board
           </a>
           <a href="#qualification" class="nav-link">
             <i class="fa fa-compass"></i>
@@ -177,7 +47,7 @@
           </a>
           <a href="#co-curricular" class="nav-link">
             <i class="fa fa-envelope"></i>
-            Co Curricular Activities
+            Col Curricular Activities
           </a>
           <a href="#other-details" class="nav-link">
             <i class="fa fa-area-chart"></i>
@@ -188,7 +58,7 @@
 
       <!-- Student showcase  -->
       <section class="profile-showcase col-lg-6 mx-auto">
-        <div class="detail">
+        <div class="detail m-5">
           <h1 class="text-center" id="dashboard">Unit Detail</h1>
           <div class="info row">
             <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
@@ -407,14 +277,14 @@
         </div>
 
         <div class="recent-notification row">
-          <div class="time-icon-left col-2">
-            <i class="fa fa-clock-o"></i>
+            <div class="time-icon-left col-2">
+              <i class="fa fa-clock-o"></i>
+            </div>
+            <div class="info-notify-right col-10">
+              <p class="text-primary">2 Week</p>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+            </div>
           </div>
-          <div class="info-notify-right col-10">
-            <p class="text-primary">2 Week</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-          </div>
-        </div>
       </section>
     </div>
     <!-- Script Links  -->
@@ -425,28 +295,17 @@
     <script src="../js/main.js"></script>
 
     <script>
-      $(document).ready(function() {
-        // Slide show
-        $('.lazy').slick({
-          infinite: true,
-          dots: true,
-          autoplay: true,
-          autoplaySpeed: 1500,
-          fade: true,
-          cssEase: 'linear'
+        $(document).ready(function() {
+          // Slide show
+          $('.lazy').slick({
+            infinite: true,
+            dots: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            fade: true,
+            cssEase: 'linear'
+          });
         });
-
-        $('.mobile-toggler').click(e => {
-          console.log('clicked');
-          $('.profile-nav').toggle('slow', 'linear');
-        });
-
-        $('.back-to-top').click(function () {
-          $('html,body').animate({ scrollTop: 0 }, 800);
-
-          return false;
-        });
-      });
-    </script>
+      </script>
   </body>
 </html>
