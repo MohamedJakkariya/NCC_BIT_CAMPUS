@@ -419,6 +419,7 @@ footer {
   color: white;
   height: 100%;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .sidebar .search-field {
@@ -523,10 +524,12 @@ footer {
 
 .main .member {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  
   margin-top: 1rem;
   display: flex;
   height: 100px;
   position: relative;
+  transition: 0.5s;
 }
 
 .main .member img {

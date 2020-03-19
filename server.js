@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.render('index');
-});
+});  
 
 // Student signup route
 app.get('/student/signup', (req, res) => {

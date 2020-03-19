@@ -14,7 +14,7 @@
     />
 
     <!-- custome stylesheet  -->
-    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <!-- 
@@ -195,17 +195,15 @@
           </div>
         </form>
 
-        <form action="#" method="POST">
-          <div class="first-search-field">
-            <input
-              type="text"
-              class="top-search"
-              required
-              placeholder="Skills"
-            />
-            <button type="submit"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
+        <div class="first-search-field">
+          <input
+            type="text"
+            class="top-search"
+            id="getYear"
+            placeholder="Year"
+          />
+          <button type="button" onclick="byYear()"><span class="fa fa-search"></span></button>
+        </div>
       </div>
 
       <!-- Main section  -->
@@ -218,8 +216,8 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. RAJA SEKARAN</a>
-            <p class="member-year">Student, class 2019</p>
+            <a href="#" class="member-name">A. MOHAMED JAKK</a>
+            <p >Student class <span class="member-year">2019</span></p>
             <p class="member-degree">M.Sc Chemistry, Chemistry</p>
             <p class="member-home-town">Tiruchirappalli</p>
           </div>
@@ -231,9 +229,9 @@
 
           <div class="member-detail">
             <a href="#" class="member-name">A. RAJA SEKARAN</a>
-            <p class="member-year">Student, class 2019</p>
-            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
-            <p class="member-home-town">Tiruchirappalli</p>
+            <p>Student, class <span class="member-year">2009</span> </p>
+            <p class="member-degree">M.Sc Physics, Chemistry</p>
+            <p class="member-home-town">Madurai</p>
           </div>
           <button type="submit">view profile</button>
         </div>
@@ -242,10 +240,10 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. RAJA SEKARAN</a>
-            <p class="member-year">Student, class 2019</p>
-            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
-            <p class="member-home-town">Tiruchirappalli</p>
+            <a href="#" class="member-name">A. BALA MURUGAN</a>
+            <p >Student, class <span class="member-year">2000</span></p>
+            <p class="member-degree">M.Sc Math, Math</p>
+            <p class="member-home-town">Theni</p>
           </div>
           <button type="submit">view profile</button>
         </div>
@@ -254,8 +252,20 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. RAJA SEKARAN</a>
-            <p class="member-year">Student, class 2019</p>
+            <a href="#" class="member-name">C. VEL MURUGAN</a>
+            <p >Student, class <span class="member-year">2000</span></p>
+            <p class="member-degree">M.Sc Math, Math</p>
+            <p class="member-home-town">Dindugal</p>
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <img src="../img/modal-profile.jpg" />
+
+          <div class="member-detail">
+            <a href="#" class="member-name">A. ARAVIND</a>
+            <p >Student, class <span class="member-year">2012</span> </p>
             <p class="member-degree">M.Sc Chemistry, Chemistry</p>
             <p class="member-home-town">Tiruchirappalli</p>
           </div>
@@ -266,7 +276,6 @@
 
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/jquery/jquery-migrate.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script>
       $('.search-field').hover(
@@ -282,5 +291,6 @@
         }
       );
     </script>
+    <script src="../js/test.js"></script>
   </body>
 </html>
