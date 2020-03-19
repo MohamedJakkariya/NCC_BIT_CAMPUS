@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //var post = { attribute_name_1  : value, attribute_name_1: 'value' };
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/pagelinks/index.html');
+  res.render('index');
 });
 
 // Student signup route
@@ -47,19 +47,14 @@ app.post('/student/signin', (req, res) => {
   ms.read(sql, req.body.email, res);
 });
 
-// Admin signup route
-app.get('/admin/signup', (req, res) => {
-  res.render('signup', { actionRoute: '/admin/signup', who: 'Admin' });
-});
-
-app.post('/admin/signup', (req, res) => {});
-
 //Admin signin route
 app.get('/admin/signin', (req, res) => {
   res.render('signin', { actionRoute: '/admin/signin', who: 'Admin' });
 });
 
-app.post('/admin/signin', (req, res) => {
+app.post('/admin/signin', (req, res) => {});
+
+app.get('/admin/panel', (req, res) => {
   res.render('dashboard');
 });
 

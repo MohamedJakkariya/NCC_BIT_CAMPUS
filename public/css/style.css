@@ -167,8 +167,12 @@ h5 {
 }
 
 .center-slide img {
-  width: 280px;
+  width: 250px;
   height: 250px;
+}
+
+.center-slide .slick-current img{
+  scale: 2;
 }
 
 /* Activities  */
