@@ -1,9 +1,10 @@
 const mysql = require('mysql');
+const {username, password, dbname, dbport, host} = require('../config/config');
 
 exports.connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Mdjack9524369244',
-  database: 'ncc',
-  port: '3000'
+  host: host,
+  user: username,
+  password: password,
+  database: dbname,
+  port: dbport
 });

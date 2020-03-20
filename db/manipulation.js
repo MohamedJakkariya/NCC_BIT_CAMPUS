@@ -1,15 +1,13 @@
 const path = require('path');
+const {tableName} = require('../config/config');
 
 // To store folder root path name
 const rootPath = path.dirname(require.main.filename);
 
 exports.read = async (sql, email) => {
-  try{
-    const tableName = 'studentLogin';
-    const field = 'email';
-  
+  try{ 
     await sql.connection.query(
-      `SELECT * FROM ${tableName} WHERE ${field} = ?`,
+      `SELECT * FROM ${tableName} WHERE email = ?`,
       [email],
       (error, results, fields) => {
         if (error) {

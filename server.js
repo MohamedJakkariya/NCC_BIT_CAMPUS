@@ -1,17 +1,47 @@
+// Configure .env file
 const express = require('express');
 const bodyParser = require('body-parser');
 const sql = require('./db/dbconnection');
 const ms = require('./db/manipulation');
 const bcrypt = require('bcrypt');
 const validation = require('./db/validation');
+const {port, key}= require('./config/config');
+const session = require('express-session');
+const LocalStrategy = require('passport-local').Strategy;
+
 const app = express();
+
+// Session configuration 
+app.use(session({
+  secret: key,
+  resave: false,
+  saveUninitialized: true
+}));
+
+// initialize the session middleware 
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(__dirname + '/public'));
 
 // Setting ejs view engine
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// used to serialize the user for the session
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+// used to deserialize the user
+passport.deserializeUser(function(id, done) {
+  sql.connection.query('select * from users where id = ' + id, function(
+    err,
+    rows
+  ) {
+    done(err, rows[0]);
+  });
+});
 
 //NOTE: Db connection are automatically establised and disconnected
 
@@ -67,6 +97,6 @@ app.get('/student/profile', (req, res) => {
 });
 
 // Port start
-app.listen(4000, () => {
-  console.log('Server running on port #4000');
+app.listen(port, () => {
+  console.log(`Server running on port #${port}`);
 });
