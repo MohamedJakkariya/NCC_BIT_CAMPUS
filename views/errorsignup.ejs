@@ -1,0 +1,67 @@
+<%- include('header') %>
+
+<%- include('nav') %>
+
+<!-- Container of Login  -->
+<form action=<%= actionRoute %> method="post">
+  <div class="container">
+    <div class="cont">
+      <h3><%= who %> Sign Up</h3>
+      <div class="bg-danger" id="invalid">
+        <p>
+          <i class="fa fa-times"></i><%= errormsg %></p>
+      </div>
+      <div class="username">
+        <i class="fa fa-info" id="user"></i>
+        <input type="text" placeholder="First Name" name="firstName" required />
+      </div>
+
+      <div class="username">
+        <i class="fa fa-info" id="user"></i>
+        <input type="text" placeholder="Last Name" name="secondName" required />
+      </div>
+
+      <div class="username">
+        <i class="fa fa-envelope" id="user"></i>
+        <input type="text" placeholder="Email" name="email" required />
+      </div>
+
+      <div class="password">
+        <i class="fa fa-key" id="pass"></i>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+      </div>
+
+      <div class="password">
+        <i class="fa fa-key" id="pass"></i>
+        <input type="password" placeholder="Confirm Password" required />
+      </div>
+
+      <div class="submit">
+        <button type="submit">Sign Up</button>
+        <div>
+          <a href="#">
+            <span class="fa fa-google-plus-square"></span>
+          </a>
+          <a href="#">
+            <span class="fa fa-facebook-official"></span>
+          </a>
+          <a href="#">
+            <span class="fa fa-twitter-square"></span>
+          </a>
+        </div>
+      </div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
+        quidem qui iure aliquam tempora praesentium mollitia possimus.
+        <a href="#" class="sign-up">Sign in</a>
+      </p>
+    </div>
+  </div>
+</form>
+
+<%- include('footer') %>

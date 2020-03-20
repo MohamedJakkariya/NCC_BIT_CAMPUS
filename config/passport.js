@@ -1,6 +1,7 @@
 // load all the things we need
-const LocalStrategy = require('passport-local').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 const sql = require('../db/dbconnection');
+const {tableName} = require('../config/config');
 
 var connection = sql.connection;
 
@@ -12,7 +13,20 @@ module.exports = function(passport) {
   // required for persistent login sessions
   // passport needs ability to serialize and unserialize users out of session
 
-  
+  // used to serialize the user for the session
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+
+  // used to deserialize the user
+  passport.deserializeUser(function(id, done) {
+    connection.query(`select * from ${tableName} where id = ${id}`, function(
+      err,
+      rows
+    ) {
+      done(err, rows[0]);
+    });
+  });
 
   // =========================================================================
   // LOCAL SIGNUP ============================================================
@@ -30,10 +44,12 @@ module.exports = function(passport) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, email, password, done) {
+        // for autoincrement use the temp variable 
+        let id;
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         connection.query(
-          "select * from users where email = '" + email + "'",
+          `select * from ${tableName} where email = ${email}`,
           function(err, rows) {
             console.log(rows);
             console.log('above row object');
@@ -49,15 +65,12 @@ module.exports = function(passport) {
               // create the user
               var newUserMysql = new Object();
 
+              newUserMysql.id = id;
               newUserMysql.email = email;
               newUserMysql.password = password; // use the generateHash function in our user model
 
               var insertQuery =
-                "INSERT INTO users ( email, password ) values ('" +
-                email +
-                "','" +
-                password +
-                "')";
+                `INSERT INTO users (id, email, password ) values (${id},${email},${password})`;
               console.log(insertQuery);
               connection.query(insertQuery, function(err, rows) {
                 newUserMysql.id = rows.insertId;
@@ -90,7 +103,7 @@ module.exports = function(passport) {
         // callback with email and password from our form
 
         connection.query(
-          "SELECT * FROM `users` WHERE `email` = '" + email + "'",
+          `SELECT * FROM ${tableName} WHERE email = ${email}`,
           function(err, rows) {
             if (err) return done(err);
             if (!rows.length) {

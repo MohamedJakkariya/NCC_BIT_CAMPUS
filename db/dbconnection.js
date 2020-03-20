@@ -1,9 +1,17 @@
 const mysql = require('mysql');
-const {username, password, dbname, dbport, host} = require('../config/config');
 
+// Import sensitive data from configuration file
+const {
+  password,
+  dbname,
+  dbport,
+  host
+} = require('../config/config');
+
+// console.log(username + password + dbport + dbname + host);
 exports.connection = mysql.createConnection({
   host: host,
-  user: username,
+  user: 'root',
   password: password,
   database: dbname,
   port: dbport
