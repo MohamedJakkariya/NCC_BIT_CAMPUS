@@ -1,61 +1,63 @@
-const path = require('path');
 const { tableName } = require('../config/config');
+const bcrypt = require('bcrypt');
 
-// To store folder root path name
-// const rootPath = path.dirname(require.main.filename);
-
-exports.read = async (sql, email) => {
-  try {
-    await sql.connection.query(
-      `SELECT * FROM ${tableName} WHERE email = ?`,
-      [email],
-      (error, results, fields) => {
-        if (error) {
-          return 0;
-        }
-
-        console.log(results);
-
-        const foundemail = results[0].email;
-        const foundpassword = results[0].password;
-        console.log(
-          'found user ' + foundemail + ' and pass is ' + foundpassword
-        );
-        return results;
-      }
-    );
-  } catch {
-    console.log('Error while read from db');
-  }
-
+exports.read = (sql, email, password, res) => {
   // For check validation
-  // sql.connection.query(
-  //   `SELECT * FROM ${tableName} WHERE email = ${email}`,
-  //   function(err, rows) {
-  //     if (err) return done(err);
-  //     if (!rows.length) {
-  //       return done(
-  //         null,
-  //         false,
-  //         req.flash('loginMessage', 'No user found.')
-  //       ); // req.flash is the way to set flashdata using connect-flash
-  //     }
+  sql.connection.query(
+    `SELECT * FROM ${tableName} WHERE email = "${email}"`,
+    function(err, rows) {
+      if (err) {
+        res.render('errorsignin', {
+          who: 'Student',
+          actionRoute: '/student/signin',
+          errormsg: 'Something went wrong!'
+        });
+      }
+      console.log(rows.length);
 
-  //     // if the user is found but the password is wrong
-  //     if (!(rows[0].password == password))
-  //       return done(
-  //         null,
-  //         false,
-  //         req.flash('loginMessage', 'Oops! Wrong password.')
-  //       ); // create the loginMessage and save it to session as flashdata
+      if (rows.length) {
+        // if the user is found but the password is wrong
+        bcrypt.compare(password, rows[0].password).then(function(result) {
+          if (result) {
+            // all is well, return successful user
+            // for admin
+            if(rows[0].type == 'admin'){
+              res.render('dashboard');
+            }else{
+              // for student
+              res.render('profile');
+            }
+          } else {
 
-  //     // all is well, return successful user
-  //     return done(null, rows[0]);
-  //   }
-  // );
+            // for admin
+            if(rows[0].type == 'admin'){
+              res.render('errorsignin', {
+                who: 'Admin',
+                actionRoute: '/admin/signin',
+                errormsg: 'Incorrect Password!'
+              });
+            }else{
+              // for student
+              res.render('errorsignin', {
+                who: 'Student',
+                actionRoute: '/student/signin',
+                errormsg: 'Incorrect Password!'
+              });
+            }
+          }
+        });
+      } else {
+        res.render('errorsignin', {
+          who: '',
+          actionRoute: '/student/signin',
+          errormsg: "User doen't exit!"
+        });
+      }
+    }
+  );
 };
 
-exports.write = (sql, post,req, res) => {
+exports.write = (sql, post, req, res) => {
   sql.connection.query(
     `select * from ${tableName} where email = "${post.email}"`,
     function(err, rows) {
@@ -63,7 +65,11 @@ exports.write = (sql, post,req, res) => {
       console.log('above row object');
       if (err) throw err;
       if (rows.length) {
-        res.render('errorsignup', {who: 'Student',actionRoute: '/student/signup',errormsg : "Email Aldready Exit!"})
+        res.render('errorsignup', {
+          who: 'Student',
+          actionRoute: '/student/signup',
+          errormsg: 'Email Aldready Exit!'
+        });
       } else {
         // if there is no user with that email
         // create the user
@@ -76,8 +82,8 @@ exports.write = (sql, post,req, res) => {
 
           // Print it
           console.log('Successfully write -> ' + results);
-          req.login(post, (err) => {
-            res.redirect('/student/profile');
+          req.login(post, err => {
+            res.render('profile');
           });
         });
       }

@@ -4,18 +4,19 @@ const bodyParser = require('body-parser');
 const sql = require('./db/dbconnection');
 const ms = require('./db/manipulation');
 const bcrypt = require('bcrypt');
-const validation = require('./db/validation');
 const { port, key } = require('./config/config');
 const session = require('express-session');
 const passport = require('passport');
-const flash = require('connect-flash');
 const config = require('./config/passport');
-const LocalStrategy = require('passport-local').Strategy;
-const { tableName } = require('./config/config');
 
 const app = express();
+app.use(express.static(__dirname + '/public'));
+
+// Setting ejs view engine
+app.set('view engine', 'ejs');
 
 // Session configuration
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   session({
     secret: key,
@@ -23,11 +24,11 @@ app.use(
     saveUninitialized: true
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use(express.static(__dirname + '/public'));
-// Setting ejs view engine
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
+// Configuration of passport.js 
+config(passport);
 
 //NOTE: Db connection are automatically establised and disconnected
 
@@ -67,32 +68,52 @@ app.get('/student/signin', (req, res) => {
 });
 
 // validation.checkUser(req.body.email, req.body.password, res);
-app.post(
-  '/student/signin',
-  passport.authenticate('local-login', {
-    successRedirect: '/student/profile',
-    failureRedirect: '/student/signin',
-    failureFlash: true
-  })
-);
+app.post('/student/signin',(req, res) => {
+
+  const email = req.body.email;
+  const password = req.body.password;
+
+  ms.read(sql, email, password, res);
+});
+
+// Admin sign up  for personal 
+// app.get('/admin/signup', (req, res) => {
+//   res.render('signup', { actionRoute: '/admin/signup', who: 'Admin' });
+// });
+
+// app.post('/admin/signup', (req, res) => {
+//   let id;
+
+//   bcrypt.hash(req.body.password, 10).then(function(hash) {
+//     const user = {
+//       id: id,
+//       email: req.body.email,
+//       firstName: req.body.firstName,
+//       secondName: req.body.secondName,
+//       password: hash,
+//       type: 'admin'
+//     };
+
+//     ms.write(sql, user, req, res);
+//   });
+// });
 
 //Admin signin route
 app.get('/admin/signin', (req, res) => {
   res.render('signin', { actionRoute: '/admin/signin', who: 'Admin' });
 });
 
-app.post('/admin/signin', (req, res) => {});
+app.post('/admin/signin', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  ms.read(sql, email, password, res);
+});
 
 app.get('/admin/panel', (req, res) => {
   res.render('dashboard');
 });
 
-// Testing route
-app.get('/student/profile', (req, res) => {
-  passport.authenticate('local-login')(req,res, () => {
-    res.redirect('/student/profile');
-  });
-});
 
 // Port start
 app.listen(port, () => {

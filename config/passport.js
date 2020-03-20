@@ -105,25 +105,23 @@ module.exports = function(passport) {
         connection.query(
           `SELECT * FROM ${tableName} WHERE email = ${email}`,
           function(err, rows) {
-            if (err) return done(err);
+            if (err) {
+              res.render('errorsignin', {who: 'Student',actionRoute: '/student/signin',errormsg : "Something went wrong"})
+            };
             if (!rows.length) {
-              return done(
-                null,
-                false,
-                req.flash('loginMessage', 'No user found.')
-              ); // req.flash is the way to set flashdata using connect-flash
+              res.render('errorsignin', {who: 'Student',actionRoute: '/student/signin',errormsg : "User doen't exit!"})
             }
 
             // if the user is found but the password is wrong
-            if (!(rows[0].password == password))
-              return done(
-                null,
-                false,
-                req.flash('loginMessage', 'Oops! Wrong password.')
-              ); // create the loginMessage and save it to session as flashdata
-
-            // all is well, return successful user
-            return done(null, rows[0]);
+            // if (!(rows[0].password == password))
+            bcrypt.compare(password, rows[0].password).then(function(result) {
+              if(result){
+                // all is well, return successful user
+                return done(null, rows[0]);	
+              }else{
+                res.render('errorsignin', {who: 'Student',actionRoute: '/student/signin',errormsg : "Incorrect Password!"})
+              }
+            });
           }
         );
       }
