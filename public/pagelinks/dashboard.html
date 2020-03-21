@@ -151,49 +151,32 @@
         <h3>Keyword</h3>
 
         <div class="first-search-field">
-          <input type="text" placeholder="Enter keyword" class="top-search" />
+          <input type="text" id="getKeyword" placeholder="Enter keyword" class="top-search" />
           <span class="fa fa-search"></span>
         </div>
 
         <h3>Filters</h3>
 
-        <form action="#" method="POST">
-          <div class="first-search-field">
-            <input
-              type="text"
-              list="college-name"
-              class="top-search"
-              required
-              placeholder="College Name"
-            />
-            <button type="submit"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
+        <div class="first-search-field">
+          <input
+            type="text"
+            class="top-search"
+            id="getName"
+            placeholder="Name"
+          />
+          <button type="button"><span class="fa fa-search"></span></button>
+        </div>
 
-        <form action="#" method="POST">
-          <div class="first-search-field">
-            <input
-              autocomplete="off"
-              type="text"
-              class="top-search"
-              required
-              placeholder="Reg number"
-            />
-            <button type="submit"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
-
-        <form action="#" method="POST">
-          <div class="first-search-field">
-            <input
-              type="text"
-              class="top-search"
-              required
-              placeholder="Degree"
-            />
-            <button type="submit"><span class="fa fa-search"></span></button>
-          </div>
-        </form>
+        <div class="first-search-field">
+          <input
+            type="text"
+            class="top-search"
+            id="getPlace"
+            placeholder="Place"
+          />
+          <button type="button"><span class="fa fa-search"></span></button>
+        </div>
+        
 
         <div class="first-search-field">
           <input
@@ -202,7 +185,17 @@
             id="getYear"
             placeholder="Year"
           />
-          <button type="button" onclick="byYear()"><span class="fa fa-search"></span></button>
+          <button type="button"><span class="fa fa-search"></span></button>
+        </div>
+
+        <div class="first-search-field">
+          <input
+            type="text"
+            class="top-search"
+            id="getDepartment"
+            placeholder="Department"
+          />
+          <button type="button"><span class="fa fa-search"></span></button>
         </div>
       </div>
 
@@ -216,9 +209,9 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. MOHAMED JAKK</a>
+            <a href="#" class="member-name">MOHAMED JAKK A</a>
             <p >Student class <span class="member-year">2019</span></p>
-            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+            <p>M.Sc Chemistry, <span class="member-department">Chemistry</span></p>
             <p class="member-home-town">Tiruchirappalli</p>
           </div>
           <button type="submit">view profile</button>
@@ -228,9 +221,9 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. RAJA SEKARAN</a>
+            <a href="#" class="member-name">RAJA SEKARAN R</a>
             <p>Student, class <span class="member-year">2009</span> </p>
-            <p class="member-degree">M.Sc Physics, Chemistry</p>
+            <p>M.Sc Physics, <span class="member-department">Chemistry</span></p>
             <p class="member-home-town">Madurai</p>
           </div>
           <button type="submit">view profile</button>
@@ -240,9 +233,9 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. BALA MURUGAN</a>
+            <a href="#" class="member-name">BALA MURUGAN N</a>
             <p >Student, class <span class="member-year">2000</span></p>
-            <p class="member-degree">M.Sc Math, Math</p>
+            <p>M.Sc Math, <span class="member-department">Math</span></p>
             <p class="member-home-town">Theni</p>
           </div>
           <button type="submit">view profile</button>
@@ -252,9 +245,9 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">C. VEL MURUGAN</a>
+            <a href="#" class="member-name">VEL MURUGAN S</a>
             <p >Student, class <span class="member-year">2000</span></p>
-            <p class="member-degree">M.Sc Math, Math</p>
+            <p>M.Sc Math, <span class="member-department">Math</span></p>
             <p class="member-home-town">Dindugal</p>
           </div>
           <button type="submit">view profile</button>
@@ -264,9 +257,21 @@
           <img src="../img/modal-profile.jpg" />
 
           <div class="member-detail">
-            <a href="#" class="member-name">A. ARAVIND</a>
+            <a href="#" class="member-name">ARAVIND D</a>
             <p >Student, class <span class="member-year">2012</span> </p>
-            <p class="member-degree">M.Sc Chemistry, Chemistry</p>
+            <p>M.Sc Chemistry, <span class="member-department">Chemistry</span></p>
+            <p class="member-home-town">Tiruchirappalli</p>
+          </div>
+          <button type="submit">view profile</button>
+        </div>
+
+        <div class="member">
+          <img src="../img/modal-profile.jpg" />
+
+          <div class="member-detail">
+            <a href="#" class="member-name">MOHAMED ASAR A</a>
+            <p >Student, class <span class="member-year">2012</span> </p>
+            <p>B.E Computer Science and Engineering, <span class="member-department">CSE</span></p>
             <p class="member-home-town">Tiruchirappalli</p>
           </div>
           <button type="submit">view profile</button>
@@ -277,20 +282,7 @@
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script>
-      $('.search-field').hover(
-        function() {
-          $(this)
-            .children('.show')
-            .show();
-        },
-        function() {
-          $(this)
-            .children('.show')
-            .hide();
-        }
-      );
-    </script>
-    <script src="../js/test.js"></script>
+    <script src="../js/main.js"></script>
+    <!-- <script src="../js/test.js"></script> -->
   </body>
 </html>
