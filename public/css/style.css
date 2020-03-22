@@ -300,7 +300,7 @@ h5 {
 }
 
 .cont input[type='text'],
-input[type='password'] {
+.cont input[type='password'] {
   padding: 1.2rem 0;
   color: #34363e;
   /* font-size: 1rem; */
@@ -726,3 +726,4 @@ footer {
     max-width: 100%;
   }
 }
+

@@ -26,6 +26,8 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight+"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-1").css("background-color", "#343A40");
   });
   
   // Shor previous login page 
@@ -46,6 +48,8 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight+"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-1").css("background-color", "unset");
   });
 
   /* display the contact page */
@@ -65,6 +69,7 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight1+"px"
     }, 550, function(){ /* callback */ });
+    $("#ball-2").css("background-color", "#343A40");
   });
 
   // display previous applicant page 
@@ -84,6 +89,8 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight1+"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-2").css("background-color", "unset");
   });
 
    /* display the Curricular page */
@@ -103,6 +110,8 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight1+"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-3").css("background-color", "#343A40");
   });
 
   // display previous contact page 
@@ -122,6 +131,8 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight1+"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-3").css("background-color", "unset");
   });
 
   /* display the Other page */
@@ -141,6 +152,9 @@ $(document).ready(function(){
     $("#page").stop().animate({
       "height": newheight +"px"
     }, 550, function(){ /* callback */ });
+
+    $("#ball-4").css("background-color", "#343A40");
+
   });
 
   // display previous Curricular page page 
@@ -160,6 +174,8 @@ $("#previouscurricular").on("click", function(e){
   $("#page").stop().animate({
     "height": newheight1+"px"
   }, 550, function(){ /* callback */ });
+
+  $("#ball-4").css("background-color", "unset");
 });
 });
 

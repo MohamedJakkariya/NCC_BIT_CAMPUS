@@ -1,153 +1,354 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Sliding Registration Panel Demo</title>
-  <meta name="author" content="Jake Rocheleau">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sliding Registration Panel Demo</title>
+    <meta name="author" content="Jake Rocheleau" />
 
-  <!-- Icon  -->
-  <link
-  rel="stylesheet"
-  href="../lib/font-awesome/css/font-awesome.min.css"
-/>
+    <!-- Icon  -->
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
 
-  <!-- Custom stylesheet  -->
-  <link rel="stylesheet" href="../css/slidebox.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
 
-  <script src="../lib/jquery/jquery.min.js"></script>
-  <script src="../js/formslider.js"></script>
-</head>
+    <!-- Custom stylesheet  -->
+    <link rel="stylesheet" href="../css/slidebox.css">
 
-<body>
-  <div id="w">
-    <h1>jQuery Sliding Login/Registration Form</h1>
+  </head>
 
-        <div id="page">
+  <body>
+    <div id="w" class="form-container">
+      <div id="page">
+        <form action="#" method="post" class="need-validation">
+          <!-- Login Details -->
+          <div id="content-login">
+            <h2>Login Detail</h2>
 
-            <!-- Login Details -->
-            <div id="content-login">
-              <h2>Login Detail</h2>
-              <div class="content">
-                  <label for="email">Email Address</label>
-                  <input type="email" name="email" id="email" class="txtfield" tabindex="1" autocomplete="off">
-                  
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password" class="txtfield" tabindex="2" autocomplete="off">
-                  
-                  <button type="button" name="loginbtn" id="showregister" class="btn">Next</button>
+            <div class="content">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  autocomplete="on"
+                  required
+                />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">
+                  <p>Please fill out this field.</p>
+                </div>
               </div>
-            </div><!-- /end #content-login -->
-            
-            
-            <!-- Applicant Details  -->
-            <div id="content-register">
-              <h2>Applicant Details</h2>
-              <div class="content">
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control "
+                  autocomplete="off"
+                />
+              </div>
+
+              <button type="button" id="showregister" class="btn btn-dark">
+                Next
+              </button>
+            </div>
+          </div>
+          <!-- /end #login-details -->
+
+          <!-- Applicant Details  -->
+          <div id="content-register">
+            <h2>Applicant Details</h2>
+            <div class="content">
+              <div class="form-group">
                 <label for="fname">First Name</label>
-                <input type="text" name="fname"  class="txtfield" tabindex="4" autocomplete="off">
-                
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
                 <label for="lname">Last Name</label>
-                <input type="text" name="lname"  class="txtfield" tabindex="5" autocomplete="off">
-                
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
                 <label for="newemail">Email Address</label>
-                <input type="email" name="newemail"  class="txtfield" tabindex="6" autocomplete="off">
-                
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
                 <label for="password1">Password</label>
-                <input type="password" name="password1"  class="txtfield" tabindex="7" autocomplete="off">
-                
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
                 <label for="password2">Confirm Password</label>
-                <input type="password" name="password2"  class="txtfield" tabindex="8" autocomplete="off">
-                
-                <div class="btns">
-                    <button type="button" id="previouslogin" class="btn">Back</button>
-                    <button type="button" id="showcontact" class="btn">Next</button>
-                </div>
-                
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
               </div>
-            </div><!-- /end #content-register -->
 
-            <!-- Contact Details  -->
-            <div id="contact-details">
-                <h2>Contact Details</h2>
-                <div class="content">
-                  <label for="fname">First Name</label>
-                  <input type="text" name="fname" id="fname" class="txtfield" tabindex="4" autocomplete="off">
-                  
-                  <label for="lname">Last Name</label>
-                  <input type="text" name="lname" id="lname" class="txtfield" tabindex="5" autocomplete="off">
-                  
-                  <label for="newemail">Email Address</label>
-                  <input type="email" name="newemail" id="newemail" class="txtfield" tabindex="6" autocomplete="off">
-                  
-                  <label for="password1">Password</label>
-                  <input type="password" name="password1" id="password1" class="txtfield" tabindex="7" autocomplete="off">
-                  
-                  <label for="password2">Confirm Password</label>
-                  <input type="password" name="password2" id="password2" class="txtfield" tabindex="8" autocomplete="off">
-                  
-                  <div class="btns">
-                      <button type="button" id="previousapplicant" class="btn back">Back</button>
-                      <button type="button" name="registerbtn" id="showcurricular" class="btn">Next</button>
-                  </div>
-
-                </div>
-              </div><!-- /end #content-register -->
-
-            <!-- Curricular Details  -->
-            <div id="curricular-details">
-                <h2>Co Curricular Activities</h2>
-                <div class="content">
-                  <label for="fname">First Name</label>
-                  <input type="text" name="fname" class="txtfield" tabindex="4" autocomplete="off">
-                  
-                  <label for="lname">Last Name</label>
-                  <input type="text" name="lname"  class="txtfield" tabindex="5" autocomplete="off">
-                  
-                  <label for="newemail">Email Address</label>
-                  <input type="email" name="newemail"  class="txtfield" tabindex="6" autocomplete="off">
-                  
-                  <label for="password1">Password</label>
-                  <input type="password" name="password1"  class="txtfield" tabindex="7" autocomplete="off">
-                  
-                  <label for="password2">Confirm Password</label>
-                  <input type="password" name="password2"  class="txtfield" tabindex="8" autocomplete="off">
-
-                  <div class="btns">
-                      <button type="button" id="previouscontact" class="btn back">Back</button>
-                      <button type="button" id="showothers" class="btn" tabindex="9">Next</button>
-                  </div>
-
-                </div>
+              <div class="btns">
+                <button type="button" id="previouslogin" class="btn btn-dark">
+                  Back
+                </button>
+                <button type="button" id="showcontact" class="btn btn-dark">
+                  Next
+                </button>
               </div>
-            
+            </div>
+          </div>
+          <!-- /end #applicant-details -->
 
-              <!-- other Details  -->
-            <div id="other-details">
-                <h2>Other Details</h2>
-                <div class="content">
-                  <label for="fname">First Name</label>
-                  <input type="text" name="fname" class="txtfield" tabindex="4" autocomplete="off">
-                  
-                  <label for="lname">Last Name</label>
-                  <input type="text" name="lname"  class="txtfield" tabindex="5" autocomplete="off">
-                  
-                  <label for="newemail">Email Address</label>
-                  <input type="email" name="newemail"  class="txtfield" tabindex="6" autocomplete="off">
-                  
-                  <label for="password1">Password</label>
-                  <input type="password" name="password1"  class="txtfield" tabindex="7" autocomplete="off">
-                  
-                  <label for="password2">Confirm Password</label>
-                  <input type="password" name="password2"  class="txtfield" tabindex="8" autocomplete="off">
-
-                  <div class="btns">
-                      <button type="button" id="previouscurricular" class="btn back">Back</button>
-                      <button type="button" class="btn">Submit</button>
-                  </div>
-                  
-                </div>
+          <!-- Contact Details  -->
+          <div id="contact-details">
+            <h2>Contact Details</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
               </div>
-          </div><!-- /end #page -->
-        </div><!-- /end #w -->
-</body>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previousapplicant"
+                  class="btn btn-dark back"
+                >
+                  Back
+                </button>
+                <button type="button" id="showcurricular" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- /end #contact-details -->
+
+          <!-- Curricular Details  -->
+          <div id="curricular-details">
+            <h2>Co Curricular Activities</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previouscontact"
+                  class="btn btn-dark back"
+                >
+                  Back
+                </button>
+                <button type="button" id="showothers" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--/end #curricular-details-->
+
+          <!-- other Details  -->
+          <div id="other-details">
+            <h2>Other Details</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previouscurricular"
+                  class="btn btn-dark back"
+                >
+                  Back
+                </button>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+            </div>
+          </div>
+          <!--/end #other-details-->
+        </form>
+      </div>
+      <!-- /end #page -->
+      <div class="dots">
+        <p class="ball" id="ball-5"></p>
+        <p class="ball" id="ball-1"></p>
+        <p class="ball" id="ball-2"></p>
+        <p class="ball" id="ball-3"></p>
+        <p class="ball" id="ball-4"></p>
+      </div>
+    </div>
+    <!-- /end #w -->
+
+    <!-- Script Links  -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/formslider.js"></script>
+  </body>
 </html>

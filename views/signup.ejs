@@ -1,63 +1,351 @@
-<%- include('header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+
+    <!-- link stylesheets -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
+
+    <!-- custome stylesheet  -->
+    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+    <link rel="stylesheet" href="../css/slidebox.css">
+  </head>
+  <body>
 
 <%- include('nav') %>
 
-<!-- Container of Login  -->
-<form action=<%= actionRoute %> method="post">
-  <div class="container">
-    <div class="cont">
-      <h3><%= who %> Sign Up</h3>
-      <div class="username">
-        <i class="fa fa-info" id="user"></i>
-        <input type="text" placeholder="First Name" name="firstName" required />
-      </div>
+    <div id="w" class="form-container">
+      <form action="/action" method="post" class="need-validation">
+        <div id="page">
+          <!-- Login Details -->
+          <div id="content-login">
+            <h2>Login Detail</h2>
 
-      <div class="username">
-        <i class="fa fa-info" id="user"></i>
-        <input type="text" placeholder="Last Name" name="secondName" required />
-      </div>
+            <div class="content">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  autocomplete="on"
+                  required
+                />
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">
+                  <p>Please fill out this field.</p>
+                </div>
+              </div>
 
-      <div class="username">
-        <i class="fa fa-envelope" id="user"></i>
-        <input type="text" placeholder="Email" name="email" required />
-      </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control "
+                  autocomplete="off"
+                />
+              </div>
 
-      <div class="password">
-        <i class="fa fa-key" id="pass"></i>
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
-        />
-      </div>
+              <button type="button" id="showregister" class="btn btn-dark">
+                Next
+              </button>
+            </div>
+          </div>
+          <!-- /end #login-details -->
 
-      <div class="password">
-        <i class="fa fa-key" id="pass"></i>
-        <input type="password" placeholder="Confirm Password" required />
-      </div>
+          <!-- Applicant Details  -->
+          <div id="content-register">
+            <h2>Applicant Details</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
 
-      <div class="submit">
-        <button type="submit">Sign Up</button>
-        <div>
-          <a href="#">
-            <span class="fa fa-google-plus-square"></span>
-          </a>
-          <a href="#">
-            <span class="fa fa-facebook-official"></span>
-          </a>
-          <a href="#">
-            <span class="fa fa-twitter-square"></span>
-          </a>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button type="button" id="previouslogin" class="btn btn-dark">
+                  Back
+                </button>
+                <button type="button" id="showcontact" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- /end #applicant-details -->
+
+          <!-- Contact Details  -->
+          <div id="contact-details">
+            <h2>Contact Details</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previousapplicant"
+                  class="btn btn-dark back"
+                >
+                  Back
+                </button>
+                <button type="button" id="showcurricular" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- /end #contact-details -->
+
+          <!-- Curricular Details  -->
+          <div id="curricular-details">
+            <h2>Co Curricular Activities</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previouscontact"
+                  class="btn btn-dark back"
+                >
+                  Back
+                </button>
+                <button type="button" id="showothers" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--/end #curricular-details-->
+
+          <!-- other Details  -->
+          <div id="other-details">
+            <h2>Other Details</h2>
+            <div class="content">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input
+                  type="text"
+                  name="fname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input
+                  type="text"
+                  name="lname"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="newemail">Email Address</label>
+                <input
+                  type="email"
+                  name="newemail"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password1">Password</label>
+                <input
+                  type="password"
+                  name="password1"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="btns">
+                <button
+                  type="button"
+                  id="previouscurricular"
+                  class="btn btn-dark back"
+                >
+                  Back
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--/end #other-details-->
         </div>
+      </form>
+      <!-- /end #page -->
+      <div class="dots">
+        <p class="ball" id="ball-5"></p>
+        <p class="ball" id="ball-1"></p>
+        <p class="ball" id="ball-2"></p>
+        <p class="ball" id="ball-3"></p>
+        <p class="ball" id="ball-4"></p>
       </div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate,
-        quidem qui iure aliquam tempora praesentium mollitia possimus.
-        <a href="#" class="sign-up">Sign in</a>
-      </p>
     </div>
-  </div>
-</form>
+    <!-- /end #w -->
 
-<%- include('footer') %>
+    <%- include('footer') %>
+<script src="../js/formslider.js"></script>
