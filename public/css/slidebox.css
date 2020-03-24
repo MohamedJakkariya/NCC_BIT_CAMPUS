@@ -166,7 +166,11 @@ h2 {
   position: absolute;
   top: 0;
   left: 880px;
-  /* margin: 1rem; */
+}
+
+#submit{
+  display: none;
+ margin: auto;
 }
 
 /* form styles */

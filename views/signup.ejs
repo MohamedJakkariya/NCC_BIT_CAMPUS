@@ -15,14 +15,13 @@
 
     <!-- custome stylesheet  -->
     <!-- <link rel="stylesheet" href="../css/style.css" /> -->
-    <link rel="stylesheet" href="../css/slidebox.css">
+    <link rel="stylesheet" href="../css/slidebox.css" />
   </head>
   <body>
-
-<%- include('nav') %>
-
-    <div id="w" class="form-container">
-      <form action="/action" method="post" class="need-validation">
+    <%- include('nav') %>
+    <!-- form container  -->
+    <form action="/action" method="POST" class="container">
+      <div id="w" class="form-container">
         <div id="page">
           <!-- Login Details -->
           <div id="content-login">
@@ -328,24 +327,31 @@
                   class="btn btn-dark back"
                 >
                   Back
-                  <button type="submit" class="btn btn-success">Submit</button>
+                </button>
+                <button type="button" id="view-details" class="btn btn-success">
+                  View
+                </button>
+                <button type="submit" id="submit" class="btn btn-success">
+                  Submit
                 </button>
               </div>
             </div>
           </div>
           <!--/end #other-details-->
         </div>
-      </form>
-      <!-- /end #page -->
-      <div class="dots">
-        <p class="ball" id="ball-5"></p>
-        <p class="ball" id="ball-1"></p>
-        <p class="ball" id="ball-2"></p>
-        <p class="ball" id="ball-3"></p>
-        <p class="ball" id="ball-4"></p>
+        <!-- /end #page -->
+        <div class="dots">
+          <p class="ball" id="ball-5"></p>
+          <p class="ball" id="ball-1"></p>
+          <p class="ball" id="ball-2"></p>
+          <p class="ball" id="ball-3"></p>
+          <p class="ball" id="ball-4"></p>
+        </div>
       </div>
-    </div>
-    <!-- /end #w -->
+      <!-- /end #w -->
+    </form>
 
     <%- include('footer') %>
-<script src="../js/formslider.js"></script>
+    <script src="../js/formslider.js"></script>
+  </body>
+</html>

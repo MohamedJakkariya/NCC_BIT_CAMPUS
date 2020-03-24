@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Sliding Registration Panel Demo</title>
-    <meta name="author" content="Jake Rocheleau" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <!-- Icon  -->
     <link
       rel="stylesheet"
@@ -14,15 +13,15 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
 
+    
     <!-- Custom stylesheet  -->
     <link rel="stylesheet" href="../css/slidebox.css">
-
   </head>
-
   <body>
-    <div id="w" class="form-container">
-      <div id="page">
-        <form action="#" method="post" class="need-validation">
+    <!-- form container  -->
+    <form action="/action" method="POST" class="container">
+      <div id="w" class="form-container">
+        <div id="page">
           <!-- Login Details -->
           <div id="content-login">
             <h2>Login Detail</h2>
@@ -325,30 +324,31 @@
                   type="button"
                   id="previouscurricular"
                   class="btn btn-dark back"
-                >
+                  >
                   Back
                 </button>
-                <button type="submit" class="btn btn-success">Submit</button>
-              </div>
+                <button type="button" id="view-details" class="btn btn-success">View</button>
+                <button type="submit" id="submit" class="btn btn-success">Submit</button>
             </div>
-          </div>
-          <!--/end #other-details-->
-        </form>
-      </div>
-      <!-- /end #page -->
-      <div class="dots">
-        <p class="ball" id="ball-5"></p>
-        <p class="ball" id="ball-1"></p>
-        <p class="ball" id="ball-2"></p>
-        <p class="ball" id="ball-3"></p>
-        <p class="ball" id="ball-4"></p>
-      </div>
+        </div>
+    </div>
+    <!--/end #other-details-->
+</div>
+<!-- /end #page -->
+<div class="dots">
+    <p class="ball" id="ball-5"></p>
+          <p class="ball" id="ball-1"></p>
+          <p class="ball" id="ball-2"></p>
+          <p class="ball" id="ball-3"></p>
+          <p class="ball" id="ball-4"></p>
+        </div>
     </div>
     <!-- /end #w -->
-
-    <!-- Script Links  -->
+</form>
+<!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/formslider.js"></script>
   </body>
 </html>
+ 
