@@ -192,3 +192,17 @@ label {
   display: flex;
   justify-content: space-between;
 }
+
+.custom-select{
+  font-size: 1rem;
+}
+
+#clg{
+  font-size: 0.7rem;
+}
+
+.yesOrNo{
+  padding-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
