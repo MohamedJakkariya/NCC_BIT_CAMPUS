@@ -1,10 +1,10 @@
-const { tableName } = require('../config/config');
+const { loginTable } = require('../config/config');
 const bcrypt = require('bcrypt');
 
 exports.read = (sql, email, password, res) => {
   // For check validation
   sql.connection.query(
-    `SELECT * FROM ${tableName} WHERE email = "${email}"`,
+    `SELECT * FROM ${loginTable} WHERE email = "${email}"`,
     function(err, rows) {
       if (err) {
         res.render('errorsignin', {
@@ -59,7 +59,7 @@ exports.read = (sql, email, password, res) => {
 
 exports.write = (sql, post, req, res) => {
   sql.connection.query(
-    `select * from ${tableName} where email = "${post.email}"`,
+    `select * from ${loginTable} where email = "${post.email}"`,
     function(err, rows) {
       console.log(rows);
       console.log('above row object');
@@ -73,7 +73,7 @@ exports.write = (sql, post, req, res) => {
       } else {
         // if there is no user with that email
         // create the user
-        sql.connection.query(`INSERT INTO ${tableName} SET ?`, post, function(
+        sql.connection.query(`INSERT INTO ${loginTable} SET ?`, post, function(
           error,
           results,
           fields

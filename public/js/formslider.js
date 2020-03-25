@@ -1,11 +1,16 @@
 $(document).ready(function() {
   var w = $('#w');
 
+  const container = document.querySelector('#w');
+
   var login = $('#content-login');
   var applicant = $('#content-register');
   var contact = $('#contact-details');
   var curricular = $('#curricular-details');
   var other = $('#other-details');
+
+  // Auto Focusing
+  $('#loginemail').focus();
 
   $('#view-details').on('click', e => {
     e.preventDefault();
@@ -40,7 +45,15 @@ $(document).ready(function() {
                 left: '0px'
               },
               500,
-              function() {}
+              function() {
+                // Remove all focus excep login email
+                $('#email').blur();
+                $('#sport1').blur();
+                $('#fname').blur();
+                $('#criminal_0').blur();
+
+                $('#loginemail').focus();
+              }
             );
 
           // applicant
@@ -105,6 +118,7 @@ $(document).ready(function() {
         800,
         function() {
           $(login).css('display', 'none');
+          $('#fname').focus();
         }
       );
 
@@ -138,6 +152,8 @@ $(document).ready(function() {
         800,
         function() {
           $(applicant).css('display', 'none');
+          // Auto Focusing
+          $('#loginemail').focus();
         }
       );
 
@@ -183,6 +199,8 @@ $(document).ready(function() {
         800,
         function() {
           $(applicant).css('display', 'none');
+          // Auto Focusing
+          $('#email').focus();
         }
       );
 
@@ -239,6 +257,8 @@ $(document).ready(function() {
         800,
         function() {
           $(contact).css('display', 'none');
+          // Auto Focusing
+          $('#fname').focus();
         }
       );
 
@@ -272,6 +292,9 @@ $(document).ready(function() {
         800,
         function() {
           $(contact).css('display', 'none');
+
+          // Auto Focusing
+          $('#sport1').focus();
         }
       );
 
@@ -329,6 +352,8 @@ $(document).ready(function() {
         800,
         function() {
           $(curricular).css('display', 'none');
+          // Auto Focusing
+          $('#email').focus();
         }
       );
 
@@ -362,6 +387,9 @@ $(document).ready(function() {
         800,
         function() {
           $(contact).css('display', 'none');
+
+          // Auto Focusing
+          $('#criminal_0').focus();
         }
       );
 
@@ -419,6 +447,9 @@ $(document).ready(function() {
         800,
         function() {
           $(other).css('display', 'none');
+
+          // Auto Focusing
+          $('#sport1').focus();
         }
       );
 

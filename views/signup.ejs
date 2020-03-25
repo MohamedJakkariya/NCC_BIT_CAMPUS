@@ -21,337 +21,671 @@
     <%- include('nav') %>
     <!-- form container  -->
     <form action="/action" method="POST" class="container">
-      <div id="w" class="form-container">
-        <div id="page">
-          <!-- Login Details -->
-          <div id="content-login">
-            <h2>Login Detail</h2>
-
-            <div class="content">
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  class="form-control"
-                  autocomplete="on"
-                  required
-                />
-                <div class="valid-feedback">Valid.</div>
-                <div class="invalid-feedback">
-                  <p>Please fill out this field.</p>
+        <!-- w container  -->
+        <div id="w" class="form-container">
+          <div id="page">
+            <!-- Login Details -->
+            <div id="content-login">
+              <h2>Login Detail</h2>
+  
+              <div class="content">
+                <div class="form-group row">
+                  <label for="email" class="col-md-5">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="loginemail"
+                    class="form-control col-md-7"
+                    autocomplete="on"
+                    required
+                  />
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">
+                    <p>Please fill out this field.</p>
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label class="col-md-5" for="password">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control col-md-7 "
+                    autocomplete="off"
+                  />
+                </div>
+  
+                <div class="form-group row">
+                  <label class="col-md-5" for="password2">Confirm Password</label>
+                  <input
+                    type="password"
+                    name="password2"
+                    class="form-control col-md-7"
+                    autocomplete="off"
+                  />
+                </div>
+  
+  
+                <button type="button" id="showregister" class="btn btn-dark">
+                  Next
+                </button>
+              </div>
+            </div>
+            <!-- /end #login-details -->
+  
+            <!-- Applicant Details  -->
+            <div id="content-register">
+              <h2>Applicant Details</h2>
+              <div class="content">
+  
+                <!-- Full name  -->
+                <div class="form-group row pt-4">
+                  <label class="col-md-5" for="fname">Full Name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    id="fname"
+                    class="form-control col-md-7"
+                    autocomplete="off"
+                  />
+                </div>
+  
+                <!-- Father's name  -->
+                <div class="form-group row">
+                  <label class="col-md-5" for="fname">Father's Name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    class="form-control col-md-7"
+                    autocomplete="off"
+                  />
+                </div>
+  
+                <!-- Mother name  -->
+                <div class="form-group row">
+                  <label class="col-md-5" for="fname">Mother's Name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    class="form-control col-md-7"
+                    autocomplete="off"
+                  />
+                </div>
+  
+                <!-- Gender -->
+                <div class="form-group row">
+                  <label class="col-md-4 pt-3">Gender</label>
+                  <div class="p-3 col-md-8">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" required="required"
+                        checked="checked">
+                      <label for="gender_0" class="custom-control-label">Male</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required">
+                      <label for="gender_1" class="custom-control-label">Female</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG" required="required">
+                      <label for="gender_2" class="custom-control-label">Transgender</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Mobile number  -->
+                <div class="form-group row">
+                  <label for="mobile" class="col-md-5">Mobile</label>
+                  <div class="col-sm-7 col-md-2 ">
+                    <input name="mobile" type="tel" minlength="10" maxlength="10" class="form-control" placeholder="+91">
+                  </div>
+                  
+                  <div class="col-sm-7 col-md-5 pr-2">
+                    <input id="mobile" name="mobile" type="tel" minlength="10" maxlength="10" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Photo  -->
+                <div class="pt-2 form-group row">
+                  <label for="avatar" class="col-md-4">Standard photograph *</label>
+                  <label class="col-md-1"></label>
+                  <div class="col-md-7">
+                    <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" required="required"
+                      class="form-control">
+                    <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
+                      <br> Allowed format: JPEG only.</span>
+                  </div>
+                </div>
+  
+                <!-- Dob  -->
+                <div class="form-group row">
+                  <label for="dob" class="col-md-5">Date of Birth</label>
+                  <div class="col-md-7">
+                    <input id="dob" name="dob" type="date" required="required" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Age  -->
+                <div class="form-group row">
+                  <label for="age" class="col-md-5">Age</label>
+                  <div class="col-md-7">
+                    <input id="age" name="age" type="number" min="10" max="30" required="required" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Nationality  -->
+                <div class="form-group row">
+                  <label for="nationality" class="col-md-5">Nationality</label>
+                  <div class="col-md-7">
+                    <select id="nationality" name="nationality" required="required" class="custom-select">
+                      <option value="IND">Indian</option>
+                      <option value="CAN">Canadian</option>
+                      <option value="AME">American</option>
+                      <option value="AUS">Australian</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Directorate  -->
+                <div class="form-group row">
+                  <label for="directorate" class="col-md-5">Directorate</label>
+                  <div class="col-md-7">
+                    <select id="directorate" name="directorate" required="required" class="custom-select">
+                      <option value="Meow">Meow</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Institution  -->
+                <div class="form-group row">
+                  <label for="clg" class="col-md-5">Name of Institution</label>
+                  <div class="col-md-7">
+                    <input id="clg" name="clg"
+                      placeholder="University College of Engineering, BIT Campus, Anna University, Tiruchirappalli" type="text"
+                      aria-describedby="clgHelpBlock" class="form-control">
+                    <span id="clgHelpBlock" class="form-text text-muted">Enter the full name of your School/ College</span>
+                  </div>
+                </div>
+  
+                <!-- Stream  -->
+                <div class="form-group row">
+                  <label for="stream" class="col-md-5">Stream</label>
+                  <div class="col-md-7">
+                    <select id="stream" name="stream" class="custom-select">
+                      <option value="commerce">Commerce</option>
+                      <option value="arts">Arts</option>
+                      <option value="business">Business</option>
+                      <option value="engg">Engineering</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Unit  -->
+                <div class="form-group row">
+                  <label for="unit" class="col-md-5">Unit is</label>
+                  <div class="col-md-7">
+                    <select id="unit" name="unit" required="required" class="custom-select">
+                      <option value="rabbit">Rabbit</option>
+                      <option value="duck">Duck</option>
+                      <option value="fish">Fish</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- State  -->
+                <div class="form-group row">
+                  <label for="state" class="col-md-5">State</label>
+                  <div class="col-md-7">
+                    <select id="state" onchange='selct_district(this.value)' name="state" required="required"
+                      class="custom-select">
+                    </select>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- District  -->
+                <div class="form-group row">
+                  <label for="comdist" class="col-md-5">District</label>
+                  <div class="col-md-7">
+                    <select id="comdist" name="comdist" required="required" class="custom-select">
+                      <option value="slt-dis" selected disabled>Select a State first</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Last edu qualification  -->
+                <div class="form-group row pb-4">
+                  <label for="educ" class="col-md-5">Last educational qualification *</label>
+                  <div class="col-md-7">
+                    <select id="educ" name="educ" required="required" class="custom-select">
+                      <option value="">SSLC</option>
+                      <option value="">Diploma</option>
+                      <option value="">HSC</option>
+                      <option value="">B.A</option>
+                      <option value="">B.Sc</option>
+                      <option value="">B.E</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <div class="btns">
+                  <button type="button" id="previouslogin" class="btn btn-dark">
+                    Back
+                  </button>
+                  <button type="button" id="showcontact" class="btn btn-dark">
+                    Next
+                  </button>
                 </div>
               </div>
-
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  class="form-control "
-                  autocomplete="off"
-                />
-              </div>
-
-              <button type="button" id="showregister" class="btn btn-dark">
-                Next
-              </button>
             </div>
-          </div>
-          <!-- /end #login-details -->
-
-          <!-- Applicant Details  -->
-          <div id="content-register">
-            <h2>Applicant Details</h2>
-            <div class="content">
-              <div class="form-group">
-                <label for="fname">First Name</label>
-                <input
-                  type="text"
-                  name="fname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input
-                  type="text"
-                  name="lname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="newemail">Email Address</label>
-                <input
-                  type="email"
-                  name="newemail"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password1">Password</label>
-                <input
-                  type="password"
-                  name="password1"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  name="password2"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="btns">
-                <button type="button" id="previouslogin" class="btn btn-dark">
-                  Back
-                </button>
-                <button type="button" id="showcontact" class="btn btn-dark">
-                  Next
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- /end #applicant-details -->
-
-          <!-- Contact Details  -->
-          <div id="contact-details">
-            <h2>Contact Details</h2>
-            <div class="content">
-              <div class="form-group">
-                <label for="fname">First Name</label>
-                <input
-                  type="text"
-                  name="fname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input
-                  type="text"
-                  name="lname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="newemail">Email Address</label>
-                <input
-                  type="email"
-                  name="newemail"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password1">Password</label>
-                <input
-                  type="password"
-                  name="password1"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  name="password2"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="btns">
-                <button
-                  type="button"
-                  id="previousapplicant"
-                  class="btn btn-dark back"
-                >
-                  Back
-                </button>
-                <button type="button" id="showcurricular" class="btn btn-dark">
-                  Next
-                </button>
+            <!-- /end #applicant-details -->
+  
+            <!-- Contact Details  -->
+            <div id="contact-details">
+              <h2>Contact Details</h2>
+              <div class="content pt-4">
+                <!-- Email  -->
+                <div class="form-group row">
+                  <label for="email" class="col-md-5">Email</label>
+                  <div class="col-md-7">
+                    <input id="email" name="email" placeholder="you@example.com" type="email" required="required"
+                      class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Phone  -->
+                <div class="form-group row">
+                  <label for="phone" class="col-md-5">Phone</label>
+                  <div class="col-md-7">
+                    <input id="phone" name="phone" type="tel" aria-describedby="phoneHelpBlock" required="required"
+                      class="form-control">
+                    <span id="phoneHelpBlock" class="form-text text-muted">With the ZIP Code</span>
+                  </div>
+                </div>
+                
+                <!-- Communication  -->
+                <div class="form-group row">
+                  <label for="comadd" class="col-md-5">Communication address</label>
+                  <div class="col-md-7">
+                    <textarea id="comadd" name="comadd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <!-- State  -->
+                <div class="form-group row">
+                  <label for="comstate" class="col-md-5">State</label>
+                  <div class="col-md-7">
+                    <select id="comstate" onchange="selct_district(this.value);" name="comstate" required="required"
+                      class="custom-select">
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- District  -->
+                <div class="form-group row">
+                  <label for="comdist" class="col-md-5">District</label>
+                  <div class="col-md-7">
+                    <select id="contactcom" name="comdist" required="required" class="custom-select">
+                      <option value="slt-dis" selected disabled>Select a State first</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Pin  -->
+                <div class="form-group row">
+                  <label for="compin" class="col-md-5">PIN Code</label>
+                  <div class="col-md-7">
+                    <input id="compin" name="compin" placeholder="600001" type="text" required="required" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Post office  -->
+                <div class="form-group row">
+                  <label for="po" class="col-md-5">Post Office</label>
+                  <div class="col-md-7">
+                    <input id="po" name="po" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Nearest railway  -->
+                <div class="form-group row">
+                  <label for="rail" class="col-md-5">Nearest Railway Station</label>
+                  <div class="col-md-7">
+                    <input id="rail" name="rail" type="text" required="required" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Parent address  -->
+                <div class="form-group row">
+                  <label for="paradd" class="col-md-5">Parent's address</label>
+                  <div class="col-md-7">
+                    <textarea 7d="paradd" name="paradd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <!-- Permanent address  -->
+                <div class="form-group row">
+                  <label for="paradd" class="col-md-5">Permanent address</label>
+                  <div class="col-md-7">
+                    <textarea 7d="peradd" name="peradd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <!-- Unique identification -->
+                <div class="form-group row">
+                  <label for="idmarks" class="col-md-5">Unique Identification marks</label>
+                  <div class="col-md-7">
+                    <textarea id="idmarks" name="idmarks" cols="40" rows="2" aria-describedby="idmarksHelpBlock"
+                      class="form-control"></textarea>
+                    <span id="idmarksHelpBlock" class="form-text text-muted">Enter 2 unique identification marks</span>
+                  </div>
+                </div>
+  
+                <!-- Blood group  -->
+                <div class="form-group row">
+                  <label for="blood" class="col-sm-4 col-md-5">Blood Group</label>
+                  <div class="col-sm-7 col-md-7">
+                    <select id="blood" name="blood" class="custom-select">
+                      <option value="O+">O+</option>
+                      <option value="">AB-</option>
+                      <option value="">A+</option>
+                      <option value="">A-</option>
+                      <option value="">B+</option>
+                      <option value="">A-</option>
+                      <option value="">AB+</option>
+                      <option value="">O-</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Medical complaints  -->
+                <div class="form-group row pb-4">
+                  <label for="medical" class="col-md-5">Medical Complaints (if any)</label>
+                  <div class="col-md-7">
+                    <textarea id="medical" name="medical" cols="40" rows="5" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <div class="btns">
+                  <button
+                    type="button"
+                    id="previousapplicant"
+                    class="btn btn-dark back"
+                  >
+                    Back
+                  </button>
+                  <button type="button" id="showcurricular" class="btn btn-dark">
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- /end #contact-details -->
-
-          <!-- Curricular Details  -->
-          <div id="curricular-details">
-            <h2>Co Curricular Activities</h2>
-            <div class="content">
-              <div class="form-group">
-                <label for="fname">First Name</label>
-                <input
-                  type="text"
-                  name="fname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input
-                  type="text"
-                  name="lname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="newemail">Email Address</label>
-                <input
-                  type="email"
-                  name="newemail"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password1">Password</label>
-                <input
-                  type="password"
-                  name="password1"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  name="password2"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="btns">
-                <button
-                  type="button"
-                  id="previouscontact"
-                  class="btn btn-dark back"
-                >
-                  Back
-                </button>
-                <button type="button" id="showothers" class="btn btn-dark">
-                  Next
-                </button>
+            <!-- /end #contact-details -->
+  
+            <!-- Curricular Details  -->
+            <div id="curricular-details">
+              <h2>Co Curricular Activities</h2>
+              <div class="content pt-4">
+                <!-- Sports  -->
+                <div class="form-group row">
+                  <label for="sport1" class="col-md-5">Sports 1</label>
+                  <div class="col-md-7">
+                    <input id="sport1" name="sport1" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="sport2" class="col-md-5">Sports 2</label>
+                  <div class="col-md-7">
+                    <input id="sport2" name="sport2" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="sport3" class="col-md-5">Sport 3</label>
+                  <div class="col-md-7">
+                    <input id="sport3" name="sport3" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Co-curricular activity  -->
+                <div class="form-group row">
+                  <label for="co1" class="col-md-5">Co-curricular activity 1</label>
+                  <div class="col-md-7">
+                    <input id="co1" name="co1" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="co2" class="col-md-5">Co-curricular activity 2</label>
+                  <div class="col-md-7">
+                    <input id="co2" name="co2" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="form-group row pb-4">
+                  <label for="co3" class="col-md-5">Co-curricular activity 3</label>
+                  <div class="col-md-7">
+                    <input id="co3" name="co3" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <div class="btns">
+                  <button
+                    type="button"
+                    id="previouscontact"
+                    class="btn btn-dark back"
+                  >
+                    Back
+                  </button>
+                  <button type="button" id="showothers" class="btn btn-dark">
+                    Next
+                  </button>
+                </div>
               </div>
             </div>
+            <!--/end #curricular-details-->
+  
+            <!-- other Details  -->
+            <div id="other-details">
+              <h2>Other Details</h2>
+              <div class="content">
+                <!-- Q-1 -->
+                <div class="form-group pt-4">
+                  <label>Have you ever been convicted by criminal court?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
+                        required="required">
+                      <label for="criminal_0" class="custom-control-label">Yes</label>
+                    </div>
+  
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="criminal_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Q-2  -->
+                <div class="form-group">
+                  <label for="sentcriminal">If yes, what was the circumstance and what was the sentence?</label>
+                  <div class="">
+                    <textarea id="sentcriminal" name="sentcriminal" cols="40" rows="5" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <!-- Q-3 -->
+                <div class="form-group">
+                  <label>Are you willing to be enrolled under National Cadet Corps Act, 1948? *</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
+                        required="required">
+                      <label for="willing_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="willing_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-4  -->
+                <div class="form-group">
+                  <label>Are you willing to undergo service training as specified in the act and the rules made
+                    thereunder? *</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" required="required">
+                      <label for="radio_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="radio_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-5  -->
+                <div class="form-group">
+                  <label>Are you willing to serve as National Cadet Corp until discharged as provided in the
+                    Act?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="serve" id="serve_0" type="radio" class="custom-control-input" value="true">
+                      <label for="serve_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="serve" id="serve_1" type="radio" class="custom-control-input" value="false">
+                      <label for="serve_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-6  -->
+                <div class="form-group">
+                  <label>Have you ever applied for enrollment under the act?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="anytimebefore" id="anytimebefore_0" type="radio" required="required"
+                        class="custom-control-input" value="false">
+                      <label for="anytimebefore_0" class="custom-control-label">No</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="anytimebefore" id="anytimebefore_1" type="radio" required="required"
+                        class="custom-control-input" value="true">
+                      <label for="anytimebefore_1" class="custom-control-label">Yes</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="prevenno" class="col-md-5">Previous Enrollment Number</label>
+                  <div class="col-md-7">
+                    <input id="prevenno" name="prevenno" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="prevres" class="col-md-5">Previous Result</label>
+                  <div class="col-md-7">
+                    <input id="prevres" name="prevres" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Q-7  -->
+                <div class="form-group">
+                  <label>Had you been dismissed from the National Cadet Corps?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="dismissed" id="dismissed_0" type="radio" class="custom-control-input" value="true">
+                      <label for="dismissed_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="dismissed" id="dismissed_1" type="radio" class="custom-control-input" value="false">
+                      <label for="dismissed_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-8  -->
+                <div class="form-group row">
+                  <label for="kinname" class="col-md-5">Name of Kin *</label>
+                  <div class="col-md-7">
+                    <input id="kinname" name="kinname" type="text" aria-describedby="kinnameHelpBlock" class="form-control">
+                    <span id="kinnameHelpBlock" class="form-text text-muted">Enter the name of your most close person (Parent /
+                      Gaurdian)</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="kinreln" class="col-md-5">Kin Relationship *</label>
+                  <div class="col-md-7">
+                    <select id="kinreln" name="kinreln" class="custom-select" required="required">
+                      <option value="father">Father</option>
+                      <option value="mother">Mother</option>
+                      <option value="guard">Guardian</option>
+                      <option value="self">Self</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Q-9  -->
+                <div class="form-group row">
+                  <label for="kinmob" class="col-md-5">Kin Contact Number: *</label>
+                  <div class="col-md-7">
+                    <input id="kinmob" name="kinmob" type="tel" maxlength="10" minlength="10" class="form-control"
+                      required="required">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="kinadd" class="col-md-5">Kin Address *</label>
+                  <div class="col-md-7">
+                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" required="required"></textarea>
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="captcha" class="col-md-5">ReCaptcha Code *</label>
+                  <div class="col-md-7">
+                    <input id="captcha" name="captcha" type="text" class="form-control" required="required">
+                  </div>
+                </div>
+  
+                <div class="btns">
+                  <button
+                    type="button"
+                    id="previouscurricular"
+                    class="btn btn-dark back"
+                    >
+                    Back
+                  </button>
+                  <button type="button" id="view-details" class="btn btn-success">View</button>
+                  <button type="submit" id="submit" class="btn btn-success">Submit</button>
+              </div>
           </div>
-          <!--/end #curricular-details-->
-
-          <!-- other Details  -->
-          <div id="other-details">
-            <h2>Other Details</h2>
-            <div class="content">
-              <div class="form-group">
-                <label for="fname">First Name</label>
-                <input
-                  type="text"
-                  name="fname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input
-                  type="text"
-                  name="lname"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="newemail">Email Address</label>
-                <input
-                  type="email"
-                  name="newemail"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password1">Password</label>
-                <input
-                  type="password"
-                  name="password1"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  name="password2"
-                  class="form-control"
-                  autocomplete="off"
-                />
-              </div>
-
-              <div class="btns">
-                <button
-                  type="button"
-                  id="previouscurricular"
-                  class="btn btn-dark back"
-                >
-                  Back
-                </button>
-                <button type="button" id="view-details" class="btn btn-success">
-                  View
-                </button>
-                <button type="submit" id="submit" class="btn btn-success">
-                  Submit
-                </button>
-              </div>
-            </div>
+      </div>
+      <!--/end #other-details-->
+  </div>
+  <!-- /end #page -->
+  <div class="dots">
+      <p class="ball" id="ball-5"></p>
+            <p class="ball" id="ball-1"></p>
+            <p class="ball" id="ball-2"></p>
+            <p class="ball" id="ball-3"></p>
+            <p class="ball" id="ball-4"></p>
           </div>
-          <!--/end #other-details-->
-        </div>
-        <!-- /end #page -->
-        <div class="dots">
-          <p class="ball" id="ball-5"></p>
-          <p class="ball" id="ball-1"></p>
-          <p class="ball" id="ball-2"></p>
-          <p class="ball" id="ball-3"></p>
-          <p class="ball" id="ball-4"></p>
-        </div>
       </div>
       <!-- /end #w -->
     </form>
 
     <%- include('footer') %>
     <script src="../js/formslider.js"></script>
+    <!-- State - district selection js -->
+    <script src='../js/state.js'></script>
+    <script src='../js/state1.js'></script>
+    <script src='../js/responsiver.js'></script>
   </body>
 </html>

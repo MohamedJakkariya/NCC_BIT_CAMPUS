@@ -1,7 +1,7 @@
 // load all the things we need
 var LocalStrategy = require('passport-local').Strategy;
 const sql = require('../db/dbconnection');
-const {tableName} = require('../config/config');
+const {loginTable} = require('../config/config');
 
 var connection = sql.connection;
 
@@ -20,7 +20,7 @@ module.exports = function(passport) {
 
   // used to deserialize the user
   passport.deserializeUser(function(id, done) {
-    connection.query(`select * from ${tableName} where id = ${id}`, function(
+    connection.query(`select * from ${loginTable} where id = ${id}`, function(
       err,
       rows
     ) {
@@ -49,7 +49,7 @@ module.exports = function(passport) {
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         connection.query(
-          `select * from ${tableName} where email = ${email}`,
+          `select * from ${loginTable} where email = ${email}`,
           function(err, rows) {
             console.log(rows);
             console.log('above row object');
@@ -103,7 +103,7 @@ module.exports = function(passport) {
         // callback with email and password from our form
 
         connection.query(
-          `SELECT * FROM ${tableName} WHERE email = ${email}`,
+          `SELECT * FROM ${loginTable} WHERE email = ${email}`,
           function(err, rows) {
             if (err) {
               res.render('errorsignin', {who: 'Student',actionRoute: '/student/signin',errormsg : "Something went wrong"})

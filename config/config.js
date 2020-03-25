@@ -10,5 +10,5 @@ module.exports = {
   dbport: process.env.DBPORT,
   port: process.env.PORT,
   key: process.env.KEY,
-  tableName: process.env.TABLENAME
+  loginTable: process.env.LOGINTABLE
 };
