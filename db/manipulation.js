@@ -21,22 +21,21 @@ exports.read = (sql, email, password, res) => {
           if (result) {
             // all is well, return successful user
             // for admin
-            if(rows[0].type == 'admin'){
+            if (rows[0].type == 'admin') {
               res.render('dashboard');
-            }else{
+            } else {
               // for student
               res.render('profile');
             }
           } else {
-
             // for admin
-            if(rows[0].type == 'admin'){
+            if (rows[0].type == 'admin') {
               res.render('errorsignin', {
                 who: 'Admin',
                 actionRoute: '/admin/signin',
                 errormsg: 'Incorrect Password!'
               });
-            }else{
+            } else {
               // for student
               res.render('errorsignin', {
                 who: 'Student',
@@ -57,9 +56,9 @@ exports.read = (sql, email, password, res) => {
   );
 };
 
-exports.write = (sql, post, req, res) => {
+exports.write = (sql, table, post, req, res) => {
   sql.connection.query(
-    `select * from ${loginTable} where email = "${post.email}"`,
+    `select * from ${table} where email = "${post.email}"`,
     function(err, rows) {
       console.log(rows);
       console.log('above row object');
@@ -73,7 +72,7 @@ exports.write = (sql, post, req, res) => {
       } else {
         // if there is no user with that email
         // create the user
-        sql.connection.query(`INSERT INTO ${loginTable} SET ?`, post, function(
+        sql.connection.query(`INSERT INTO ${table} SET ?`, post, function(
           error,
           results,
           fields

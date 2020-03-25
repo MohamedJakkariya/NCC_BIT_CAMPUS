@@ -59,7 +59,6 @@
                   <label class="col-md-5" for="password2">Confirm Password</label>
                   <input
                     type="password"
-                    name="password2"
                     class="form-control col-md-7"
                     autocomplete="off"
                   />
@@ -83,7 +82,7 @@
                   <label class="col-md-5" for="fname">Full Name</label>
                   <input
                     type="text"
-                    name="fname"
+                    name="fullname"
                     id="fname"
                     class="form-control col-md-7"
                     autocomplete="off"
@@ -95,7 +94,7 @@
                   <label class="col-md-5" for="fname">Father's Name</label>
                   <input
                     type="text"
-                    name="fname"
+                    name="fathername"
                     class="form-control col-md-7"
                     autocomplete="off"
                   />
@@ -106,7 +105,7 @@
                   <label class="col-md-5" for="fname">Mother's Name</label>
                   <input
                     type="text"
-                    name="fname"
+                    name="mothername"
                     class="form-control col-md-7"
                     autocomplete="off"
                   />
@@ -136,7 +135,7 @@
                 <div class="form-group row">
                   <label for="mobile" class="col-md-5">Mobile</label>
                   <div class="col-sm-7 col-md-2 ">
-                    <input name="mobile" type="tel" minlength="10" maxlength="10" class="form-control" placeholder="+91">
+                    <input name="prefix" type="tel" minlength="10" maxlength="10" class="form-control" placeholder="+91">
                   </div>
                   
                   <div class="col-sm-7 col-md-5 pr-2">
@@ -246,7 +245,7 @@
                 <div class="form-group row">
                   <label for="comdist" class="col-md-5">District</label>
                   <div class="col-md-7">
-                    <select id="comdist" name="comdist" required="required" class="custom-select">
+                    <select id="comdist" name="district" required="required" class="custom-select">
                       <option value="slt-dis" selected disabled>Select a State first</option>
                     </select>
                   </div>
@@ -342,7 +341,7 @@
                 <div class="form-group row">
                   <label for="po" class="col-md-5">Post Office</label>
                   <div class="col-md-7">
-                    <input id="po" name="po" type="text" class="form-control">
+                    <input id="po" name="post" type="text" class="form-control">
                   </div>
                 </div>
   
@@ -366,7 +365,7 @@
                 <div class="form-group row">
                   <label for="paradd" class="col-md-5">Permanent address</label>
                   <div class="col-md-7">
-                    <textarea 7d="peradd" name="peradd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                    <textarea id="peradd" name="peradd" cols="40" rows="5" required="required" class="form-control"></textarea>
                   </div>
                 </div>
   
