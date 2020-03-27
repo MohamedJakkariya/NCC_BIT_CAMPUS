@@ -1,0 +1,18 @@
+use ncc;
+
+create table studentlogin(id int not null auto_increment,email varchar(255), password varchar(255), type varchar(255), primary key(id));
+
+create table studentInfo(id int not null auto_increment,fullname varchar(25) not null, fathername varchar(25) not null, mothername varchar(25) not null,gender varchar(1),mobile bigint,dob date,age int,nationality varchar(10),college varchar(100),stream varchar(20),unit varchar(15),state varchar(20),district varchar(20),education varchar(75),email varchar(50),phone bigint,comaddress varchar(255),comstate varchar(25),comdist varchar(25),post integer,railway varchar(50),peraddress varchar(255),uniquemark varchar(150),bloodgroup varchar(5),medicalcomplaints varchar(255),sport1 varchar(20),sport2 varchar(20),sport3 varchar(20),curricular1 varchar(30),curricular2 varchar(30),curricular3 varchar(30),criminal boolean,senticriminal varchar(100),willing boolean,radio boolean,serve boolean,anytimebefore boolean,prevenno varchar(15),prevres varchar(20),dismissed boolean,kinname varchar(50), kinmob bigint, kinaddress varchar(255), primary key(id));
+
+insert into studentlogin(id,email, firstName, secondName, password,type) values(id,'test123@gmail.com', 'Mohamed', 'Jack', '1234','admin');
+
+insert into studentInfo(id,fullname , fathername, mothername ,gender ,mobile,dob ,age ,nationality,college,stream,unit,state,district,education,email,phone,comaddress,comstate,comdist,post,railway,peraddress,uniquemark,bloodgroup,medicalcomplaints,sport1,sport2,sport3,curricular1,curricular2,curricular3,criminal,senticriminal,willing ,radio ,serve ,anytimebefore ,prevenno,prevres ,dismissed ,kinname , kinmob , kinaddress) values(id, 'jack','raja','thais','M',952777666684368255,'2000-12-01',20,'Indian','Univeristy college of engineering','Engineering','Rabbit','Tamilnadu','Trichy','12th','jack123@gmail.com',8935268163,'1/23 dusi street', 'Tamilnadu','Trichy',621216,'junction','1/22 kusi street','none','O+','None','Cricket','footbal','volleyball','none','none','none',false,'no',true,false,false,false,802838,90,false,'none',3826497264,'1/62 maddu street');
+
+select * from studentlogin;
+select * from studentInfo;
+
+drop table studentLogin;
+drop table studentInfo;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Mdjack9524369244';
+
+flush privileges;

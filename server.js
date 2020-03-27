@@ -8,6 +8,7 @@ const { port, key } = require('./config/config');
 const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/passport');
+// const util = require('./utils/utilityfn');
 
 const app = express();
 app.use(express.static(__dirname + '/public'));
@@ -44,20 +45,10 @@ app.get('/student/signup', (req, res) => {
   res.render('signup', { actionRoute: '/student/signup', who: 'Student' });
 });
 
-app.post('/student/signup', (req, res) => {
+app.post('/student/signup', async (req, res) => {
   let id;
 
-  // To storing login table
-  bcrypt.hash(req.body.password, 10).then(function(hash) {
-    const user = {
-      id: id,
-      email: req.body.email,
-      password: hash,
-      type: 'student'
-    };
-
-    ms.write(sql, 'loginTable', user, req, res);
-  });
+  console.log(req.body);
 
   //var post = { attribute_name_1  : value, attribute_name_1: 'value' };
   // To store register table
@@ -69,10 +60,6 @@ app.post('/student/signup', (req, res) => {
   var anytimebefore = req.body.anytimebefore === 'true';
   var dismissed = req.body.dismissed === 'true';
 
-  // change date format to yyyy:mm:dd
-  var date = req.body.dob;
-  console.log(date);
-
   const user = {
     id: id,
     fullname: req.body.fullname,
@@ -80,7 +67,6 @@ app.post('/student/signup', (req, res) => {
     mothername: req.body.mothername,
     gender: req.body.gender,
     mobile: parseInt(req.body.mobile),
-    // date format : yyyy:mm:dd
     dob: req.body.dob,
     age: parseInt(req.body.age),
     nationality: req.body.nationality,
@@ -95,7 +81,8 @@ app.post('/student/signup', (req, res) => {
     comaddress: req.body.comadd,
     comstate: req.body.comstate,
     comdist: req.body.comdist,
-    post: parseInt(req.body.post),
+    postoffice: req.body.post,
+    post: parseInt(req.body.compin),
     railway: req.body.rail,
     peraddress: req.body.peradd,
     uniquemark: req.body.idmarks,
@@ -104,11 +91,11 @@ app.post('/student/signup', (req, res) => {
     sport1: req.body.sport1,
     sport2: req.body.sport2,
     sport3: req.body.sport3,
-    curricualr1: req.body.co1,
-    curricualr2: req.body.co2,
-    curricualr3: req.body.co3,
+    curricular1: req.body.co1,
+    curricular2: req.body.co2,
+    curricular3: req.body.co3,
     criminal: criminal,
-    sentcriminal: req.body.sentcriminal,
+    senticriminal: req.body.sentcriminal,
     willing: willing,
     radio: radio,
     serve: serve,
@@ -121,7 +108,29 @@ app.post('/student/signup', (req, res) => {
     kinaddress: req.body.kinadd
   };
 
-  ms.write(sql, user, 'registerTable', req, res);
+  await ms.write(sql, 'studentInfo', user, req, res);
+
+  // To storing login table
+  await bcrypt
+    .hash(req.body.password, 10)
+    .then(function(hash) {
+      let id;
+      const user = {
+        id: id,
+        email: req.body.loginemail,
+        password:   hash,
+        type: 'student'
+      };
+
+      ms.write(sql, 'studentLogin', user, req, res);
+
+      req.login(user, err => {
+        res.render('profile');
+      });
+    })
+    .catch(error => {
+      throw error;
+    });
 });
 
 // Student signin route

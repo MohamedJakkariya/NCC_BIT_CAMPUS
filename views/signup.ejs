@@ -20,7 +20,7 @@
   <body>
     <%- include('nav') %>
     <!-- form container  -->
-    <form action="/action" method="POST" class="container">
+    <form action="/student/signup" method="POST" class="container">
         <!-- w container  -->
         <div id="w" class="form-container">
           <div id="page">
@@ -33,7 +33,7 @@
                   <label for="email" class="col-md-5">Email Address</label>
                   <input
                     type="email"
-                    name="email"
+                    name="loginemail"
                     id="loginemail"
                     class="form-control col-md-7"
                     autocomplete="on"
@@ -116,16 +116,16 @@
                   <label class="col-md-4 pt-3">Gender</label>
                   <div class="p-3 col-md-8">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" required="required"
+                      <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" 
                         checked="checked">
                       <label for="gender_0" class="custom-control-label">Male</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required">
+                      <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" >
                       <label for="gender_1" class="custom-control-label">Female</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG" required="required">
+                      <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG" >
                       <label for="gender_2" class="custom-control-label">Transgender</label>
                     </div>
                   </div>
@@ -148,7 +148,7 @@
                   <label for="avatar" class="col-md-4">Standard photograph *</label>
                   <label class="col-md-1"></label>
                   <div class="col-md-7">
-                    <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" required="required"
+                    <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock"
                       class="form-control">
                     <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
                       <br> Allowed format: JPEG only.</span>
@@ -159,7 +159,7 @@
                 <div class="form-group row">
                   <label for="dob" class="col-md-5">Date of Birth</label>
                   <div class="col-md-7">
-                    <input id="dob" name="dob" type="date" required="required" class="form-control">
+                    <input id="dob" name="dob" type="date"  class="form-control">
                   </div>
                 </div>
   
@@ -167,7 +167,7 @@
                 <div class="form-group row">
                   <label for="age" class="col-md-5">Age</label>
                   <div class="col-md-7">
-                    <input id="age" name="age" type="number" min="10" max="30" required="required" class="form-control">
+                    <input id="age" name="age" type="number" min="10" max="30"  class="form-control">
                   </div>
                 </div>
   
@@ -175,7 +175,7 @@
                 <div class="form-group row">
                   <label for="nationality" class="col-md-5">Nationality</label>
                   <div class="col-md-7">
-                    <select id="nationality" name="nationality" required="required" class="custom-select">
+                    <select id="nationality" name="nationality"  class="custom-select">
                       <option value="IND">Indian</option>
                       <option value="CAN">Canadian</option>
                       <option value="AME">American</option>
@@ -188,7 +188,7 @@
                 <div class="form-group row">
                   <label for="directorate" class="col-md-5">Directorate</label>
                   <div class="col-md-7">
-                    <select id="directorate" name="directorate" required="required" class="custom-select">
+                    <select id="directorate" name="directorate"  class="custom-select">
                       <option value="Meow">Meow</option>
                     </select>
                   </div>
@@ -222,7 +222,7 @@
                 <div class="form-group row">
                   <label for="unit" class="col-md-5">Unit is</label>
                   <div class="col-md-7">
-                    <select id="unit" name="unit" required="required" class="custom-select">
+                    <select id="unit" name="unit"  class="custom-select">
                       <option value="rabbit">Rabbit</option>
                       <option value="duck">Duck</option>
                       <option value="fish">Fish</option>
@@ -234,7 +234,7 @@
                 <div class="form-group row">
                   <label for="state" class="col-md-5">State</label>
                   <div class="col-md-7">
-                    <select id="state" onchange='selct_district(this.value)' name="state" required="required"
+                    <select id="state" onchange='selct_district(this.value)' name="state" 
                       class="custom-select">
                     </select>
                     </select>
@@ -245,7 +245,7 @@
                 <div class="form-group row">
                   <label for="comdist" class="col-md-5">District</label>
                   <div class="col-md-7">
-                    <select id="comdist" name="district" required="required" class="custom-select">
+                    <select id="comdist" name="district"  class="custom-select">
                       <option value="slt-dis" selected disabled>Select a State first</option>
                     </select>
                   </div>
@@ -255,13 +255,13 @@
                 <div class="form-group row pb-4">
                   <label for="educ" class="col-md-5">Last educational qualification *</label>
                   <div class="col-md-7">
-                    <select id="educ" name="educ" required="required" class="custom-select">
-                      <option value="">SSLC</option>
-                      <option value="">Diploma</option>
-                      <option value="">HSC</option>
-                      <option value="">B.A</option>
-                      <option value="">B.Sc</option>
-                      <option value="">B.E</option>
+                    <select id="educ" name="educ"  class="custom-select">
+                      <option value="SSLC">SSLC</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="HSC">HSC</option>
+                      <option value="B.A">B.A</option>
+                      <option value="B.Sc">B.Sc</option>
+                      <option value="B.E">B.E</option>
                     </select>
                   </div>
                 </div>
@@ -286,7 +286,7 @@
                 <div class="form-group row">
                   <label for="email" class="col-md-5">Email</label>
                   <div class="col-md-7">
-                    <input id="email" name="email" placeholder="you@example.com" type="email" required="required"
+                    <input id="email" name="email" placeholder="you@example.com" type="email" 
                       class="form-control">
                   </div>
                 </div>
@@ -295,7 +295,7 @@
                 <div class="form-group row">
                   <label for="phone" class="col-md-5">Phone</label>
                   <div class="col-md-7">
-                    <input id="phone" name="phone" type="tel" aria-describedby="phoneHelpBlock" required="required"
+                    <input id="phone" name="phone" type="tel" aria-describedby="phoneHelpBlock" 
                       class="form-control">
                     <span id="phoneHelpBlock" class="form-text text-muted">With the ZIP Code</span>
                   </div>
@@ -305,7 +305,7 @@
                 <div class="form-group row">
                   <label for="comadd" class="col-md-5">Communication address</label>
                   <div class="col-md-7">
-                    <textarea id="comadd" name="comadd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                    <textarea id="comadd" name="comadd" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -313,7 +313,7 @@
                 <div class="form-group row">
                   <label for="comstate" class="col-md-5">State</label>
                   <div class="col-md-7">
-                    <select id="comstate" onchange="selct_district(this.value);" name="comstate" required="required"
+                    <select id="comstate" onchange="selct_district(this.value);" name="comstate" 
                       class="custom-select">
                     </select>
                   </div>
@@ -323,7 +323,7 @@
                 <div class="form-group row">
                   <label for="comdist" class="col-md-5">District</label>
                   <div class="col-md-7">
-                    <select id="contactcom" name="comdist" required="required" class="custom-select">
+                    <select id="comdist" name="comdist"  class="custom-select">
                       <option value="slt-dis" selected disabled>Select a State first</option>
                     </select>
                   </div>
@@ -333,7 +333,7 @@
                 <div class="form-group row">
                   <label for="compin" class="col-md-5">PIN Code</label>
                   <div class="col-md-7">
-                    <input id="compin" name="compin" placeholder="600001" type="text" required="required" class="form-control">
+                    <input id="compin" name="compin" placeholder="600001" type="text"  class="form-control">
                   </div>
                 </div>
   
@@ -349,7 +349,7 @@
                 <div class="form-group row">
                   <label for="rail" class="col-md-5">Nearest Railway Station</label>
                   <div class="col-md-7">
-                    <input id="rail" name="rail" type="text" required="required" class="form-control">
+                    <input id="rail" name="rail" type="text"  class="form-control">
                   </div>
                 </div>
   
@@ -357,7 +357,7 @@
                 <div class="form-group row">
                   <label for="paradd" class="col-md-5">Parent's address</label>
                   <div class="col-md-7">
-                    <textarea 7d="paradd" name="paradd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                    <textarea 7d="paradd" name="paradd" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -365,7 +365,7 @@
                 <div class="form-group row">
                   <label for="paradd" class="col-md-5">Permanent address</label>
                   <div class="col-md-7">
-                    <textarea id="peradd" name="peradd" cols="40" rows="5" required="required" class="form-control"></textarea>
+                    <textarea id="peradd" name="peradd" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -494,13 +494,13 @@
                   <div class="yesOrNo">
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
-                        required="required">
+                        >
                       <label for="criminal_0" class="custom-control-label">Yes</label>
                     </div>
   
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="criminal_1" class="custom-control-label">No</label>
                     </div>
                   </div>
@@ -520,12 +520,12 @@
                   <div class="yesOrNo">
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
-                        required="required">
+                        >
                       <label for="willing_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="willing_1" class="custom-control-label">No</label>
                     </div>
                   </div>
@@ -537,12 +537,12 @@
                     thereunder? *</label>
                   <div class="yesOrNo">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" required="required">
+                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" >
                       <label for="radio_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="radio_1" class="custom-control-label">No</label>
                     </div>
                   </div>
@@ -569,12 +569,12 @@
                   <label>Have you ever applied for enrollment under the act?</label>
                   <div class="yesOrNo">
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="anytimebefore" id="anytimebefore_0" type="radio" required="required"
+                      <input name="anytimebefore" id="anytimebefore_0" type="radio" 
                         class="custom-control-input" value="false">
                       <label for="anytimebefore_0" class="custom-control-label">No</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="anytimebefore" id="anytimebefore_1" type="radio" required="required"
+                      <input name="anytimebefore" id="anytimebefore_1" type="radio" 
                         class="custom-control-input" value="true">
                       <label for="anytimebefore_1" class="custom-control-label">Yes</label>
                     </div>
@@ -621,7 +621,7 @@
                 <div class="form-group row">
                   <label for="kinreln" class="col-md-5">Kin Relationship *</label>
                   <div class="col-md-7">
-                    <select id="kinreln" name="kinreln" class="custom-select" required="required">
+                    <select id="kinreln" name="kinreln" class="custom-select" >
                       <option value="father">Father</option>
                       <option value="mother">Mother</option>
                       <option value="guard">Guardian</option>
@@ -635,21 +635,21 @@
                   <label for="kinmob" class="col-md-5">Kin Contact Number: *</label>
                   <div class="col-md-7">
                     <input id="kinmob" name="kinmob" type="tel" maxlength="10" minlength="10" class="form-control"
-                      required="required">
+                      >
                   </div>
                 </div>
   
                 <div class="form-group row">
                   <label for="kinadd" class="col-md-5">Kin Address *</label>
                   <div class="col-md-7">
-                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" required="required"></textarea>
+                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" ></textarea>
                   </div>
                 </div>
   
                 <div class="form-group row">
                   <label for="captcha" class="col-md-5">ReCaptcha Code *</label>
                   <div class="col-md-7">
-                    <input id="captcha" name="captcha" type="text" class="form-control" required="required">
+                    <input id="captcha" name="captcha" type="text" class="form-control" >
                   </div>
                 </div>
   
@@ -661,7 +661,7 @@
                     >
                     Back
                   </button>
-                  <button type="button" id="view-details" class="btn btn-success">View</button>
+                  <button type="button" id="view-details" class="btn btn-success">Verify</button>
                   <button type="submit" id="submit" class="btn btn-success">Submit</button>
               </div>
           </div>

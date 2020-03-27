@@ -80,10 +80,7 @@ exports.write = (sql, table, post, req, res) => {
           if (error) throw error;
 
           // Print it
-          console.log('Successfully write -> ' + results);
-          req.login(post, err => {
-            res.render('profile');
-          });
+          console.log('Successfully write -> ' + results[0]);
         });
       }
     }
