@@ -24,8 +24,44 @@ exports.read = (sql, email, password, res) => {
             if (rows[0].type == 'admin') {
               res.render('dashboard');
             } else {
+              console.log(rows[0].id);
               // for student
-              res.render('profile');
+              sql.connection.query(
+                `SELECT * FROM studentInfo WHERE id = "${rows[0].id}"`,
+                (err, foundUser) => {
+                  if (err) {
+                    console.log('Error when finding the user...');
+                  }
+
+                  console.log(foundUser);
+                  let gender;
+
+                  if (foundUser.gender === 'M') {
+                    gender = 'Male';
+                  } else if (foundUser.gender === 'F') {
+                    gender = 'Female';
+                  } else {
+                    gender = 'Transgender';
+                  }
+
+                  res.render('profile', {
+                    name: foundUser.fullname,
+                    fatherName: foundUser.fathername,
+                    motherName: foundUser.mothername,
+                    gender: gender,
+                    mobile: foundUser.mobile,
+                    dob: foundUser.dob,
+                    age: foundUser.age,
+                    nationality: foundUser.nationality,
+                    college: foundUser.college,
+                    stream: foundUser.stream,
+                    unit: foundUser.unit,
+                    state: foundUser.state,
+                    district: foundUser.district,
+                    directorate: 'none'
+                  });
+                }
+              );
             }
           } else {
             // for admin
