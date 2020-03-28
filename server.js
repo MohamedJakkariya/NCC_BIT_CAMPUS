@@ -111,26 +111,51 @@ app.post('/student/signup', async (req, res) => {
   await ms.write(sql, 'studentInfo', user, req, res);
 
   // To storing login table
-  await bcrypt
-    .hash(req.body.password, 10)
-    .then(function(hash) {
-      let id;
-      const user = {
-        id: id,
-        email: req.body.loginemail,
-        password:   hash,
-        type: 'student'
-      };
+  await bcrypt.hash(req.body.password, 10).then(function(hash) {
+    let id;
+    const user = {
+      id: id,
+      email: req.body.loginemail,
+      password: hash,
+      type: 'student'
+    };
 
-      ms.write(sql, 'studentLogin', user, req, res);
+    ms.write(sql, 'studentLogin', user, req, res);
 
-      req.login(user, err => {
-        res.render('profile');
+    req.login(user, err => {
+      console.log(user[0].dob);
+
+      if (err) {
+        console.log('Something went wrong in req.login method!');
+      }
+      let gender;
+
+      if (user[0].gender === 'M') {
+        gender = 'Male';
+      } else if (user[0].gender === 'F') {
+        gender = 'Female';
+      } else {
+        gender = 'Transgender';
+      }
+
+      res.render('profile', {
+        name: user[0].fullname,
+        fatherName: user[0].fathername,
+        motherName: user[0].mothername,
+        gender: gender,
+        mobile: user[0].mobile,
+        dob: user[0].dob,
+        age: user[0].age,
+        nationality: user[0].nationality,
+        college: user[0].college,
+        stream: user[0].stream,
+        unit: user[0].unit,
+        state: user[0].state,
+        district: user[0].district,
+        directorate: 'none'
       });
-    })
-    .catch(error => {
-      throw error;
     });
+  });
 });
 
 // Student signin route

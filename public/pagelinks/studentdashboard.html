@@ -179,7 +179,7 @@
             <i class="fa fa-envelope"></i>
             Co Curricular Activities
           </a>
-          <a href="#other-details" class="nav-link">
+          <a href="#" class="nav-link" onclick="scroll()">
             <i class="fa fa-area-chart"></i>
             Other Details
           </a>
@@ -446,7 +446,20 @@
 
           return false;
         });
+        $('.nav-link').on('click', (e) => {
+          alert('cliced!')
+        })
       });
+
+      // show back to top button when page scrolls
+      function scroll() {
+        alert(e);
+        alert('hello')
+
+        let position = $('html').scrollTop();
+        console.log(position);
+      }
+
     </script>
   </body>
 </html>

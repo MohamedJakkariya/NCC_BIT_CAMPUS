@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // For slide effect 
+  // For slide effect
   // $('.search-field').hover(
   //   function() {
   //     $(this)
@@ -63,3 +63,4 @@ $(document).ready(function() {
     ]
   });
 });
+

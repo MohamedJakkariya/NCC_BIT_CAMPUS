@@ -60,10 +60,11 @@
     </div>
   </section>
 
+
   <!-- Student showcase  -->
   <section class="profile-showcase col-lg-6 mx-auto">
     <div class="detail">
-      <h1 class="text-center" id="dashboard">Personal Info</h1>
+      <h1 class="text-center">Personal Info</h1>
       <div class="info row">
         <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Name</p>
         <p class="col-lg-9 col-sm-6 text-center"><%= name %></p>
@@ -136,137 +137,140 @@
     </div>
 
     <!-- Qualification -->
-    <div class="detail m-5">
+    <p id="qualification" class="mt-4"></p>
+
+    <div class="detail m-5 col-lg-12 mx-auto">
       <h1 class="text-center" id="qualification">Qualification</h1>
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Previous Education </p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= education %></p>
       </div>
-
+      <!-- Current 
       <div class="info row">
         <p class="col-lg-3 col-sm-6 text-center">District</p>
         <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
-      </div>
+      </div> -->
     </div>
 
     <!-- Address  -->
-    <div class="detail m-5">
-      <h1 class="text-center" id="address">Address</h1>
-      <div class="info row">
-        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+    <div class="detail m-5 col-lg-12 mx-auto">
+      <h1 class="text-center" id="address">Contact Detail</h1>
+       <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Email</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= email %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">District</p>
-        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Phone</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= phone %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Communication Address</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= comaddress %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Native State</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= comstate %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">State</p>
-        <p class="col-lg-9 text-center">Tamilnadu</p>
-      </div>
-    </div>
-
-    <!-- Medical Info  -->
-    <div class="detail m-5">
-      <h1 class="text-center" id="medical-info">Medical Info</h1>
-      <div class="info row">
-        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Native District</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= comdistrict %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">District</p>
-        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Post Office</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= postoffice %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Post code</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= post %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Railwat Station</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= railway %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">State</p>
-        <p class="col-lg-9 text-center">Tamilnadu</p>
-      </div>
-    </div>
-
-    <!-- Co-curricular Activities -->
-    <div class="detail m-5">
-      <h1 class="text-center" id="co-curricular">
-        Co-curricular Activities
-      </h1>
-      <div class="info row">
-        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Parent Address</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= peraddress %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">District</p>
-        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Unique Mark</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= 
+          uniquemark %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Blood Group</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= bloodgroup %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Medical Complaints</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= medicalcomplaints %></p>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">State</p>
-        <p class="col-lg-9 text-center">Tamilnadu</p>
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Sports</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= 
+          sport1 %>, <%= sport2 %>, <%= sport3 %></p>
+      </div>
+
+      <span id="other-details"></span>
+
+      <div class="info row">
+        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">Curricular</p>
+        <p class="col-lg-9 col-sm-6 text-center"><%= 
+          curricular1 %>, <%= curricular2 %>, <%= curricular3 %></p>
       </div>
     </div>
 
     <!-- Others 
          -->
-    <div class="detail m-5">
-      <h1 class="text-center" id="other-details">Other Details</h1>
+    <div class="detail m-5 col-lg-12 mx-auto">
+      <h1 class="text-center" id="">Other Details</h1>
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 col-xs-2  text-center">State</p>
-        <p class="col-lg-9 col-sm-6 text-center">Tamilnadu</p>
+        <p class="col-lg-10 col-sm-10 col-xs-2  text-center">Have you ever been convicted by criminal court?</p>
+        <% if(criminal) { %>
+          <p class="col-lg-2 col-sm-2 text-center">No</p>
+        <% } else{%>
+          <p class="col-lg-2 col-sm-2 text-center">Yes</p>
+        <% } %>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">District</p>
-        <p class="col-lg-9 col-sm-6 text-center">Trichy</p>
+        <p class="col-lg-10 col-sm-10 col-xs-2  text-center">If yes, what was the circumstance and what was the sentence?</p>
+        <% if(senticriminal) { %>
+          <p class="col-lg-2 col-sm-2 text-center">No</p>
+        <% } else{%>
+          <p class="col-lg-2 col-sm-2 text-center">Yes</p>
+        <% } %>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Gender</p>
-        <p class="col-lg-9 col-sm-6 text-center">Male</p>
+        <p class="col-lg-10 col-sm-10 col-xs-2  text-center">Are you willing to be enrolled under National Cadet Corps Act, 1948?</p>
+        <% if(willing) { %>
+          <p class="col-lg-2 col-sm-2 text-center">No</p>
+        <% } else{%>
+          <p class="col-lg-2 col-sm-2 text-center">Yes</p>
+        <% } %>
       </div>
 
       <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">Unit is</p>
-        <p class="col-lg-9 col-sm-6 text-center">First Batch</p>
+        <p class="col-lg-10 col-sm-10 col-xs-2  text-center">Are you willing to undergo service training as specified in the act and the rules made
+          thereunder?</p>
+        <% if(radio) { %>
+          <p class="col-lg-2 col-sm-2 text-center">No</p>
+        <% } else{%>
+          <p class="col-lg-2 col-sm-2 text-center">Yes</p>
+        <% } %>
       </div>
-
-      <div class="info row">
-        <p class="col-lg-3 col-sm-6 text-center">State</p>
-        <p class="col-lg-9 text-center">Tamilnadu</p>
-      </div>
-    </div>
   </section>
 
   <!-- profile-notification -->
