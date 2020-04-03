@@ -33,5 +33,13 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+    "nodemonConfig": {
+    "ignore": [
+      "public/*",
+      "*.json",
+      "utils/*",
+      "db/*"
+      ]
+  }
 }
