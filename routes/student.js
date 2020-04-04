@@ -7,23 +7,72 @@ const passport = require('passport');
 const Login = require('../models/User');
 
 // Login Page
-router.get('/signup', (req, res) =>
-  res.render('register',{
-    action : '/student/signup'
+router.get('/signup', (req, res) => res.render('signup'));
+
+// Register Page
+router.get('/signin', (req, res) =>
+  res.render('login', {
+    action: '/student/signin',
   })
 );
 
-// Register Page
-router.get('/signin', (req, res) => res.render('login', {
-  action : '/student/signin'
-}));
-
 // Register
 router.post('/signup', (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  console.log(req.body);
+  
+  const {
+    fullname,
+    email,
+    password,
+    password2,
+    fathername,
+    mothername,
+    gender,
+    mobile,
+    dob,
+    age,
+    nationality,
+    college,
+    stream,
+    unit,
+    state,
+    district,
+    education,
+    phone,
+    comaddress,
+    comstate,
+    comdist,
+    postoffice,
+    post,
+    railway,
+    paraddress,
+    peraddress,
+    uniquemark,
+    bloodgroup,
+    medicalcomplaints,
+    sport1,
+    sport2,
+    sport3,
+    curricular1,
+    curricular2,
+    curricular3,
+    criminal,
+    senticriminal,
+    willing,
+    radio,
+    serve,
+    kinrelation,
+    anytimebefore,
+    prevenno,
+    prevres,
+    dismissed,
+    kinname,
+    kinmob,
+    kinaddress,
+  } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2) {
+  if (!fullname || !email || !password || !password2) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -37,8 +86,10 @@ router.post('/signup', (req, res) => {
 
   if (errors.length > 0) {
     console.log(errors);
+    const action = '/student/signup';
     res.render('register', {
       errors,
+      action,
     });
   } else {
     Login.findOne({ email: email }).then((user) => {
@@ -50,14 +101,60 @@ router.post('/signup', (req, res) => {
           email,
           password,
           password2,
+          action,
         });
       } else {
-        const type = 'student'
+        const type = 'Login';
+
         const newUser = new Login({
-          name,
+          fullname,
           email,
           password,
-          type
+          type,
+          fathername,
+          mothername,
+          gender,
+          mobile,
+          dob,
+          age,
+          nationality,
+          college,
+          stream,
+          unit,
+          state,
+          district,
+          education,
+          phone,
+          comaddress,
+          comstate,
+          comdist,
+          paraddress,
+          postoffice,
+          post,
+          railway,
+          peraddress,
+          uniquemark,
+          bloodgroup,
+          medicalcomplaints,
+          sport1,
+          sport2,
+          sport3,
+          curricular1,
+          curricular2,
+          curricular3,
+          criminal,
+          senticriminal,
+          willing,
+          radio,
+          serve,
+          anytimebefore,
+          prevenno,
+          prevres,
+          dismissed,
+          kinname,
+          kinmob,
+          kinaddress,
+          kinrelation
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -71,7 +168,7 @@ router.post('/signup', (req, res) => {
                   'success_msg',
                   'You are now registered and can log in'
                 );
-                res.redirect('/admin/signin');
+                res.redirect('/student/signin');
               })
               .catch((err) => console.log(err));
           });

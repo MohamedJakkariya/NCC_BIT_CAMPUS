@@ -13,7 +13,15 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
 );
 
 router.get('/profile', ensureAuthenticated,(req, res) => {
-  res.render('profile');
+  console.log(req.user);
+  
+  res.render('profile', {
+    user: req.user
+  });
 });
 
+router.get('/update', ensureAuthenticated,(req, res) => {
+  // console.log(req.user);
+  res.send('Update workspace');
+});
 module.exports = router;

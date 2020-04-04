@@ -29,12 +29,14 @@ module.exports = function(passport) {
   );
 
   passport.serializeUser(function(user, done) {
+    // console.log('In serializeUser' + user);
     done(null, user.id);
   });
 
   passport.deserializeUser(function(id, done) {
-    Login.findById(id, function(err, user) {
-      done(err, user);
-    });
+      // console.log('In deserializeUser ' + id);
+      Login.findById(id, function(err, user) {
+        done(err, user);
+      });
   });
 };

@@ -19,6 +19,8 @@
   </head>
   <body>
     <%- include('nav') %>
+    <%- include ('partials/messages') %>
+
     <!-- form container  -->
     <form action="/student/signup" method="POST" class="container">
         <!-- w container  -->
@@ -27,13 +29,13 @@
             <!-- Login Details -->
             <div id="content-login">
               <h2>Login Detail</h2>
-  
+   
               <div class="content">
                 <div class="form-group row">
                   <label for="email" class="col-md-5">Email Address</label>
                   <input
                     type="email"
-                    name="loginemail"
+                    name="email"
                     id="loginemail"
                     class="form-control col-md-7"
                     autocomplete="on"
@@ -59,6 +61,7 @@
                   <label class="col-md-5" for="password2">Confirm Password</label>
                   <input
                     type="password"
+                    name="password2"
                     class="form-control col-md-7"
                     autocomplete="on"
                   />
@@ -184,21 +187,11 @@
                   </div>
                 </div>
   
-                <!-- Directorate  -->
-                <div class="form-group row">
-                  <label for="directorate" class="col-md-5">Directorate</label>
-                  <div class="col-md-7">
-                    <select id="directorate" name="directorate"  class="custom-select">
-                      <option value="Meow">Meow</option>
-                    </select>
-                  </div>
-                </div>
-  
                 <!-- Institution  -->
                 <div class="form-group row">
                   <label for="clg" class="col-md-5">Name of Institution</label>
                   <div class="col-md-7">
-                    <input id="clg" name="clg"
+                    <input id="clg" name="college"
                       placeholder="University College of Engineering, BIT Campus, Anna University, Tiruchirappalli" type="text"
                       aria-describedby="clgHelpBlock" class="form-control">
                     <span id="clgHelpBlock" class="form-text text-muted">Enter the full name of your School/ College</span>
@@ -255,7 +248,7 @@
                 <div class="form-group row pb-4">
                   <label for="educ" class="col-md-5">Last educational qualification *</label>
                   <div class="col-md-7">
-                    <select id="educ" name="educ"  class="custom-select">
+                    <select id="educ" name="education"  class="custom-select">
                       <option value="SSLC">SSLC</option>
                       <option value="Diploma">Diploma</option>
                       <option value="HSC">HSC</option>
@@ -281,16 +274,7 @@
             <!-- Contact Details  -->
             <div id="contact-details">
               <h2>Contact Details</h2>
-              <div class="content pt-4">
-                <!-- Email  -->
-                <div class="form-group row">
-                  <label for="email" class="col-md-5">Email</label>
-                  <div class="col-md-7">
-                    <input id="email" name="email" placeholder="you@example.com" type="email" 
-                      class="form-control">
-                  </div>
-                </div>
-  
+              <div class="content pt-4">  
                 <!-- Phone  -->
                 <div class="form-group row">
                   <label for="phone" class="col-md-5">Phone</label>
@@ -305,7 +289,7 @@
                 <div class="form-group row">
                   <label for="comadd" class="col-md-5">Communication address</label>
                   <div class="col-md-7">
-                    <textarea id="comadd" name="comadd" cols="40" rows="5"  class="form-control"></textarea>
+                    <textarea id="comadd" name="comaddress" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -333,15 +317,15 @@
                 <div class="form-group row">
                   <label for="compin" class="col-md-5">PIN Code</label>
                   <div class="col-md-7">
-                    <input id="compin" name="compin" placeholder="600001" type="text"  class="form-control">
+                    <input id="compin" name="post" placeholder="600001" type="text"  class="form-control">
                   </div>
                 </div>
   
-                <!-- Post onice  -->
+                <!-- Post office  -->
                 <div class="form-group row">
-                  <label for="po" class="col-md-5">Post onice</label>
+                  <label for="po" class="col-md-5">Post office</label>
                   <div class="col-md-7">
-                    <input id="po" name="post" type="text" class="form-control">
+                    <input id="po" name="postoffice" type="text" class="form-control">
                   </div>
                 </div>
   
@@ -349,7 +333,7 @@
                 <div class="form-group row">
                   <label for="rail" class="col-md-5">Nearest Railway Station</label>
                   <div class="col-md-7">
-                    <input id="rail" name="rail" type="text"  class="form-control">
+                    <input id="rail" name="railway" type="text"  class="form-control">
                   </div>
                 </div>
   
@@ -357,7 +341,7 @@
                 <div class="form-group row">
                   <label for="paradd" class="col-md-5">Parent's address</label>
                   <div class="col-md-7">
-                    <textarea 7d="paradd" name="paradd" cols="40" rows="5"  class="form-control"></textarea>
+                    <textarea 7d="paradd" name="paraddress" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -365,7 +349,7 @@
                 <div class="form-group row">
                   <label for="paradd" class="col-md-5">Permanent address</label>
                   <div class="col-md-7">
-                    <textarea id="peradd" name="peradd" cols="40" rows="5"  class="form-control"></textarea>
+                    <textarea id="peradd" name="peraddress" cols="40" rows="5"  class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -373,7 +357,7 @@
                 <div class="form-group row">
                   <label for="idmarks" class="col-md-5">Unique Identification marks</label>
                   <div class="col-md-7">
-                    <textarea id="idmarks" name="idmarks" cols="40" rows="2" aria-describedby="idmarksHelpBlock"
+                    <textarea id="idmarks" name="uniquemark" cols="40" rows="2" aria-describedby="idmarksHelpBlock"
                       class="form-control"></textarea>
                     <span id="idmarksHelpBlock" class="form-text text-muted">Enter 2 unique identification marks</span>
                   </div>
@@ -383,7 +367,7 @@
                 <div class="form-group row">
                   <label for="blood" class="col-sm-4 col-md-5">Blood Group</label>
                   <div class="col-sm-7 col-md-7">
-                    <select id="blood" name="blood" class="custom-select">
+                    <select id="blood" name="bloodgroup" class="custom-select">
                       <option value="O+">O+</option>
                       <option value="">AB-</option>
                       <option value="">A+</option>
@@ -400,7 +384,7 @@
                 <div class="form-group row pb-4">
                   <label for="medical" class="col-md-5">Medical Complaints (if any)</label>
                   <div class="col-md-7">
-                    <textarea id="medical" name="medical" cols="40" rows="5" class="form-control"></textarea>
+                    <textarea id="medical" name="medicalcomplaints" cols="40" rows="5" class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -450,21 +434,21 @@
                 <div class="form-group row">
                   <label for="co1" class="col-md-5">Co-curricular activity 1</label>
                   <div class="col-md-7">
-                    <input id="co1" name="co1" type="text" class="form-control">
+                    <input id="co1" name="curricular1" type="text" class="form-control">
                   </div>
                 </div>
   
                 <div class="form-group row">
                   <label for="co2" class="col-md-5">Co-curricular activity 2</label>
                   <div class="col-md-7">
-                    <input id="co2" name="co2" type="text" class="form-control">
+                    <input id="co2" name="curricular2" type="text" class="form-control">
                   </div>
                 </div>
   
                 <div class="form-group row pb-4">
                   <label for="co3" class="col-md-5">Co-curricular activity 3</label>
                   <div class="col-md-7">
-                    <input id="co3" name="co3" type="text" class="form-control">
+                    <input id="co3" name="curricular3" type="text" class="form-control">
                   </div>
                 </div>
   
@@ -510,7 +494,7 @@
                 <div class="form-group">
                   <label for="sentcriminal">If yes, what was the circumstance and what was the sentence?</label>
                   <div class="">
-                    <textarea id="sentcriminal" name="sentcriminal" cols="40" rows="5" class="form-control"></textarea>
+                    <textarea id="sentcriminal" name="senticriminal" cols="40" rows="5" class="form-control"></textarea>
                   </div>
                 </div>
   
@@ -621,7 +605,7 @@
                 <div class="form-group row">
                   <label for="kinreln" class="col-md-5">Kin Relationship *</label>
                   <div class="col-md-7">
-                    <select id="kinreln" name="kinreln" class="custom-select" >
+                    <select id="kinreln" name="kinrelation" class="custom-select" >
                       <option value="father">Father</option>
                       <option value="mother">Mother</option>
                       <option value="guard">Guardian</option>
@@ -642,7 +626,7 @@
                 <div class="form-group row">
                   <label for="kinadd" class="col-md-5">Kin Address *</label>
                   <div class="col-md-7">
-                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" ></textarea>
+                    <textarea id="kinadd" name="kinaddress" cols="40" rows="5" class="form-control" ></textarea>
                   </div>
                 </div>
   

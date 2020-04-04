@@ -37,8 +37,10 @@ router.post('/signup', (req, res) => {
 
   if (errors.length > 0) {
     console.log(errors);
+    const action = '/admin/sigup';
     res.render('register', {
       errors,
+      action
     });
   } else {
     Login.findOne({ email: email }).then((user) => {
@@ -50,9 +52,10 @@ router.post('/signup', (req, res) => {
           email,
           password,
           password2,
+          action
         });
       } else {
-        const type = 'admin';
+        const type = 'Admin';
         const newUser = new Login({
           name,
           email,
@@ -71,7 +74,7 @@ router.post('/signup', (req, res) => {
                   'success_msg',
                   'You are now registered and can log in'
                 );
-                res.redirect('/student/signin');
+                res.redirect('/admin/signin');
               })
               .catch((err) => console.log(err));
           });
