@@ -103,7 +103,7 @@ h5 {
   /* margin-top: 90px; */
   position: fixed;
   width: 25%;
-  background: #090446;
+  background: #007BFF;
   height: 100%;
   z-index: 1;
 }
@@ -117,7 +117,7 @@ h5 {
   padding: 1rem;
   margin: 0;
   text-align: justify;
-  color: rgb(179, 177, 177);
+  color: white;
 }
 
 /* Main (right ) */
@@ -330,8 +330,8 @@ h5 {
   font-size: 0.9rem;
   border-radius: 20px;
   outline: none;
-  background-color: #fb5b5a;
-  border: 1px solid #fb5b5a;
+  background-color: #007BFF;
+  border: 1px solid #007BFF;
   color: white;
   text-transform: capitalize;
 }
@@ -367,7 +367,7 @@ h5 {
 }
 
 .dropdown-item:hover {
-  background-color: #fb5b5a;
+  background-color: #007BFF;
   color: white;
 }
 
@@ -536,7 +536,7 @@ footer {
 .main .header {
   width: 100%;
   padding-top: 10px;
-  background-color: #fb5b5a;
+  background-color: #007BFF;
   color: white;
   line-height: 20px;
   height: 40px;
@@ -594,11 +594,11 @@ footer {
   padding: 0.3rem 0.4rem;
   cursor: pointer;
   color: white;
-  background: #fb5b5a;
+  background: #007BFF;
 }
 
 .main .member button:hover {
-  background-color: #be5151;
+  background-color: #007BFF;
   color: white;
 }
 
@@ -608,7 +608,7 @@ footer {
   outline: none;
   font-size: 0.8rem;
   color: #aaa4a4;
-  caret-color: hsl(0, 97%, 50%);
+  caret-color: #007BFF;
 }
 
 #eventPostButton {
@@ -618,11 +618,11 @@ footer {
   position: relative;
   font-size: 1.3rem;
   color: white;
-  background-color: #f66969;
+  background-color: #007BFF;
 }
 
 #eventPostButton:hover {
-  background-color: #fa1f1f;
+  background-color: rgb(7, 112, 224);
 }
 .eventLabel {
   color: #212121;

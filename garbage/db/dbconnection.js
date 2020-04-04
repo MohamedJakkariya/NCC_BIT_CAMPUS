@@ -6,7 +6,7 @@ const {
   dbname,
   dbport,
   host
-} = require('../config/config');
+} = require('../../config/config');
 
 // console.log(username + password + dbport + dbname + host);
 exports.connection = mysql.createConnection({
