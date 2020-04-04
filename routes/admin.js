@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-
 // Load User model
 const Login = require('../models/User');
+const { forwardAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/signup', (req, res) =>
-  res.render('register',{
-    action : '/student/signup'
+  res.render('register', {
+    action : '/admin/signup'
   })
 );
 
 // Register Page
-router.get('/signin', (req, res) => res.render('login', {
-  action : '/student/signin'
+router.get('/signin',  (req, res) => res.render('login', {
+  action : '/admin/signin'
 }));
 
 // Register
@@ -52,7 +52,7 @@ router.post('/signup', (req, res) => {
           password2,
         });
       } else {
-        const type = 'student'
+        const type = 'admin';
         const newUser = new Login({
           name,
           email,
@@ -71,7 +71,7 @@ router.post('/signup', (req, res) => {
                   'success_msg',
                   'You are now registered and can log in'
                 );
-                res.redirect('/admin/signin');
+                res.redirect('/student/signin');
               })
               .catch((err) => console.log(err));
           });
@@ -84,8 +84,8 @@ router.post('/signup', (req, res) => {
 // Login
 router.post('/signin', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: '/profile',
-    failureRedirect: '/student/signin',
+    successRedirect: '/dashboard',
+    failureRedirect: '/admin/signin',
     failureFlash: true,
   })(req, res, next);
 });
@@ -94,7 +94,7 @@ router.post('/signin', (req, res, next) => {
 router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/student/signin');
+  res.redirect('/admin/signin');
 });
 
 module.exports = router;

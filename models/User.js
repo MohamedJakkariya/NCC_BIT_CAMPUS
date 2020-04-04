@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const StudentSchema = new mongoose.Schema({
+const LoginSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -16,9 +16,13 @@ const StudentSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  type : {
+    type: String
   }
 });
 
-const Student = mongoose.model('Students', StudentSchema);
 
-module.exports = Student;
+const Login = mongoose.model('loginTable', LoginSchema);
+
+module.exports = Login;
