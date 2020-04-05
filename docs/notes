@@ -17,3 +17,24 @@ showcurricular
 
 previouscontact
 showothers
+
+
+
+completed works
+- authentication succesfulla panniyachu
+- signup and sign in mudinchurichu with validation
+- admin signup(private) and signin mudinchuruchu
+- student dashboard and admin dashboard mudinchu
+plus
+- Admin dashboard functionality mudinchu(search by name, district, course, dep and rollno)
+ithakka ipayhaiku mudinchuruku innu irukurathu
+
+
+
+$ Pending(student)
+1. update profile
+2. photo insert
+3. events panel(common)
+4. just connect group msg(with my chat application for us)
+5. admin event post(update, create, remove)
+6. some updates in student dashboard
