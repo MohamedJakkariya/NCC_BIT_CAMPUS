@@ -204,13 +204,3 @@ label {
   display: flex;
   justify-content: center;
 }
-
-@media (max-width: 600px){
-  body{
-    overflow: hidden;
-  }
-
-  .form-container{
-    width: 100vw;
-  }
-}
