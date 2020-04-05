@@ -1,0 +1,659 @@
+<%- include('header') %>
+
+    <div class="mt-3" style="overflow: hidden;">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">
+          <h1 class="text-center mb-3">
+            <i class="fa fa-user-plus"></i> Register
+          </h1>
+
+          <form action="#" method="POST">
+                  <!-- email  -->
+                <div class="form-group row">
+                  <label for="email" class="col-md-5">
+                    Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="loginemail"
+                    class="form-control col-md-7"
+                    autocomplete="on"
+                    value="<%= user.email %>"
+                    required
+                    readonly
+                  />
+                </div>
+  
+                <div class="form-group row">
+                  <label class="col-md-5" for="password">
+                    <span class="fa fa-edit p-2"></span>
+                    Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control col-md-7 "
+                    autocomplete="off"
+                  />
+                </div>
+  
+                <div class="form-group row">
+                  <label class="col-md-5" for="password2">
+                    <span class="fa fa-edit p-2"></span>
+                    Confirm Password</label>
+                  <input
+                    type="password"
+                    name="password2"
+                    class="form-control col-md-7"
+                    autocomplete="off"
+                  />
+                </div>
+  
+    
+                <!-- Full name  -->
+              <div class="form-group row pt-4">
+                <label class="col-md-5" for="fname">
+                  <span class="fa fa-edit p-2"></span>
+                  Full Name</label>
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fname"
+                  value="<%= user.fullname %>"
+                  class="form-control col-md-7"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Father's name  -->
+              <div class="form-group row">
+                <label class="col-md-5" for="fname">
+                  <span class="fa fa-edit p-2"></span>
+                  Father's Name</label>
+                <input
+                  type="text"
+                  name="fathername"
+                  class="form-control col-md-7"
+                  autocomplete="off"
+                  value="<%= user.fathername %>"
+                />
+              </div>
+
+              <!-- Mother name  -->
+              <div class="form-group row">
+                <label class="col-md-5" for="fname">
+                  <span class="fa fa-edit p-2"></span>
+                  Mother's Name</label>
+                <input
+                  type="text"
+                  name="mothername"
+                  class="form-control col-md-7"
+                  autocomplete="off"
+                  value="<%= user.mothername %>"
+                />
+              </div>
+
+              <!-- Gender -->
+              <div class="form-group row">
+                <label class="col-md-4 pt-3">
+                  <span class="fa fa-edit p-2"></span>
+                  Gender</label>
+                <div class="p-3 col-md-8">
+                   <% if(user.gender === 'M') { %>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" required="required" checked="checked"
+                    >
+                    <label for="gender_0" class="custom-control-label">Male</label>
+                  </div>
+                  <% } else { %>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input name="gender" id="gender_0" type="radio" disabled class="custom-control-input" value="M" required="required" 
+                        >
+                        <label for="gender_0" class="custom-control-label">Male</label>
+                      </div>
+                    <% } %>
+
+                    <% if(user.gender === 'F') { %>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required">
+                        <label for="gender_1" class="custom-control-label"  checked="checked">Female</label>
+                    </div>
+                    <% } else { %>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required" disabled>
+                            <label for="gender_1" class="custom-control-label">Female</label>
+                        </div>
+                    <% } %>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG" required="required" disabled>
+                    <label for="gender_2" class="custom-control-label">Transgender</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mobile number  -->
+              <div class="form-group row">
+                <label for="mobile" class="col-md-5">
+                  <span class="fa fa-edit p-2"></span>
+                  Mobile</label>
+                <div class="col-sm-7 col-md-2 ">
+                  <input name="" type="tel" minlength="10" maxlength="10" class="form-control" value="+91">
+                </div>
+                
+                <div class="col-sm-7 col-md-5 pr-2">
+                  <input id="mobile" name="mobile" type="tel" minlength="10" maxlength="10" class="form-control"
+                  value="<%= user.mobile %>"
+                  >
+                </div>
+              </div>
+
+              <!-- Photo  -->
+              <div class="pt-2 form-group row">
+                <label for="avatar" class="col-md-4">
+                  <span class="fa fa-edit p-2"></span>
+                  Standard photograph *</label>
+                <label class="col-md-1"></label>
+                <div class="col-md-7">
+                  <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" required="required"
+                    class="form-control">
+                  <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
+                    <br> Allowed format: JPEG only.</span>
+                </div>
+              </div>
+
+              <!-- Age  -->
+              <div class="form-group row">
+                <label for="age" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Age</label>
+                <div class="col-md-7">
+                  <input id="age" name="age" type="number" min="10" max="30" required="required" class="form-control" value=<%= user.age %>>
+                </div>
+              </div>
+
+              <!-- Nationality  -->
+              <div class="form-group row">
+                <label for="nationality" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Nationality</label>
+                <div class="col-md-7">
+                  <select id="nationality" name="nationality" readonly required="required" class="custom-select">
+                    <option value="IND">Indian</option>
+                    <option value="CAN">Canadian</option>
+                    <option value="AME">American</option>
+                    <option value="AUS">Australian</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Directorate  -->
+              <div class="form-group row">
+                <label for="directorate" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Directorate</label>
+                <div class="col-md-7">
+                  <select id="directorate" name="directorate" required="required" class="custom-select">
+                    <option value="Meow">Meow</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Institution  -->
+              <div class="form-group row">
+                <label for="clg" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Name of Institution</label>
+                <div class="col-md-7">
+                  <input id="clg" name="college"
+                     type="text"
+                     value=<%= user.college %>
+                    aria-describedby="clgHelpBlock" class="form-control">
+                  <span id="clgHelpBlock" class="form-text text-muted">Enter the full name of your School/ College</span>
+                </div>
+              </div>
+
+              <!-- Stream  -->
+              <div class="form-group row">
+                <label for="stream" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Stream</label>
+                <div class="col-md-7">
+                  <select id="stream" name="stream" class="custom-select">
+                    <option value="<%= user.stream %>"><%= user.stream %></option>
+                    <option value="commerce">Commerse</option>
+                    <option value="arts">Arts</option>
+                    <option value="business">Business</option>
+                    <option value="engg">Engineering</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Unit  -->
+              <div class="form-group row">
+                <label for="unit" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Unit is</label>
+                <div class="col-md-7">
+                  <select id="unit" name="unit" required="required" class="custom-select">
+                    <option value="<%= user.unit %>"><%= user.unit %></option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="duck">Duck</option>
+                    <option value="fish">Fish</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Last edu qualification  -->
+              <div class="form-group row pb-4">
+                <label for="educ" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Last educational qualification *</label>
+                <div class="col-md-7">
+                  <select id="educ" name="education" required="required" class="custom-select">
+                    <option value="<%=user.education%>"><%= user.education %></option>
+                    <option value="sslc">SSLC</option>
+                    <option value="diploma">Diploma</option>
+                    <option value="hsc">HSC</option>
+                    <option value="ba">B.A</option>
+                    <option value="bsc">B.Sc</option>
+                    <option value="be">B.E</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- Communication  -->
+              <div class="form-group row">
+                <label for="comadd" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Communication address</label>
+                <div class="col-md-7">
+                  <textarea id="comadd" name="comaddress" cols="40" rows="5" required="required" class="form-control" value="<%= user.comaddress %>"></textarea>
+                </div>
+              </div>
+
+              <!-- State  -->
+              <div class="form-group row">
+                <label for="comdist" class="col-md-5">
+                State</label>
+                <div class="col-md-7">
+                  <input id="clg"
+                  type="text"
+                  value=<%= user.state %>
+                 aria-describedby="clgHelpBlock" class="form-control">                </div>
+              </div>
+
+              <!-- District  -->
+              <div class="form-group row">
+                <label for="comdist" class="col-md-5">
+                District</label>
+                <div class="col-md-7">
+                  <input id="clg"
+                  type="text"
+                  value=<%= user.district %>
+                 aria-describedby="clgHelpBlock" class="form-control">                </div>
+              </div>
+
+              <!-- Pin  -->
+              <div class="form-group row">
+                <label for="compin" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                PIN Code</label>
+                <div class="col-md-7">
+                  <input id="compin" name="post" value="<%= user.post %>" type="text" required="required" class="form-control">
+                </div>
+              </div>
+
+              <!-- Post office  -->
+              <div class="form-group row">
+                <label for="po" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Post Office</label>
+                <div class="col-md-7">
+                  <input id="po" name="postoffice" value="<%= user.postoffice %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <!-- Nearest railway  -->
+              <div class="form-group row">
+                <label for="rail" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Nearest Railway Station</label>
+                <div class="col-md-7">
+                  <input id="rail" name="railway" value="<%= user.railway %>" type="text" required="required" class="form-control">
+                </div>
+              </div>
+
+              <!-- Parent address  -->
+              <div class="form-group row">
+                <label for="paradd" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Parent's address</label>
+                <div class="col-md-7">
+                  <textarea id="paradd" name="paraddress" value="<%= user.paraddress %>" cols="40" rows="5" required="required" class="form-control"></textarea>
+                </div>
+              </div>
+
+              <!-- Permanent address  -->
+              <div class="form-group row">
+                <label for="paradd" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Permanent address</label>
+                <div class="col-md-7">
+                  <textarea id="peradd" name="peraddress" value="<%= user.peraddress %>" cols="40" rows="5" required="required" class="form-control"></textarea>
+                </div>
+              </div>
+
+              <!-- Unique identification -->
+              <div class="form-group row">
+                <label for="idmarks" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Unique Identification marks</label>
+                <div class="col-md-7">
+                  <textarea id="idmarks" name="uniquemark" value="<%= user.uniquemark %>" cols="40" rows="2" aria-describedby="idmarksHelpBlock"
+                    class="form-control"></textarea>
+                  <span id="idmarksHelpBlock" class="form-text text-muted">Enter 2 unique identification marks</span>
+                </div>
+              </div>
+
+              <!-- Blood group  -->
+              <div class="form-group row">
+                <label for="blood" class="col-sm-4 col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Blood Group</label>
+                <div class="col-sm-7 col-md-7">
+                  <select id="blood" name="blood" class="custom-select">
+                    <option value="<%= user.bloodgroup %>"><%= user.bloodgroup %></option>
+                    <option value="O+">O+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB+">AB+</option>
+                    <option value="O-">O-</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Medical complaints  -->
+              <div class="form-group row pb-4">
+                <label for="medical" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Medical Complaints (if any)</label>
+                <div class="col-md-7">
+                  <textarea id="medical" name="medicalcomplaints" value="user.medicalcomplaints" cols="40" rows="5" class="form-control"></textarea>
+                </div>
+              </div>
+            
+               <!-- Sports  -->
+               <div class="form-group row">
+                <label for="sport1" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Sports 1</label>
+                <div class="col-md-7">
+                  <input id="sport1" name="sport1" value="<%= user.sport1 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="sport2" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Sports 2</label>
+                <div class="col-md-7">
+                  <input id="sport2" name="sport2" value="<%= user.sport2 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="sport3" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Sport 3</label>
+                <div class="col-md-7">
+                  <input id="sport3" name="sport3" value="<%= user.sport3 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <!-- Co-curricular activity  -->
+              <div class="form-group row">
+                <label for="co1" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Co-curricular activity 1</label>
+                <div class="col-md-7">
+                  <input id="co1" name="curricular1" value="<%= user.curricular1 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="co2" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Co-curricular activity 2</label>
+                
+                <div class="col-md-7">
+                  <input id="co2" name="curricular2" value="<%= user.curricular2 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group row pb-4">
+                <label for="co3" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Co-curricular activity 3</label>
+                <div class="col-md-7">
+                  <input id="co3" name="curricular3" value="<%= user.curricular3 %>" type="text" class="form-control">
+                </div>
+              </div>
+
+                <!-- Q-1 -->
+                <div class="form-group pt-4">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Have you ever been convicted by criminal court?</label>
+                  <div class="yesOrNo">
+                    <% if(user.criminal) { %>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
+                        required="required" checked="checked">
+                      <label for="criminal_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="criminal_1" class="custom-control-label">No</label>
+                    </div>
+                    <% } else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
+                          required="required">
+                        <label for="criminal_0" class="custom-control-label">Yes</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
+                          required="required"  checked="checked">
+                        <label for="criminal_1" class="custom-control-label">No</label>
+                      </div>
+                      <% } %>
+                  </div>
+                </div>
+                
+                <!-- Q-2  -->
+                <div class="form-group">
+                  <label for="sentcriminal">
+                <span class="fa fa-edit p-2"></span>
+                If yes, what was the circumstance and what was the sentence?</label>
+                  <div class="">
+                    <textarea id="sentcriminal" value="<%= user.senticriminal %>" name="senticriminal" cols="40" rows="5" class="form-control"></textarea>
+                  </div>
+                </div>
+  
+                <!-- Q-3 -->
+                <div class="form-group">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Are you willing to be enrolled under National Cadet Corps Act, 1948? *</label>
+                  <div class="yesOrNo">
+                    <% if(user.willing) { %>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
+                        required="required" checked="checked">
+                      <label for="willing_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="willing_1" class="custom-control-label">No</label>
+                    </div>
+                    <%} else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
+                          required="required">
+                        <label for="willing_0" class="custom-control-label">Yes</label>
+                      </div>
+                      
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
+                          required="required" checked="checked">
+                        <label for="willing_1" class="custom-control-label">No</label>
+                      </div>
+                      <% } %>
+                  </div>
+                </div>
+  
+                <!-- Q-4  -->
+                <div class="form-group">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Are you willing to undergo service training as specified in the act and the rules made
+                    thereunder? *</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" required="required">
+                      <label for="radio_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="false"
+                        required="required">
+                      <label for="radio_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-5  -->
+                <div class="form-group">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Are you willing to serve as National Cadet Corp until discharged as provided in the
+                    Act?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="serve" id="serve_0" type="radio" class="custom-control-input" value="true">
+                      <label for="serve_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="serve" id="serve_1" type="radio" class="custom-control-input" value="false">
+                      <label for="serve_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-6  -->
+                <div class="form-group">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Have you ever applied for enrollment under the act?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="anytimebefore" id="anytimebefore_0" type="radio" required="required"
+                        class="custom-control-input" value="false">
+                      <label for="anytimebefore_0" class="custom-control-label">No</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="anytimebefore" id="anytimebefore_1" type="radio" required="required"
+                        class="custom-control-input" value="true">
+                      <label for="anytimebefore_1" class="custom-control-label">Yes</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="prevenno" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Previous Enrollment Number</label>
+                  <div class="col-md-7">
+                    <input id="prevenno" name="prevenno" type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="prevres" class="col-md-5">Previous Result</label>
+                  <div class="col-md-7">
+                    <input id="prevres" name="prevres" type="text" class="form-control">
+                  </div>
+                </div>
+  
+                <!-- Q-7  -->
+                <div class="form-group">
+                  <label>
+                <span class="fa fa-edit p-2"></span>
+                Had you been dismissed from the National Cadet Corps?</label>
+                  <div class="yesOrNo">
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="dismissed" id="dismissed_0" type="radio" class="custom-control-input" value="true">
+                      <label for="dismissed_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="dismissed" id="dismissed_1" type="radio" class="custom-control-input" value="false">
+                      <label for="dismissed_1" class="custom-control-label">No</label>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Q-8  -->
+                <div class="form-group row">
+                  <label for="kinname" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Name of Kin *</label>
+                  <div class="col-md-7">
+                    <input id="kinname" name="kinname" type="text" aria-describedby="kinnameHelpBlock" class="form-control">
+                    <span id="kinnameHelpBlock" class="form-text text-muted">Enter the name of your most close person (Parent /
+                      Gaurdian)</span>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="kinreln" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Kin Relationship *</label>
+                  <div class="col-md-7">
+                    <select id="kinreln" name="kinreln" class="custom-select" required="required">
+                      <option value="father">Father</option>
+                      <option value="mother">Mother</option>
+                      <option value="guard">Guardian</option>
+                      <option value="self">Self</option>
+                    </select>
+                  </div>
+                </div>
+  
+                <!-- Q-9  -->
+                <div class="form-group row">
+                  <label for="kinmob" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Kin Contact Number: *</label>
+                  <div class="col-md-7">
+                    <input id="kinmob" name="kinmob" type="tel" maxlength="10" minlength="10" class="form-control"
+                      required="required">
+                  </div>
+                </div>
+  
+                <div class="form-group row">
+                  <label for="kinadd" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Kin Address *</label>
+                  <div class="col-md-7">
+                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" required="required"></textarea>
+                  </div>
+                </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Update
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<%- include('footer') %>

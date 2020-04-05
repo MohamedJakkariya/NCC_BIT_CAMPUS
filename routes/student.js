@@ -187,6 +187,7 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
+
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();

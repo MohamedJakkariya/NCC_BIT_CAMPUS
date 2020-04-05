@@ -1,17 +1,4 @@
 $(document).ready(function() {
-  // For slide effect
-  // $('.search-field').hover(
-  //   function() {
-  //     $(this)
-  //       .children('.show')
-  //       .show();
-  //   },
-  //   function() {
-  //     $(this)
-  //       .children('.show')
-  //       .hide();
-  //   }
-  // );
 
   // Slide show
   $('.lazy').slick({
@@ -62,5 +49,6 @@ $(document).ready(function() {
       }
     ]
   });
+
 });
 

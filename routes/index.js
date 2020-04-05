@@ -21,8 +21,10 @@ router.get('/profile',ensureAuthenticated,(req, res) => {
 });
 
 router.get('/update', ensureAuthenticated,(req, res) => {
-  // console.log(req.user);
-  res.send('Update workspace');
+  console.log(req.user);
+  res.render('update',{
+    user : req.user
+  });
 });
 module.exports = router;
  

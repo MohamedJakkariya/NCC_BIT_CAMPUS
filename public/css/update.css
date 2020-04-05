@@ -1,0 +1,15 @@
+@media (max-width: 600px){
+    .row{
+        flex-direction: row;
+    }
+
+    .row label{
+        width: 100%;
+        text-align: center;
+    }
+
+    .row input{
+        display: block;
+    }
+}
+
