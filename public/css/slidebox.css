@@ -105,9 +105,9 @@ h2 {
 
 @media (max-width: 600px){
   #w{
-    width: 100vw;
-    height: auto;
-  }
+    width: auto;
+    margin: 0;
+    padding: 0;  }
 
 }
 
@@ -118,9 +118,7 @@ h2 {
   height: auto;
   background: #fff;
   box-sizing: border-box;
-  -webkit-box-shadow: 0 0 12px 0 rgba(150, 180, 210, 0.9);
-  -moz-box-shadow: 0 0 12px 0 rgba(150, 180, 210, 0.9);
-  box-shadow: 0 0 12px 0 rgba(150, 180, 210, 0.9);
+  border: 0.1px solid rgba(52, 58, 64,0.2);
 }
 .content {
   box-sizing: border-box;
@@ -205,4 +203,14 @@ label {
   padding-top: 0.6rem;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 600px){
+  body{
+    overflow: hidden;
+  }
+
+  .form-container{
+    width: 100vw;
+  }
 }

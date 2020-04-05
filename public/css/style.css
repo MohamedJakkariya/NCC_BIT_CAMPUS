@@ -256,9 +256,9 @@ h5 {
   justify-content: center;
 }
 
-.fixed-top {
+/* .fixed-top {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
+} */
 
 .cont {
   width: 320px;
@@ -267,7 +267,7 @@ h5 {
   background-color: white;
   color: #34363e;
   position: relative;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.5); */
   border-radius: 3px;
   margin: auto;
   margin-top: 3rem;
