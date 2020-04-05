@@ -134,3 +134,55 @@ app.get('/student/signup', (req, res) => {
     res.render('dashboard');
   });
   
+
+
+
+  
+      // async.parallel(
+      //   [
+      //     function (cb) {
+      //       Login.findOne({ email: email }, function (err, user) {
+      //         if (err) {
+      //           return done(err);
+      //         }
+      //         if (!user) {
+      //           return done(null, false,{message: 'Email not Registered'});
+      //         }
+      //         // Match password
+      //         bcrypt.compare(password, user.password, (err, isMatch) => {
+      //           if (err) throw err;
+      //           if (isMatch) {
+      //             return done(null, user);
+      //           } else {
+      //             return done(null, false, { message: 'Password incorrect' });
+      //           }
+      //         });
+      //       });
+      //     },
+      //     function (cb) {
+      //       Admin.findOne({ email: email }, function (err, user) {
+      //         if (err) {
+      //           return done(err);
+      //         }
+      //         if (!user) {
+      //           return done(null, false,{ message: 'Email not Registered' });
+      //         }
+      //         // Match password
+      //         bcrypt.compare(password, user.password, (err, isMatch) => {
+      //           if (err) throw err;
+      //           if (isMatch) {
+      //             return done(null, user);
+      //           } else {
+      //             return done(null, false, { message: 'Password incorrect' });
+      //           }
+      //         });
+      //       });
+      //     },
+      //   ],
+      //   ([res1, res2]) => {
+      //     // on result
+      //     done(null, res1);
+      //     // OR
+      //     done(null, res1);
+      //   }
+      // );

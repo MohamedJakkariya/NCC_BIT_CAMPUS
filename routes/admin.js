@@ -3,8 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // Load User model
-const Login = require('../models/User');
-const { forwardAuthenticated } = require('../config/auth');
+const Admin = require('../models/Admin');
+// const { forwardAuthenticated } = require('../config/auth');
 
 // Login Page
 router.get('/signup', (req, res) =>
@@ -43,7 +43,7 @@ router.post('/signup', (req, res) => {
       action
     });
   } else {
-    Login.findOne({ email: email }).then((user) => {
+    Admin.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: 'Email already exists' });
         res.render('register', {
@@ -56,7 +56,7 @@ router.post('/signup', (req, res) => {
         });
       } else {
         const type = 'Admin';
-        const newUser = new Login({
+        const newUser = new Admin({
           name,
           email,
           password,
