@@ -119,7 +119,7 @@ const LoginSchema = new mongoose.Schema({
   post : {
     type: String
   },
-  kinmobile : {
+  kinmob : {
     type: String
   },
   criminal : {

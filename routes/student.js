@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const manipulation = require('../db/manipulation');
 
 // Load User model
 const Login = require('../models/User');
@@ -68,7 +69,7 @@ router.post('/signup', (req, res) => {
     dismissed,
     kinname,
     kinmob,
-    kinaddress,
+    kinaddress
   } = req.body;
   let errors = [];
 
@@ -133,6 +134,7 @@ router.post('/signup', (req, res) => {
           post,
           railway,
           peraddress,
+          paraddress,
           uniquemark,
           bloodgroup,
           medicalcomplaints,
@@ -180,6 +182,7 @@ router.post('/signup', (req, res) => {
 
 // Login
 router.post('/signin', (req, res, next) => {
+  console.log(req.body);
   passport.authenticate('local', {
     successRedirect: '/profile',
     failureRedirect: '/student/signin',
@@ -187,6 +190,11 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
+router.post('/update', (req, res, next) => {
+  console.log(req.body);
+
+  manipulation.findAndUpdate(req, res);
+});
 
 // Logout
 router.get('/logout', (req, res) => {

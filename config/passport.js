@@ -5,56 +5,59 @@ const bcrypt = require('bcryptjs');
 const Login = require('../models/User');
 const Admin = require('../models/Admin');
 
-
 module.exports = function (passport) {
   passport.use(
     new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
       // // Match user
       Login.findOne({
-        email: email
-      }).then(user => {
+        email: email,
+      }).then((user) => {
         if (!user) {
           // return done(null, false, { message: 'That email is not registered' });
-          // Check another table 
+          // Check another table
 
           Admin.findOne({
-            email: email
-          }).then(user => {
+            email: email,
+          }).then((user) => {
             if (!user) {
-              return done(null, false, { message: 'That email is not registered' });
+              return done(null, false, {
+                message: 'That email is not registered',
+              });
             }
-    
-            if(user.password != null){
-              // Match password
-              bcrypt.compare(password, user.password, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                  return done(null, user);
-                } else {
-                  return done(null, false, { message: 'Password incorrect' });
-                }
-              }); //End of bcrypt
-            }
-          }); // End of Then
+            console.log('In Admin user is ' + user);
+            
+            // Match password
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+              if (err) throw err;
+              if (isMatch) {
+                return done(null, user);
+              } else {
+                return done(null, false, { message: 'Password incorrect' });
+              }
+            });
+            //End of bcrypt
+          })
+          .catch(err => console.log(err)); // End of Then
         } // End of If
 
-        if(user.password != null){
-          // Match password
-          bcrypt.compare(password, user.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
-              return done(null, user);
-            } else {
-              return done(null, false, { message: 'Password incorrect' });
-            }
-          });
-        }
-    });
+        const userpassword = user.password === null? ' ': user.password;         
+
+        // Match password
+        bcrypt.compare(password, userpassword, (err, isMatch) => {
+          if (err) throw err;
+          if (isMatch) {
+            return done(null, user);
+          } else {
+            return done(null, false, { message: 'Password incorrect' });
+          }
+        });
+      })
+      .catch(err => console.log(err));
     })
   );
 
   passport.serializeUser(function (user, done) {
-    console.log('In serializeUser' + user);
+    // console.log('In serializeUser' + user);
     const type = user.type;
     const id = user.id;
     const obj = { id, type };
@@ -62,21 +65,25 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser(function (obj, done) {
-    console.log('In deserializeUser  id is = '+ obj.type);
-    
-    const condtion = obj.type === 'Login'? true: false;
+    // console.log('In deserializeUser  id is = '+ obj.type);
 
-    if(condtion){
+    const condtion = obj.type === 'Login' ? true : false;
+
+    if (condtion) {
       Login.findById(obj.id, function (err, user) {
-        if (err) {console.log(err);}
+        if (err) {
+          console.log(err);
+        }
         done(err, user);
       });
-    }else{
+    } else {
       Admin.findById(obj.id, function (err, user) {
+        console.log(err);
+        if (err) {
           console.log(err);
-          if (err) {console.log(err);}
-          done(err, user)  
-        });
-      }    
+        }
+        done(err, user);
+      });
+    }
   });
 };

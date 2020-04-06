@@ -7,7 +7,9 @@
             <i class="fa fa-user-plus"></i> Register
           </h1>
 
-          <form action="#" method="POST">
+          <%- include ('partials/messages') %>
+
+          <form action="/student/update" method="POST">
                   <!-- email  -->
                 <div class="form-group row">
                   <label for="email" class="col-md-5">
@@ -19,35 +21,10 @@
                     class="form-control col-md-7"
                     autocomplete="on"
                     value="<%= user.email %>"
-                    required
+                    
                     readonly
                   />
-                </div>
-  
-                <div class="form-group row">
-                  <label class="col-md-5" for="password">
-                    <span class="fa fa-edit p-2"></span>
-                    Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    class="form-control col-md-7 "
-                    autocomplete="off"
-                  />
-                </div>
-  
-                <div class="form-group row">
-                  <label class="col-md-5" for="password2">
-                    <span class="fa fa-edit p-2"></span>
-                    Confirm Password</label>
-                  <input
-                    type="password"
-                    name="password2"
-                    class="form-control col-md-7"
-                    autocomplete="off"
-                  />
-                </div>
-  
+                </div>  
     
                 <!-- Full name  -->
               <div class="form-group row pt-4">
@@ -100,13 +77,13 @@
                 <div class="p-3 col-md-8">
                    <% if(user.gender === 'M') { %>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" required="required" checked="checked"
+                    <input name="gender" id="gender_0" type="radio" class="custom-control-input" value="M" checked="checked"
                     >
                     <label for="gender_0" class="custom-control-label">Male</label>
                   </div>
                   <% } else { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input name="gender" id="gender_0" type="radio" disabled class="custom-control-input" value="M" required="required" 
+                        <input name="gender" id="gender_0" type="radio" disabled class="custom-control-input" value="M"  
                         >
                         <label for="gender_0" class="custom-control-label">Male</label>
                       </div>
@@ -114,17 +91,17 @@
 
                     <% if(user.gender === 'F') { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required">
+                        <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" >
                         <label for="gender_1" class="custom-control-label"  checked="checked">Female</label>
                     </div>
                     <% } else { %>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F" required="required" disabled>
+                            <input name="gender" id="gender_1" type="radio" class="custom-control-input" value="F"  disabled>
                             <label for="gender_1" class="custom-control-label">Female</label>
                         </div>
                     <% } %>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG" required="required" disabled>
+                    <input name="gender" id="gender_2" type="radio" class="custom-control-input" value="TG"  disabled>
                     <label for="gender_2" class="custom-control-label">Transgender</label>
                   </div>
                 </div>
@@ -153,7 +130,7 @@
                   Standard photograph *</label>
                 <label class="col-md-1"></label>
                 <div class="col-md-7">
-                  <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" required="required"
+                  <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" 
                     class="form-control">
                   <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
                     <br> Allowed format: JPEG only.</span>
@@ -166,7 +143,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Age</label>
                 <div class="col-md-7">
-                  <input id="age" name="age" type="number" min="10" max="30" required="required" class="form-control" value=<%= user.age %>>
+                  <input id="age" name="age" type="number" min="10" max="30"  class="form-control" value=<%= user.age %>>
                 </div>
               </div>
 
@@ -176,7 +153,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Nationality</label>
                 <div class="col-md-7">
-                  <select id="nationality" name="nationality" readonly required="required" class="custom-select">
+                  <select id="nationality" name="nationality" readonly  class="custom-select">
                     <option value="IND">Indian</option>
                     <option value="CAN">Canadian</option>
                     <option value="AME">American</option>
@@ -191,7 +168,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Directorate</label>
                 <div class="col-md-7">
-                  <select id="directorate" name="directorate" required="required" class="custom-select">
+                  <select id="directorate" name="directorate"  class="custom-select">
                     <option value="Meow">Meow</option>
                   </select>
                 </div>
@@ -233,7 +210,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Unit is</label>
                 <div class="col-md-7">
-                  <select id="unit" name="unit" required="required" class="custom-select">
+                  <select id="unit" name="unit"  class="custom-select">
                     <option value="<%= user.unit %>"><%= user.unit %></option>
                     <option value="rabbit">Rabbit</option>
                     <option value="duck">Duck</option>
@@ -248,7 +225,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Last educational qualification *</label>
                 <div class="col-md-7">
-                  <select id="educ" name="education" required="required" class="custom-select">
+                  <select id="educ" name="education"  class="custom-select">
                     <option value="<%=user.education%>"><%= user.education %></option>
                     <option value="sslc">SSLC</option>
                     <option value="diploma">Diploma</option>
@@ -266,7 +243,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Communication address</label>
                 <div class="col-md-7">
-                  <textarea id="comadd" name="comaddress" cols="40" rows="5" required="required" class="form-control" value="<%= user.comaddress %>"></textarea>
+                  <textarea id="comadd" name="comaddress" cols="40" rows="5"  class="form-control" ><%= user.comaddress %></textarea>
                 </div>
               </div>
 
@@ -298,7 +275,7 @@
                 <span class="fa fa-edit p-2"></span>
                 PIN Code</label>
                 <div class="col-md-7">
-                  <input id="compin" name="post" value="<%= user.post %>" type="text" required="required" class="form-control">
+                  <input id="compin" name="post" value="<%= user.post %>" type="text"  class="form-control">
                 </div>
               </div>
 
@@ -318,7 +295,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Nearest Railway Station</label>
                 <div class="col-md-7">
-                  <input id="rail" name="railway" value="<%= user.railway %>" type="text" required="required" class="form-control">
+                  <input id="rail" name="railway" value="<%= user.railway %>" type="text"  class="form-control">
                 </div>
               </div>
 
@@ -328,7 +305,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Parent's address</label>
                 <div class="col-md-7">
-                  <textarea id="paradd" name="paraddress" value="<%= user.paraddress %>" cols="40" rows="5" required="required" class="form-control"></textarea>
+                  <textarea id="paradd" name="paraddress" cols="40" rows="5"  class="form-control"><%= user.paraddress %></textarea>
                 </div>
               </div>
 
@@ -338,7 +315,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Permanent address</label>
                 <div class="col-md-7">
-                  <textarea id="peradd" name="peraddress" value="<%= user.peraddress %>" cols="40" rows="5" required="required" class="form-control"></textarea>
+                  <textarea id="peradd" name="peraddress" cols="40" rows="5"  class="form-control"><%= user.peraddress %></textarea>
                 </div>
               </div>
 
@@ -348,8 +325,8 @@
                 <span class="fa fa-edit p-2"></span>
                 Unique Identification marks</label>
                 <div class="col-md-7">
-                  <textarea id="idmarks" name="uniquemark" value="<%= user.uniquemark %>" cols="40" rows="2" aria-describedby="idmarksHelpBlock"
-                    class="form-control"></textarea>
+                  <textarea id="idmarks" name="uniquemark"  cols="40" rows="2" aria-describedby="idmarksHelpBlock"
+                    class="form-control"><%= user.uniquemark %></textarea>
                   <span id="idmarksHelpBlock" class="form-text text-muted">Enter 2 unique identification marks</span>
                 </div>
               </div>
@@ -360,7 +337,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Blood Group</label>
                 <div class="col-sm-7 col-md-7">
-                  <select id="blood" name="blood" class="custom-select">
+                  <select id="blood" name="bloodgroup" class="custom-select">
                     <option value="<%= user.bloodgroup %>"><%= user.bloodgroup %></option>
                     <option value="O+">O+</option>
                     <option value="AB-">AB-</option>
@@ -379,7 +356,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Medical Complaints (if any)</label>
                 <div class="col-md-7">
-                  <textarea id="medical" name="medicalcomplaints" value="user.medicalcomplaints" cols="40" rows="5" class="form-control"></textarea>
+                  <textarea id="medical" name="medicalcomplaints" cols="40" rows="5" class="form-control"><%= user.medicalcomplaints %></textarea>
                 </div>
               </div>
             
@@ -449,23 +426,23 @@
                     <% if(user.criminal) { %>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
-                        required="required" checked="checked">
+                         checked="checked">
                       <label for="criminal_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="criminal_1" class="custom-control-label">No</label>
                     </div>
                     <% } else { %>
                       <div class="custom-control custom-radio custom-control-inline">
                         <input name="criminal" id="criminal_0" type="radio" class="custom-control-input" value="true"
-                          required="required">
+                          >
                         <label for="criminal_0" class="custom-control-label">Yes</label>
                       </div>
                       <div class="custom-control custom-radio custom-control-inline">
                         <input name="criminal" id="criminal_1" type="radio" class="custom-control-input" value="false"
-                          required="required"  checked="checked">
+                            checked="checked">
                         <label for="criminal_1" class="custom-control-label">No</label>
                       </div>
                       <% } %>
@@ -478,7 +455,7 @@
                 <span class="fa fa-edit p-2"></span>
                 If yes, what was the circumstance and what was the sentence?</label>
                   <div class="">
-                    <textarea id="sentcriminal" value="<%= user.senticriminal %>" name="senticriminal" cols="40" rows="5" class="form-control"></textarea>
+                    <textarea id="sentcriminal" name="senticriminal" cols="40" rows="5" class="form-control"><%= user.senticriminal %></textarea>
                   </div>
                 </div>
   
@@ -491,24 +468,24 @@
                     <% if(user.willing) { %>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
-                        required="required" checked="checked">
+                         checked="checked">
                       <label for="willing_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="willing_1" class="custom-control-label">No</label>
                     </div>
                     <%} else { %>
                       <div class="custom-control custom-radio custom-control-inline">
                         <input name="willing" id="willing_0" type="radio" class="custom-control-input" value="true"
-                          required="required">
+                          >
                         <label for="willing_0" class="custom-control-label">Yes</label>
                       </div>
                       
                       <div class="custom-control custom-radio custom-control-inline">
                         <input name="willing" id="willing_1" type="radio" class="custom-control-input" value="false"
-                          required="required" checked="checked">
+                           checked="checked">
                         <label for="willing_1" class="custom-control-label">No</label>
                       </div>
                       <% } %>
@@ -522,15 +499,27 @@
                 Are you willing to undergo service training as specified in the act and the rules made
                     thereunder? *</label>
                   <div class="yesOrNo">
+                    <% if(user.radio) { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" required="required">
+                      <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true"  checked="checked">
                       <label for="radio_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="false"
-                        required="required">
+                        >
                       <label for="radio_1" class="custom-control-label">No</label>
                     </div>
+                    <% } else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="radio" id="radio_0" type="radio" class="custom-control-input" value="true" >
+                        <label for="radio_0" class="custom-control-label">Yes</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="radio" id="radio_1" type="radio" class="custom-control-input" value="false"
+                           checked="checked">
+                        <label for="radio_1" class="custom-control-label">No</label>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
   
@@ -541,14 +530,25 @@
                 Are you willing to serve as National Cadet Corp until discharged as provided in the
                     Act?</label>
                   <div class="yesOrNo">
+                    <% if(user.serve) { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="serve" id="serve_0" type="radio" class="custom-control-input" value="true">
+                      <input name="serve" id="serve_0" type="radio" class="custom-control-input" value="true" checked="checked">
                       <label for="serve_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="serve" id="serve_1" type="radio" class="custom-control-input" value="false">
                       <label for="serve_1" class="custom-control-label">No</label>
                     </div>
+                    <% } else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="serve" id="serve_0" type="radio" class="custom-control-input" value="true">
+                        <label for="serve_0" class="custom-control-label">Yes</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="serve" id="serve_1" type="radio" class="custom-control-input" value="false" checked="checked">
+                        <label for="serve_1" class="custom-control-label">No</label>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
   
@@ -558,16 +558,29 @@
                 <span class="fa fa-edit p-2"></span>
                 Have you ever applied for enrollment under the act?</label>
                   <div class="yesOrNo">
+                    <% if(user.anytimebefore) { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="anytimebefore" id="anytimebefore_0" type="radio" required="required"
+                      <input name="anytimebefore" id="anytimebefore_0" type="radio" 
+                        class="custom-control-input" value="true" checked="checked">
+                      <label for="anytimebefore_0" class="custom-control-label">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input name="anytimebefore" id="anytimebefore_1" type="radio" 
                         class="custom-control-input" value="false">
-                      <label for="anytimebefore_0" class="custom-control-label">No</label>
+                      <label for="anytimebefore_1" class="custom-control-label">No</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input name="anytimebefore" id="anytimebefore_1" type="radio" required="required"
-                        class="custom-control-input" value="true">
-                      <label for="anytimebefore_1" class="custom-control-label">Yes</label>
-                    </div>
+                    <% } else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="anytimebefore" id="anytimebefore_0" type="radio" 
+                          class="custom-control-input" value="false">
+                        <label for="anytimebefore_0" class="custom-control-label">Yes</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="anytimebefore" id="anytimebefore_1" type="radio" 
+                          class="custom-control-input" value="true" checked="checked">
+                        <label for="anytimebefore_1" class="custom-control-label">No</label>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
   
@@ -576,7 +589,7 @@
                 <span class="fa fa-edit p-2"></span>
                 Previous Enrollment Number</label>
                   <div class="col-md-7">
-                    <input id="prevenno" name="prevenno" type="text" class="form-control">
+                    <input id="prevenno" value="<%= user.prevenno %>" name="prevenno" type="text" class="form-control">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -592,14 +605,25 @@
                 <span class="fa fa-edit p-2"></span>
                 Had you been dismissed from the National Cadet Corps?</label>
                   <div class="yesOrNo">
+                    <% if(user.dismissed) { %>
                     <div class="custom-control custom-radio custom-control-inline">
-                      <input name="dismissed" id="dismissed_0" type="radio" class="custom-control-input" value="true">
+                      <input name="dismissed" id="dismissed_0" type="radio" class="custom-control-input" value="true" checked="checked">
                       <label for="dismissed_0" class="custom-control-label">Yes</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                       <input name="dismissed" id="dismissed_1" type="radio" class="custom-control-input" value="false">
                       <label for="dismissed_1" class="custom-control-label">No</label>
                     </div>
+                    <% } else { %>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="dismissed" id="dismissed_0" type="radio" class="custom-control-input" value="true">
+                        <label for="dismissed_0" class="custom-control-label">Yes</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input name="dismissed" id="dismissed_1" type="radio" class="custom-control-input" value="false" checked="checked">
+                        <label for="dismissed_1" class="custom-control-label">No</label>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
   
@@ -607,19 +631,21 @@
                 <div class="form-group row">
                   <label for="kinname" class="col-md-5">
                 <span class="fa fa-edit p-2"></span>
-                Name of Kin *</label>
+                Name of Kin </label>
                   <div class="col-md-7">
-                    <input id="kinname" name="kinname" type="text" aria-describedby="kinnameHelpBlock" class="form-control">
+                    <input id="kinname" name="kinname" value="<%= user.kinname %>" type="text" aria-describedby="kinnameHelpBlock" class="form-control">
                     <span id="kinnameHelpBlock" class="form-text text-muted">Enter the name of your most close person (Parent /
                       Gaurdian)</span>
                   </div>
                 </div>
+
                 <div class="form-group row">
                   <label for="kinreln" class="col-md-5">
                 <span class="fa fa-edit p-2"></span>
                 Kin Relationship *</label>
                   <div class="col-md-7">
-                    <select id="kinreln" name="kinreln" class="custom-select" required="required">
+                    <select id="kinreln" name="kinrelation" class="custom-select" >
+                      <option value=<%= user.kinrelation %>><%= user.kinrelation %></option>
                       <option value="father">Father</option>
                       <option value="mother">Mother</option>
                       <option value="guard">Guardian</option>
@@ -632,19 +658,19 @@
                 <div class="form-group row">
                   <label for="kinmob" class="col-md-5">
                 <span class="fa fa-edit p-2"></span>
-                Kin Contact Number: *</label>
+                Kin Contact Number: </label>
                   <div class="col-md-7">
-                    <input id="kinmob" name="kinmob" type="tel" maxlength="10" minlength="10" class="form-control"
-                      required="required">
+                    <input id="kinmob" name="kinmob" value="<%= user.kinmob %>" type="tel" maxlength="10" minlength="10" class="form-control"
+                      >
                   </div>
                 </div>
   
                 <div class="form-group row">
-                  <label for="kinadd" class="col-md-5">
+                  <label for="kinaddress" class="col-md-5">
                 <span class="fa fa-edit p-2"></span>
                 Kin Address *</label>
                   <div class="col-md-7">
-                    <textarea id="kinadd" name="kinadd" cols="40" rows="5" class="form-control" required="required"></textarea>
+                    <textarea id="kinadd" name="kinaddress" cols="40" rows="5" class="form-control" ><%= user.kinaddress %></textarea>
                   </div>
                 </div>
 

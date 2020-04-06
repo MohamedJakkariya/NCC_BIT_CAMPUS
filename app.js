@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const ejsLint = require('ejs-lint');
 const passport = require('passport');
 const flash = require('connect-flash');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const session = require('express-session');
 
 const app = express();
@@ -20,18 +20,19 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true, useUnifiedTopology : true 
-    }
-  )
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+  })
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
 // Setting ejs view engine
 // app.use(expressLayouts);
 app.set('view engine', 'ejs');
-ejsLint('ejs', {async : true}); 
+ejsLint('ejs', { async: true });
 
 // Session configuration
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +42,7 @@ app.use(
   session({
     secret: 'Secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 
@@ -53,7 +54,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Global variables
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
@@ -64,7 +65,6 @@ app.use(function(req, res, next) {
 app.use('/', require('./routes/index.js'));
 app.use('/student', require('./routes/student.js'));
 app.use('/admin', require('./routes/admin.js'));
-
 
 const PORT = process.env.PORT || 4000;
 

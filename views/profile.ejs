@@ -1,62 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../css/profile.css">
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
+    <!-- loading animation plugin  -->
+    <link rel="stylesheet" href="../lib/loading-plugin/waitMe.min.css" />
+
     <title>Profile</title>
-</head>
-<body>
+  </head>
+  <body class="waitMe_body">
+      <!-- Loading animation  -->
+      <div class="waitMe_container img" style="background:#fff">
+        <div style="background:url('../lib/loading-plugin/img.svg')"></div>
+      </div>
+
     <div id="profile">
-        <div class="showcase">
-            <img src="../img/modal-profile.jpg" alt="">
-        </div>
+      <div class="showcase">
+        <img src="../img/modal-profile.jpg" alt="" />
+      </div>
 
-        <div class="profile-info row">
-            <div class="info-1 col-lg-7">
-                <h2>Mohamed Jakkariya</h2>
-                <h3>Graduate Student at University College of Engineering(BIT campus) | Software Engineer</h3>
-                <p class="text-secondary">Trichirappalli</p>
+      <div class="profile-info row">
+        <div class="info-1 col-lg-7">
+          <h2>Mohamed Jakkariya</h2>
+          <h3>
+            Graduate Student at University College of Engineering(BIT campus) |
+            Software Engineer
+          </h3>
+          <p class="text-secondary">Trichirappalli</p>
 
-                <div class="btn-group-lg">
-                    <button class="btn btn-primary p-2 m-2">Events</button>
-                    <button class="btn btn-outline-primary p-2 m-2">Messages</button>
-                    <a href="/update" class="btn btn-outline-secondary pl-3 pr-3 m-2">View Profile</a>
-                    <a href="/student/logout" class="btn btn-outline-secondary pl-3 pr-3 m-2">Logout</a>
-                </div>
-            </div>
-            <div class="info-2 col-lg-5">
-                <p>
-                    <span class="fa fa-university"></span>
-                    University college of Engineering
-                </p>
-                <p>
-                    <span class="fa fa-university"></span>
-                    University college of Engineering
-                </p>
-                <p>
-                    <span class="fa fa-address-book-o text-secondary"></span>
-                    See contact-info
-                </p>
-                <p>
-                    <span class="fa fa-users text-secondary"></span>
-                    500+ connection
-                </p>
-            </div>
+          <div class="btn-group-lg">
+            <button class="btn btn-primary p-2 m-2">Events</button>
+            <button class="btn btn-outline-primary p-2 m-2">Messages</button>
+            <a href="/update" class="btn btn-outline-secondary pl-3 pr-3 m-2"
+              >View Profile</a
+            >
+            <a
+              href="/student/logout"
+              class="btn btn-outline-secondary pl-3 pr-3 m-2"
+              >Logout</a
+            >
+          </div>
         </div>
+        <div class="info-2 col-lg-5">
+          <p>
+            <span class="fa fa-university"></span>
+            University college of Engineering
+          </p>
+          <p>
+            <span class="fa fa-university"></span>
+            University college of Engineering
+          </p>
+          <p>
+            <span class="fa fa-address-book-o text-secondary"></span>
+            See contact-info
+          </p>
+          <p>
+            <span class="fa fa-users text-secondary"></span>
+            500+ connection
+          </p>
+        </div>
+      </div>
 
-        <div class="description">
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi illo odit aliquam inventore sed quo error eligendi dolorem, culpa eos non assumenda blanditiis velit perferendis tempore ratione vel beatae eaque id ipsam eum, molestiae exercitationem. Ut commodi quas consequatur aspernatur possimus temporibus illo excepturi doloribus cumque quisquam odit, officiis suscipit quasi porro tempore error qui! Quam laudantium quisquam blanditiis exercitationem.
-            </p>
-        </div>
+      <div class="description">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi illo
+          odit aliquam inventore sed quo error eligendi dolorem, culpa eos non
+          assumenda blanditiis velit perferendis tempore ratione vel beatae
+          eaque id ipsam eum, molestiae exercitationem. Ut commodi quas
+          consequatur aspernatur possimus temporibus illo excepturi doloribus
+          cumque quisquam odit, officiis suscipit quasi porro tempore error qui!
+          Quam laudantium quisquam blanditiis exercitationem.
+        </p>
+      </div>
     </div>
-
 
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-</body>
+    <script src="../lib/loading-plugin/waitMe.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
 </html>

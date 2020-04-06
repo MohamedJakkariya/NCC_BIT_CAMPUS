@@ -27,7 +27,7 @@ var handles = [
   "Punjab",
   "Rajasthan",
   "Sikkim",
-  "Tamil Nadu",
+  "TamilNadu",
   "Telangana",
   "Tripura",
   "Uttar Pradesh",
@@ -866,7 +866,7 @@ function selct_district($val) {
     });
   }
 
-  if ($val == "Tamil Nadu") {
+  if ($val == "TamilNadu") {
     var tn = [
       "Ariyalur",
       "Chennai",
