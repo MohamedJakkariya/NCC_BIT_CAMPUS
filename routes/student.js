@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
-const manipulation = require('../db/manipulation');
+const express = require('express'),
+  router = express.Router(),
+  bcrypt = require('bcryptjs'),
+  passport = require('passport'),
+  manipulation = require('../db/manipulation');
+
+// var appDir = path.dirname(require.main.filename);
 
 // Load User model
 const Login = require('../models/User');
@@ -19,8 +21,32 @@ router.get('/signin', (req, res) =>
 
 // Register
 router.post('/signup', (req, res) => {
-  console.log(req.body);
-  
+  let file;
+  let profile;
+  if (req.files.profile_img != null) {
+    file = req.files.profile_img;
+    profile = file.name;
+
+    console.log(file);
+    console.log(profile);
+
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      file.mv('public/img/uploaded_images/' + file.name, function (err) {
+        if (err) {
+          console.log('Something went wrong when the insert!');
+          errors.push({
+            msg: 'Something went wrong to store the image onto the server',
+          });
+        }
+      });
+    } else {
+      errors.push({
+        msg:
+          "This image format is not allowed , please upload file with '.png','.jpg'",
+      });
+    }
+  }
+
   const {
     fullname,
     email,
@@ -69,7 +95,7 @@ router.post('/signup', (req, res) => {
     dismissed,
     kinname,
     kinmob,
-    kinaddress
+    kinaddress,
   } = req.body;
   let errors = [];
 
@@ -87,12 +113,18 @@ router.post('/signup', (req, res) => {
 
   if (errors.length > 0) {
     console.log(errors);
-    const action = '/student/signup';
-    res.render('register', {
+    res.render('signup', {
       errors,
-      action,
     });
   } else {
+    // Store images to server
+    // req.busboy.on('file', (fieldname, file, filename) => {
+    //   console.log('Uploading image : ' + filename);
+
+    //   fstream = fs.createWriteStream(appDir + '/public/img/uploaded_images' + filename);
+    // });
+
+    // Store data on to the database
     Login.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: 'Email already exists' });
@@ -156,7 +188,8 @@ router.post('/signup', (req, res) => {
           kinname,
           kinmob,
           kinaddress,
-          kinrelation
+          kinrelation,
+          profile,
         });
 
         bcrypt.genSalt(10, (err, salt) => {

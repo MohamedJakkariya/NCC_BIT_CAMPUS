@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Alata', sans-serif;
 }
 
 #profile{
@@ -12,12 +14,41 @@
     background-repeat: no-repeat;
 }
 
+
 #profile img{
-    /* position: absolute; */
-    border-radius: 60%;
-    padding: 0;
+    /* border-radius: 60%; */
+    padding: 0.2rem;
+    width: 200px;
+    background-color: white;
+    height: 200px;
     margin-top: 5rem;
-    margin-left: 1rem;
+    margin-left: 4rem;
+    z-index: -1;
+}
+
+#profile .showcase {
+    position: relative;
+}
+
+
+#profile .showcase  a{
+    font-size: 1.2rem;
+    color: #444444;
+    padding: 1rem;
+    bottom: 10%;
+    position: absolute;
+    cursor: pointer;
+
+    letter-spacing: 0.1rem;
+}
+
+
+#profile .showcase .shadow a span{
+    font-family: 'Alata', sans-serif;
+}
+
+#profile .showcase a:hover{
+    text-decoration: none;
 }
 
 #profile .profile-info{
@@ -42,6 +73,7 @@
 
     #profile .profile-info h2{
         font-size: 1.4rem;
+        margin-top: 1rem;
         padding: 0.4rem;
         font-weight: 700;
     }
@@ -61,6 +93,11 @@
 
     #profile .profile-info .info-2 p{
         font-size: 1rem;
+    }
+
+    #profile .showcase a{
+        padding: 0 0.2rem;
+        position: unset;
     }
 }
 

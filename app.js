@@ -1,16 +1,16 @@
-// Configure .env file
-const express = require('express');
-// const expressLayouts = require('express-ejs-layouts');
-const mongoose = require('mongoose');
-const ejsLint = require('ejs-lint');
-const passport = require('passport');
-const flash = require('connect-flash');
-const bodyParser = require('body-parser');
-const session = require('express-session');
+const express = require('express'),
+    mongoose = require('mongoose'),
+    passport = require('passport'),
+    flash = require('connect-flash'),
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    fileUpload = require('express-fileupload'),
+    busboy = require('connect-busboy');
 
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
+app.use(busboy());
 
 // Passport Config
 require('./config/passport')(passport);
@@ -30,14 +30,14 @@ mongoose
   .catch((err) => console.log(err));
 
 // Setting ejs view engine
-// app.use(expressLayouts);
 app.set('view engine', 'ejs');
-ejsLint('ejs', { async: true });
 
-// Session configuration
+// Set middleware 
+app.use(fileUpload());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Express session
+// Express Session configuration
 app.use(
   session({
     secret: 'Secret',

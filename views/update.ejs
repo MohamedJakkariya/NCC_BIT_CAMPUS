@@ -4,12 +4,13 @@
       <div class="col-md-6 m-auto">
         <div class="card card-body">
           <h1 class="text-center mb-3">
-            <i class="fa fa-user-plus"></i> Register
+            <i class="fa fa-user-plus"></i> Update Form
           </h1>
 
           <%- include ('partials/messages') %>
+          <a href="/profile" class="btn btn-outline-secondary mt-3 mb-3">Back to profile</a>
 
-          <form action="/student/update" method="POST">
+          <form action="/student/update" method="POST" enctype="multipart/form-data">
                   <!-- email  -->
                 <div class="form-group row">
                   <label for="email" class="col-md-5">
@@ -127,13 +128,13 @@
               <div class="pt-2 form-group row">
                 <label for="avatar" class="col-md-4">
                   <span class="fa fa-edit p-2"></span>
-                  Standard photograph *</label>
+                  Standard photograph </label>
                 <label class="col-md-1"></label>
                 <div class="col-md-7">
-                  <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock" 
+                  <input id="avatar" name="profile_img" type="file" aria-describedby="avatarHelpBlock" 
                     class="form-control">
-                  <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
-                    <br> Allowed format: JPEG only.</span>
+                  <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 100 kB.
+                    <br> Allowed format: JPEG/png only.</span>
                 </div>
               </div>
 

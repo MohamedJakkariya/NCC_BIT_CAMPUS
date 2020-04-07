@@ -142,6 +142,10 @@ const LoginSchema = new mongoose.Schema({
   },
   kinrelation: {
     type: String
+  },
+  profile: {
+    type: String,
+    default: ''
   }
 });
 

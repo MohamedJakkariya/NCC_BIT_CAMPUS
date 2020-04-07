@@ -18,20 +18,27 @@
     <!-- custome stylesheet  -->
     <link rel="stylesheet" href="../css/slidebox.css" />
   </head>
-  <body>
+  <body class="waitMe_body">
+    <!-- Loading animation  -->
+    <div class="waitMe_container img" style="background:#fff">
+      <div style="background:url('../lib/loading-plugin/img.svg')"></div>
+    </div>
+    
     <%- include('nav') %>
     
-    <%- include ('partials/messages') %>
-
+    
     <!-- form container  -->
-    <form action="/student/signup" method="POST" class="container">
-        <!-- w container  -->
-        <div id="w" class="form-container">
-          <div id="page">
-            <!-- Login Details -->
-            <div id="content-login">
-              <h2>Login Detail</h2>
-   
+    <form action="/student/signup" method="POST" class="container" enctype="multipart/form-data">
+      <!-- w container  -->
+      
+      <div id="w" class="form-container">
+        <div id="page">
+          <!-- Login Details -->
+          <div id="content-login">
+            <h2>Login Detail</h2>
+            
+            <%- include ('partials/messages') %>
+
               <div class="content">
                 <div class="form-group row">
                   <label for="email" class="col-md-5">Email Address</label>
@@ -153,10 +160,10 @@
                   <label for="avatar" class="col-md-4">Standard photograph *</label>
                   <label class="col-md-1"></label>
                   <div class="col-md-7">
-                    <input id="avatar" name="avatar" type="file" aria-describedby="avatarHelpBlock"
+                    <input id="avatar" name="profile_img" type="file"  aria-describedby="avatarHelpBlock"
                       class="form-control">
-                    <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 50 kB.
-                      <br> Allowed format: JPEG only.</span>
+                    <span id="avatarHelpBlock" class="form-text text-muted">The size of the file should be between 2 kB and 100 kB.
+                      <br> Allowed format: JPEG/png only.</span>
                   </div>
                 </div>
   

@@ -23,7 +23,19 @@
 
     <div id="profile">
       <div class="showcase">
-        <img src="../img/modal-profile.jpg" alt="" />
+        <% if(user.profile != '') { %>
+          <img src="../img/uploaded_images/<%= user.profile %>" alt="">
+          <div class="shadow">
+              <a href="/update" class="fa fa-edit">
+                  <span>Edit</span></a>
+          </div>
+        <% }else{ %>
+          <img src="../img/modal-profile.jpg" alt="">
+          <div class="shadow">
+              <a href="/update" class="fa fa-edit">
+                  <span>Edit</span></a>
+          </div>
+        <% } %>
       </div>
 
       <div class="profile-info row">
@@ -37,10 +49,9 @@
 
           <div class="btn-group-lg">
             <button class="btn btn-primary p-2 m-2">Events</button>
-            <button class="btn btn-outline-primary p-2 m-2">Messages</button>
-            <a href="/update" class="btn btn-outline-secondary pl-3 pr-3 m-2" 
-              >View Profile</a
-            >
+            <a href="http://yap-chat.herokuapp.com" class="btn btn-outline-primary p-2 m-2">Messages</a>
+            <!-- <a href="/update" class="btn btn-outline-secondary pl-3 pr-3 m-2" 
+              >View Profile</a> -->
             <a
               href="/student/logout"
               class="btn btn-outline-secondary pl-3 pr-3 m-2 submit"
