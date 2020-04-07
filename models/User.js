@@ -137,7 +137,7 @@ const LoginSchema = new mongoose.Schema({
   dismissed : {
     type: Boolean
   },
-  paraddress: {
+  degree: {
     type: String
   },
   kinrelation: {
@@ -146,6 +146,10 @@ const LoginSchema = new mongoose.Schema({
   profile: {
     type: String,
     default: ''
+  },
+  yearOfJoin: {
+    type : Number,
+    default: 2016
   }
 });
 

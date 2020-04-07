@@ -175,6 +175,19 @@
                 </div>
               </div>
 
+              <!-- Degree  -->
+              <div class="form-group row">
+              <label for="clg" class="col-md-5">
+                <span class="fa fa-edit p-2"></span>
+                Enter your degree
+              </label>
+              <div class="col-md-7">
+                <input id="clg" name="degree"
+                  type="text" value="<%= user.degree %>"
+                  aria-describedby="clgHelpBlock" class="form-control">
+              </div>
+            </div>
+
               <!-- Institution  -->
               <div class="form-group row">
                 <label for="clg" class="col-md-5">
@@ -203,6 +216,19 @@
                     <option value="engg">Engineering</option>
                   </select>
                 </div>
+              </div>
+
+              <!-- yearOfJoin  -->
+              <div class="form-group row pt-4">
+                <label class="col-md-5" for="fname">Year Of Join</label>
+                <input
+                  type="number"
+                  name="yearOfJoin"
+                  class="form-control col-md-7"
+                  autocomplete="on"
+                  value="<%= user.yearOfJoin %>"
+                  readonly
+                />
               </div>
 
               <!-- Unit  -->
@@ -307,16 +333,6 @@
                 Parent's address</label>
                 <div class="col-md-7">
                   <textarea id="paradd" name="paraddress" cols="40" rows="5"  class="form-control"><%= user.paraddress %></textarea>
-                </div>
-              </div>
-
-              <!-- Permanent address  -->
-              <div class="form-group row">
-                <label for="paradd" class="col-md-5">
-                <span class="fa fa-edit p-2"></span>
-                Permanent address</label>
-                <div class="col-md-7">
-                  <textarea id="peradd" name="peraddress" cols="40" rows="5"  class="form-control"><%= user.peraddress %></textarea>
                 </div>
               </div>
 

@@ -87,80 +87,24 @@
   <!-- Main section  -->
   <div class="main">
     <div class="header">
-      <p class="pl-3"><span id="value">1924</span> members in community</p>
+      <p class="pl-3"><span id="value"><%= students.length %></span> members in community</p>
     </div>
 
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">MOHAMED JAKK A</a>
-        <p >Student class <span class="member-year">2019</span></p>
-        <p>M.Sc Chemistry, <span class="member-department">Chemistry</span></p>
-        <p class="member-home-town">Tiruchirappalli</p>
+    <% students.forEach(student => { %>
+      <div class="member">
+        <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+  
+        <div class="member-detail">
+          <a href="#" class="member-name"><%= student.fullname %></a>
+          <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
+          <!-- <p>M.Sc Physics, <span class="member-department">Chemistry</span></p> -->
+          <p class="member-department"><%= student.degree %></p>
+          <p class="member-home-town"><%= student.district %></p>
+        </div>
+        <button type="submit">view profile</button>
       </div>
-      <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">RAJA SEKARAN R</a>
-        <p>Student, class <span class="member-year">2009</span> </p>
-        <p>M.Sc Physics, <span class="member-department">Chemistry</span></p>
-        <p class="member-home-town">Madurai</p>
-      </div>
-      <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">BALA MURUGAN N</a>
-        <p >Student, class <span class="member-year">2000</span></p>
-        <p>M.Sc Math, <span class="member-department">Math</span></p>
-        <p class="member-home-town">Theni</p>
-      </div>
-      <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">VEL MURUGAN S</a>
-        <p >Student, class <span class="member-year">2000</span></p>
-        <p>M.Sc Math, <span class="member-department">Math</span></p>
-        <p class="member-home-town">Dindugal</p>
-      </div>
-      <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">ARAVIND D</a>
-        <p >Student, class <span class="member-year">2012</span> </p>
-        <p>M.Sc Chemistry, <span class="member-department">Chemistry</span></p>
-        <p class="member-home-town">Tiruchirappalli</p>
-      </div>
-      <button type="submit">view profile</button>
-    </div>
-
-    <div class="member">
-      <img src="../img/modal-profile.jpg" />
-
-      <div class="member-detail">
-        <a href="#" class="member-name">MOHAMED ASAR A</a>
-        <p >Student, class <span class="member-year">2012</span> </p>
-        <p>B.E Computer Science and Engineering, <span class="member-department">CSE</span></p>
-        <p class="member-home-town">Tiruchirappalli</p>
-      </div>
-      <button type="submit">view profile</button>
-    </div>
+    <% }) %>
+    
   </div>
 </div>
 

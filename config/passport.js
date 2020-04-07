@@ -11,21 +11,41 @@ module.exports = function (passport) {
       // // Match user
       Login.findOne({
         email: email,
-      }).then((user) => {
-        if (!user) {
-          // return done(null, false, { message: 'That email is not registered' });
-          // Check another table
+      })
+        .then((user) => {
+          if (!user) {
+            // return done(null, false, { message: 'That email is not registered' });
+            // Check another table
 
-          Admin.findOne({
-            email: email,
-          }).then((user) => {
-            if (!user) {
-              return done(null, false, {
-                message: 'That email is not registered',
-              });
-            }
-            console.log('In Admin user is ' + user);
-            
+            Admin.findOne({
+              email: email,
+            })
+              .then((user) => {
+                if (!user) {
+                  return done(null, false, {
+                    message: 'That email is not registered',
+                  });
+                }
+                console.log('In Admin user is ' + user);
+
+                // Match password
+                bcrypt.compare(password, user.password, (err, isMatch) => {
+                  if (err) throw err;
+                  if (isMatch) {
+                    return done(null, user);
+                  } else {
+                    return done(null, false, { message: 'Password incorrect' });
+                  }
+                });
+                //End of bcrypt
+              })
+              .catch((err) => console.log(err)); // End of Then
+          } // End of If
+
+          // Check whether the user is not in the Login 
+          const userpassword = user === null ? true : false;
+          if (userpassword) {
+          } else {
             // Match password
             bcrypt.compare(password, user.password, (err, isMatch) => {
               if (err) throw err;
@@ -35,24 +55,9 @@ module.exports = function (passport) {
                 return done(null, false, { message: 'Password incorrect' });
               }
             });
-            //End of bcrypt
-          })
-          .catch(err => console.log(err)); // End of Then
-        } // End of If
-
-        const userpassword = user.password === null? ' ': user.password;         
-
-        // Match password
-        bcrypt.compare(password, userpassword, (err, isMatch) => {
-          if (err) throw err;
-          if (isMatch) {
-            return done(null, user);
-          } else {
-            return done(null, false, { message: 'Password incorrect' });
           }
-        });
-      })
-      .catch(err => console.log(err));
+        })
+        .catch((err) => console.log(err));
     })
   );
 
@@ -78,7 +83,6 @@ module.exports = function (passport) {
       });
     } else {
       Admin.findById(obj.id, function (err, user) {
-        console.log(err);
         if (err) {
           console.log(err);
         }

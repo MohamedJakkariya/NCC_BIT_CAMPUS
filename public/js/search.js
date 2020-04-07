@@ -144,7 +144,7 @@ findDepartment.addEventListener('input', e => {
 
     if (!keyArr.length) {
       allMemberOfDepartment.forEach(member => {
-        member.parentElement.parentElement.parentElement.style.display = 'flex';
+        member.parentElement.parentElement.style.display = 'flex';
       });
     } else {
       // to parst a member into array of all character
@@ -159,14 +159,14 @@ findDepartment.addEventListener('input', e => {
             keyArr[i - 1].toLowerCase() ==
             String(member.textContent[i - 1]).toLowerCase()
           ) {
-            member.parentElement.parentElement.parentElement.style.display =
+            member.parentElement.parentElement.style.display =
               'flex';
           } else {
-            member.parentElement.parentElement.parentElement.style.display =
+            member.parentElement.parentElement.style.display =
               'none';
           }
         } else {
-          member.parentElement.parentElement.parentElement.style.display =
+          member.parentElement.parentElement.style.display =
             'none';
         }
       }

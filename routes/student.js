@@ -2,7 +2,7 @@ const express = require('express'),
   router = express.Router(),
   bcrypt = require('bcryptjs'),
   passport = require('passport'),
-  manipulation = require('../db/manipulation');
+  manipulation = require('../db/manipulationforStud');
 
 // var appDir = path.dirname(require.main.filename);
 
@@ -73,7 +73,8 @@ router.post('/signup', (req, res) => {
     post,
     railway,
     paraddress,
-    peraddress,
+    degree,
+    yearOfJoin,
     uniquemark,
     bloodgroup,
     medicalcomplaints,
@@ -165,7 +166,8 @@ router.post('/signup', (req, res) => {
           postoffice,
           post,
           railway,
-          peraddress,
+          degree,
+          yearOfJoin,
           paraddress,
           uniquemark,
           bloodgroup,

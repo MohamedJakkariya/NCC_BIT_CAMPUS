@@ -1,8 +1,6 @@
-// const path = require('path'),
-//   bodyParser = require('body-parser');
+
 // Load User model
 const Login = require('../models/User');
-//   Admin = require('../models/Admin');
 
 exports.findAndUpdate = (req, res) => {
   var file;
@@ -27,7 +25,7 @@ exports.findAndUpdate = (req, res) => {
       postoffice: req.body.postoffice,
       post: req.body.post,
       railway: req.body.railway,
-      peraddress: req.body.peraddress,
+      degree: req.body.degree,
       uniquemark: req.body.uniquemark,
       bloodgroup: req.body.bloodgroup,
       medicalcomplaints: req.body.medicalcomplaints,
@@ -91,7 +89,7 @@ exports.findAndUpdate = (req, res) => {
             postoffice: req.body.postoffice,
             post: req.body.post,
             railway: req.body.railway,
-            peraddress: req.body.peraddress,
+            degree: req.body.degree,
             uniquemark: req.body.uniquemark,
             bloodgroup: req.body.bloodgroup,
             medicalcomplaints: req.body.medicalcomplaints,
