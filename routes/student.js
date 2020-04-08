@@ -306,8 +306,8 @@ router.post('/forgot-password', (req, res, next) => {
           var transporter = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-              user: 'mdjack01122000@gmail.com',
-              pass: 'Mdjack9524369244thasinfathima',
+              user: process.env.EMAIL,
+              pass: process.env.PASSWORD,
             },
           });
 
@@ -372,79 +372,106 @@ router.get('/password-reset/:token', function (req, res) {
 
 // Password change into db and confirmation email send to student
 router.post('/password-reset/:token', function (req, res) {
-  Login.findOne(
-    {
-      resetToken: req.params.token,
-      resetTokenExpire: { $gt: Date.now() },
-    },
-    function (err, user) {
-      if (!user) {
-        req.flash(
-          'error_msg',
-          'Password reset token is invalid or has expired.'
-        );
-        return res.redirect('/student/forgot-password');
-      }
+  let errors = []; 
 
-      // Hash the password
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(req.body.password, salt, (err, hash) => {
-          if (err) throw err;
-          user.password = hash;
-          user.resetPasswordToken = undefined;
-          user.resetPasswordExpire = undefined;
-          console.log('password' + user.password + 'and the user is' + user);
+  const { password, password2 } = req.body;
+  // Check they give password or not
+  if (!password || !password2) {
+    errors.push({ msg: 'Fill all the fields' });
+  }
+  if (password != password2) {
+    errors.push({ msg: 'Passwords do not match' });
+  }
 
-          user
-            .save(function (err) {
-              if (err) {
-                console.log('here');
-                req.flash(
-                  'error_msg',
-                  'Password is not changed try again after sometime!'
-                );
-                return res.redirect('/student/forgot-passoword');
-              } else {
-                console.log('wait for sending confimation mail....');
-                // Send confirmation mail to student
-                var transporter = nodemailer.createTransport({
-                  service: 'Gmail',
-                  auth: {
-                    user: 'mdjack01122000@gmail.com',
-                    pass: 'Mdjack9524369244thasinfathima',
-                  },
-                });
+  if (password.length < 6) {
+    errors.push({ msg: 'Password must be at least 6 characters' });
+  }
 
-                var mailOptions = {
-                  to: user.email,
-                  from: 'mdjack01122000@gmail.com',
-                  subject: 'Your password has been changed',
-                  text:
-                    'Hello,\n\n' +
-                    ' - This is a confirmation that the password for your account ' +
-                    user.email +
-                    ' has just been changed.\n',
-                };
-
-                transporter.sendMail(mailOptions, function (err) {
-                  // req.flash('success', 'Success! Your password has been changed.');
-                  console.log('successfully changed!');
-                  // done(err);
-
-                  req.flash(
-                    'success_msg',
-                    'Password is changed now you can signin!'
-                  );
-
-                  return res.redirect('/student/signin');
-                });
-              }
-            });
-            
-        });
-      });
+  if (errors.length > 0) {
+    console.log(errors);
+    const user = {
+      email : req.body.email,
+      resetToken : req.params.token
     }
-  );
+    res.render('password-reset', {
+      errors,
+      user: user
+    });
+  } else {
+    Login.findOne(
+      {
+        resetToken: req.params.token,
+        resetTokenExpire: { $gt: Date.now() },
+      },
+      function (err, user) {
+        if (!user) {
+          req.flash(
+            'error_msg',
+            'Password reset token is invalid or has expired.'
+          );
+          return res.redirect('/student/forgot-password');
+        }
+  
+        // Hash the password
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(req.body.password, salt, (err, hash) => {
+            if (err) throw err;
+            user.password = hash;
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpire = undefined;
+            console.log('password' + user.password + 'and the user is' + user);
+  
+            user
+              .save(function (err) {
+                if (err) {
+                  console.log('here');
+                  req.flash(
+                    'error_msg',
+                    'Password is not changed try again after sometime!'
+                  );
+                  return res.redirect('/student/forgot-passoword');
+                } else {
+                  console.log('wait for sending confimation mail....');
+                  // Send confirmation mail to student
+                  var transporter = nodemailer.createTransport({
+                    service: 'Gmail',
+                    auth: {
+                      user: process.env.EMAIL,
+                      pass: process.env.PASSWORD
+                    },
+                  });
+  
+                  var mailOptions = {
+                    to: user.email,
+                    from: 'mdjack01122000@gmail.com',
+                    subject: 'Your password has been changed',
+                    text:
+                      'Hello,\n\n' +
+                      ' - This is a confirmation that the password for your account ' +
+                      user.email +
+                      ' has just been changed.\n',
+                  };
+  
+                  transporter.sendMail(mailOptions, function (err) {
+                    // req.flash('success', 'Success! Your password has been changed.');
+                    console.log('successfully changed!');
+                    // done(err);
+  
+                    req.flash(
+                      'success_msg',
+                      'Password is changed now you can signin!'
+                    );
+  
+                    return res.redirect('/student/signin');
+                  });
+                }
+              });
+              
+          });
+        });
+      }
+    );
+  }
 });
 
 // Logout

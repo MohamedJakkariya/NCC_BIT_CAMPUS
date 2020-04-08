@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
@@ -8,6 +10,8 @@ const express = require('express'),
 
 
 const app = express();
+
+console.log(process.env.EMAIL);
 
 app.use(express.static(__dirname + '/public'));
 
