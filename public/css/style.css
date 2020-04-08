@@ -584,7 +584,7 @@ footer {
   font-size: 14px;
 }
 
-.main .member button {
+.main .member a {
   background: none;
   position: absolute;
   border: none;

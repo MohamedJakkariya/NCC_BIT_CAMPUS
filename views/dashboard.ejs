@@ -90,18 +90,24 @@
       <p class="pl-3"><span id="value"><%= students.length %></span> members in community</p>
     </div>
 
+    <%- include ('partials/messages') %>
+
     <% students.forEach(student => { %>
       <div class="member">
-        <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+
+        <% if(student.profile == ''){ %>
+          <img src="../img/modal-profile.jpg" alt="Profile image" />
+        <% }else{ %>
+          <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+        <% } %>
   
         <div class="member-detail">
-          <a href="#" class="member-name"><%= student.fullname %></a>
+          <p class="member-name"><%= student.fullname %></p>
           <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
-          <!-- <p>M.Sc Physics, <span class="member-department">Chemistry</span></p> -->
           <p class="member-department"><%= student.degree %></p>
           <p class="member-home-town"><%= student.district %></p>
         </div>
-        <button type="submit">view profile</button>
+        <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary" type="submit">view profile</a>
       </div>
     <% }) %>
     

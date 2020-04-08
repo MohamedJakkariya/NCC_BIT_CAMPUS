@@ -134,7 +134,7 @@ $(document).ready(function() {
         }
       );
 
-    $('#ball-1').css('background-color', '#343A40');
+    $('#ball-1').css('background-color', '#007BFF');
   });
 
   // Shor previous login page
@@ -227,7 +227,7 @@ $(document).ready(function() {
           /* callback */
         }
       );
-    $('#ball-2').css('background-color', '#343A40');
+    $('#ball-2').css('background-color', '#007BFF');
   });
 
   // display previous applicant page
@@ -322,7 +322,7 @@ $(document).ready(function() {
         }
       );
 
-    $('#ball-3').css('background-color', '#343A40');
+    $('#ball-3').css('background-color', '#007BFF');
   });
 
   // display previous contact page
@@ -417,7 +417,7 @@ $(document).ready(function() {
         }
       );
 
-    $('#ball-4').css('background-color', '#343A40');
+    $('#ball-4').css('background-color', '#007BFF');
   });
 
   // display previous Curricular page page

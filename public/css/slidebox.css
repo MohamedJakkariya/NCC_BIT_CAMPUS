@@ -85,7 +85,7 @@ h2 {
 .dots .ball{
   margin: 0.3rem;
   width: 10px;
-  border: 1px solid rgba(52, 58, 64, 0.7);
+  border: 1px solid #007BFF;
   height: 10px;
   border-radius: 50%;
 }
@@ -93,7 +93,7 @@ h2 {
 
 /* Initial show dot  */
 #ball-5{
-  background-color: rgb(52, 58, 64);
+  background-color: #007BFF;
 }
 
 /* page structure */
@@ -118,7 +118,7 @@ h2 {
   height: auto;
   background: #fff;
   box-sizing: border-box;
-  border: 0.1px solid rgba(52, 58, 64,0.2);
+  border: 0.1px solid rgba(52, 58, 64, 0.2);
 }
 .content {
   box-sizing: border-box;

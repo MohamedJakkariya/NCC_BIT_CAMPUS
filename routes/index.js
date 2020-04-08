@@ -20,6 +20,7 @@ router.get('/profile',ensureAuthenticated,(req, res) => {
   });
 });
 
+
 router.get('/update', ensureAuthenticated,(req, res) => {
   console.log(req.user);
   res.render('update',{

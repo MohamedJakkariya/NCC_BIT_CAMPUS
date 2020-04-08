@@ -6,24 +6,48 @@
     font-family: 'Alata', sans-serif;
 }
 
+#msg{
+    position: fixed;
+    right: 2rem;
+    bottom: 1rem;
+    font-size: 3.4rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#msg::before{
+    content: '?';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #ffffff;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+#msg::before:hover{
+    color: rgba(255,255,255,0.7);
+}
 #profile{
     height: 200px;
     width: 100%;
-    background: url('../img/showcase-4.jpg');
+    background: url('../img/modal-3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    /* filter: blur(1px); */
 }
 
 
-#profile img{
+#profile .showcase img{
     /* border-radius: 60%; */
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.5);
     padding: 0.2rem;
+    /* display: block; */
     width: 200px;
     background-color: white;
     height: 200px;
+    /* margin: 0 auto; */
     margin-top: 5rem;
-    margin-left: 4rem;
-    z-index: -1;
+    margin-left: 23rem;
 }
 
 #profile .showcase {
@@ -38,7 +62,7 @@
     bottom: 10%;
     position: absolute;
     cursor: pointer;
-
+    left: 20%;
     letter-spacing: 0.1rem;
 }
 
@@ -56,17 +80,30 @@
     margin: 0 2rem;
 }
 
-#profile .profile-info .info-2 p{
-    /* padding: 7px; */
-    font-size: 1.4rem;
-    line-height: 1.7;
+#profile .profile-info img{
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.5);
+    margin-top: 1rem;
+    padding: 0.2rem;
+    width: 250px;
+    background-color: white;
+    height: 200px;
+    margin: 0 auto;
 }
 
 @media (max-width:600px){
-    #profile img{
-        margin: 5rem 3rem auto;
+    #msg{
+        font-size: 2.4rem;
+        right: 0.7rem;
+        bottom: 0.7rem;
     }
 
+    #msg::before{
+        font-size: 1.5rem;
+    }
+    #profile .showcase img{
+        margin: 5rem 4rem auto;
+    }
+   
     #profile{
         text-align: center;
     }
@@ -95,19 +132,18 @@
         font-size: 1rem;
     }
 
+    #profile .profile-info img{
+        margin: 0.4rem;
+    }
+
     #profile .showcase a{
         padding: 0 0.2rem;
-        position: unset;
+        left: 10%;
+        bottom: 20%;
+        font-size: 1.3rem;
     }
-}
 
-#profile .description{
-    padding: 2rem;
-    font-size: 1.1rem;
-}
-
-@media (max-width: 600px){
-    #profile .description{
-        text-align: justify;
+    #profile .showcase a span{
+        display: none;
     }
 }

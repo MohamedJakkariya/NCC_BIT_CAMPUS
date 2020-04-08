@@ -2,7 +2,9 @@ const express = require('express'),
   router = express.Router(),
   bcrypt = require('bcryptjs'),
   passport = require('passport'),
-  manipulation = require('../db/manipulationforStud');
+  manipulation = require('../db/manipulationforStud'),
+  { ensureAuthenticated } = require('../config/auth');
+
 
 // var appDir = path.dirname(require.main.filename);
 
@@ -23,14 +25,16 @@ router.get('/signin', (req, res) =>
 router.post('/signup', (req, res) => {
   let file;
   let profile;
-  if (req.files.profile_img != null) {
+  if (req.files != null) {
     file = req.files.profile_img;
     profile = file.name;
 
     console.log(file);
     console.log(profile);
 
+    // Check type of the image 
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+      // Store images to server
       file.mv('public/img/uploaded_images/' + file.name, function (err) {
         if (err) {
           console.log('Something went wrong when the insert!');
@@ -117,14 +121,7 @@ router.post('/signup', (req, res) => {
     res.render('signup', {
       errors,
     });
-  } else {
-    // Store images to server
-    // req.busboy.on('file', (fieldname, file, filename) => {
-    //   console.log('Uploading image : ' + filename);
-
-    //   fstream = fs.createWriteStream(appDir + '/public/img/uploaded_images' + filename);
-    // });
-
+  } else {    
     // Store data on to the database
     Login.findOne({ email: email }).then((user) => {
       if (user) {
@@ -229,6 +226,28 @@ router.post('/update', (req, res, next) => {
   console.log(req.body);
 
   manipulation.findAndUpdate(req, res);
+});
+
+router.get('/profile',ensureAuthenticated,(req, res, next) => {
+  var id = req.query.id;
+  console.log(id);  
+  Login.findById(id, (err, doc) => {
+      if(err) throw err;
+
+      console.log(doc);
+      
+      if(doc.length <= 0){
+        req.flash(
+          'error_msg',
+          "The Profile Doesn't Exist"
+        );
+        res.redirect('/dashboard');
+      }
+
+      res.render('profile', {
+        user: doc
+      });
+    });
 });
 
 // Logout

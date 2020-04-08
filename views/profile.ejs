@@ -1,100 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css/profile.css" />
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="../lib/font-awesome/css/font-awesome.min.css"
-    />
-    <!-- loading animation plugin  -->
-    <link rel="stylesheet" href="../lib/loading-plugin/waitMe.min.css" />
-
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
     <title>Profile</title>
-  </head>
-  <body class="waitMe_body">
-      <!-- Loading animation  -->
-      <div class="waitMe_container img" style="background:#fff">
-        <div style="background:url('../lib/loading-plugin/img.svg')"></div>
-      </div>
-
+</head>
+<body>
     <div id="profile">
-      <div class="showcase">
-        <% if(user.profile != '') { %>
-          <img src="../img/uploaded_images/<%= user.profile %>" alt="">
-          <div class="shadow">
-              <a href="/update" class="fa fa-edit">
-                  <span>Edit</span></a>
-          </div>
-        <% }else{ %>
-          <img src="../img/modal-profile.jpg" alt="">
-          <div class="shadow">
-              <a href="/update" class="fa fa-edit">
-                  <span>Edit</span></a>
-          </div>
-        <% } %>
-      </div>
 
-      <div class="profile-info row">
-        <div class="info-1 col-lg-7">
-          <h2>Mohamed Jakkariya</h2>
-          <h3>
-            Graduate Student at University College of Engineering(BIT campus) |
-            Software Engineer
-          </h3>
-          <p class="text-secondary">Trichirappalli</p>
-
-          <div class="btn-group-lg">
-            <button class="btn btn-primary p-2 m-2">Events</button>
-            <a href="http://yap-chat.herokuapp.com" class="btn btn-outline-primary p-2 m-2">Messages</a>
-            <!-- <a href="/update" class="btn btn-outline-secondary pl-3 pr-3 m-2" 
-              >View Profile</a> -->
-            <a
-              href="/student/logout"
-              class="btn btn-outline-secondary pl-3 pr-3 m-2 submit"
-              >Logout</a
-            >
-          </div>
+        <!-- Message Button  -->
+        <a id="msg" href="#">
+            <span class="fa fa-comment"></span>
+        </a>
+        <div class="showcase">
+            <img src="../img/uploaded_images/2019-06-05-08-38-36-195.jpg" alt="">
+            <a href="/update" class="fa fa-edit">
+                <span>Edit</span>
+            </a>
         </div>
-        <div class="info-2 col-lg-5">
-          <p>
-            <span class="fa fa-university"></span>
-            University college of Engineering
-          </p>
-          <p>
-            <span class="fa fa-university"></span>
-            University college of Engineering
-          </p>
-          <p>
-            <span class="fa fa-address-book-o text-secondary"></span>
-            See contact-info
-          </p>
-          <p>
-            <span class="fa fa-users text-secondary"></span>
-            500+ connection
-          </p>
-        </div>
-      </div>
 
-      <div class="description">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi illo
-          odit aliquam inventore sed quo error eligendi dolorem, culpa eos non
-          assumenda blanditiis velit perferendis tempore ratione vel beatae
-          eaque id ipsam eum, molestiae exercitationem. Ut commodi quas
-          consequatur aspernatur possimus temporibus illo excepturi doloribus
-          cumque quisquam odit, officiis suscipit quasi porro tempore error qui!
-          Quam laudantium quisquam blanditiis exercitationem.
-        </p>
-      </div>
+        <div class="profile-info row">
+            <div class="info-1 col-lg-8 text-center">
+                <h2 class="mt-3"><%=user.fullname %></h2>
+                <h3>Student at <%=user.college %></h3>
+                <p class="text-secondary pl-4">(BIT campus) <%= user.district %></p>
+                <div class="row flex-wrap">
+                    <img src="../img/modal-1.jpg" alt="">
+                    <img src="../img/modal-2.jpg" alt="">
+                    <img src="../img/modal-3.jpg" alt="">
+                </div>
+            </div>
+            <div class="info-2 col-lg-4">
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Roll No</p>
+                    <p class="col-lg-7">810018104048</p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Unit</p>
+                    <p class="col-lg-7">Unit - 1</p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Rank</p>
+                    <p class="col-lg-7">2nd</p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Period</p>
+                    <p class="col-lg-7">2015 - 2018</p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Mobile</p>
+                    <p class="col-lg-7">+91 <%= user.mobile %></p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Degree</p>
+                    <p class="col-lg-7"><%= user.degree %></p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">Institution</p>
+                    <p class="col-lg-7"><%= user.college %></p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">District</p>
+                    <p class="col-lg-7"><%= user.district %></p>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <p class="col-lg-4 text-primary">State</p>
+                    <p class="col-lg-7"><%= user.state %></p>
+                </div>
+            </div>
     </div>
+
 
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../lib/loading-plugin/waitMe.min.js"></script>
-    <script src="../js/main.js"></script>
-  </body>
+</body>
 </html>
