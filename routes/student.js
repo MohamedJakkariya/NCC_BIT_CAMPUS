@@ -5,9 +5,6 @@ const express = require('express'),
   manipulation = require('../db/manipulationforStud'),
   { ensureAuthenticated } = require('../config/auth');
 
-
-// var appDir = path.dirname(require.main.filename);
-
 // Load User model
 const Login = require('../models/User');
 
@@ -25,6 +22,7 @@ router.get('/signin', (req, res) =>
 router.post('/signup', (req, res) => {
   let file;
   let profile;
+  console.log(req.body)
   if (req.files != null) {
     file = req.files.profile_img;
     profile = file.name;
@@ -222,12 +220,14 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
+// Update route 
 router.post('/update', (req, res, next) => {
   console.log(req.body);
 
   manipulation.findAndUpdate(req, res);
 });
 
+// Get profile for particular student 
 router.get('/profile',ensureAuthenticated,(req, res, next) => {
   var id = req.query.id;
   console.log(id);  
@@ -249,6 +249,20 @@ router.get('/profile',ensureAuthenticated,(req, res, next) => {
       });
     });
 });
+
+// Update account details 
+router.get('/account-details',ensureAuthenticated, (req, res) => {
+  res.render('account-details', {
+    user : req.user
+  });
+});
+
+router.post('/account-details', (req, res) => {
+  manipulation.updatePassword(req, res);
+});
+
+// Forget password route 
+
 
 // Logout
 router.get('/logout', (req, res) => {

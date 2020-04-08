@@ -1,0 +1,71 @@
+<%- include('header') %>
+
+    <div class="mt-3" style="overflow: hidden;">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">          
+          <% if(user.type === 'Login'){ %>
+            <h1 class="text-center mb-3">
+              <i class="fa fa-user-plus"></i><a href="/update" class="text-info" style="text-decoration: underline;">Basic</a> / Login-details
+            </h1>
+                              
+            <%- include ('partials/messages') %>
+          <a href="/profile" class="btn btn-outline-secondary mt-3 mb-3">Back to profile</a>
+
+          <form action="/student/account-details" method="POST">
+                  <!-- email  -->
+                <div class="form-group row">
+                  <label for="email" class="col-md-5">
+                    Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="loginemail"
+                    class="form-control col-md-7"
+                    autocomplete="on"
+                    value="<%= user.email %>"
+                    readonly
+                    >
+                </div>  
+    
+                <!-- Password name  -->
+              <div class="form-group row pt-4">
+                <label class="col-md-5" for="fname">
+                  <span class="fa fa-edit p-2"></span>
+                  Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control col-md-7"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Confirm Password-->
+              <div class="form-group row">
+                <label class="col-md-5" for="fname">
+                  <span class="fa fa-edit p-2"></span>
+                  Confirm Password</label>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control col-md-7"
+                  autocomplete="off"
+                />
+              </div>
+
+            <button type="submit" class="btn btn-primary btn-block submit">
+              Update
+            </button>
+          </form>
+          <% }else{ %>
+            <div class="disable">
+              <p class="text-danger text-center p-2">You're not Edit those kinds of information for security purposes but you can change in Database!</p>
+            </div
+          <% } %>
+
+          
+        </div>
+      </div>
+    </div>
+
+<%- include('footer') %>

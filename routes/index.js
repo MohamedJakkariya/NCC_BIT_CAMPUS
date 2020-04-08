@@ -12,9 +12,7 @@ router.get('/dashboard',ensureAuthenticated, (req, res) =>
   manipulationforAdmin.showAllStudents(req, res)
 );
 
-router.get('/profile',ensureAuthenticated,(req, res) => {
-  console.log(req.user);
-  
+router.get('/profile',ensureAuthenticated,(req, res) => { 
   res.render('profile', {
     user: req.user
   });
@@ -22,7 +20,6 @@ router.get('/profile',ensureAuthenticated,(req, res) => {
 
 
 router.get('/update', ensureAuthenticated,(req, res) => {
-  console.log(req.user);
   res.render('update',{
     user : req.user
   });

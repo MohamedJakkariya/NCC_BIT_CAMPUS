@@ -1,6 +1,7 @@
-
 // Load User model
-const Login = require('../models/User');
+const Login = require('../models/User'),
+      bcrypt = require('bcryptjs');
+
 
 exports.findAndUpdate = (req, res) => {
   var file;
@@ -8,7 +9,7 @@ exports.findAndUpdate = (req, res) => {
   let update;
 
   console.log(req.files);
-  
+
   if (req.files === null) {
     filter = { id: req.body.id };
     update = {
@@ -45,7 +46,9 @@ exports.findAndUpdate = (req, res) => {
       kinname: req.body.kinname,
       kinaddress: req.body.kinaddress,
       willing: req.body.willing,
-      kinrelation: req.body.kinrelation
+      kinrelation: req.body.kinrelation,
+      password: req.body.password,
+      password2: req.body.password2,
     };
 
     // `doc` is the document _before_ `update` was applied
@@ -56,10 +59,7 @@ exports.findAndUpdate = (req, res) => {
         res.redirect('/update');
       }
       console.log(doc);
-      req.flash(
-        'success_msg',
-        'Successfully Updated!'
-      );
+      req.flash('success_msg', 'Successfully Updated!');
       res.redirect('/update');
     });
   } else {
@@ -121,10 +121,7 @@ exports.findAndUpdate = (req, res) => {
               res.redirect('/update');
             }
             console.log(doc);
-            req.flash(
-              'success_msg',
-              'Successfully Updated!'
-            );
+            req.flash('success_msg', 'Successfully Updated!');
             res.redirect('/update');
           });
         }
@@ -136,5 +133,62 @@ exports.findAndUpdate = (req, res) => {
       );
       res.redirect('/update');
     }
+  }
+};
+
+exports.updatePassword = (req, res) => {
+  let errors = []; 
+
+  const { password, password2 } = req.body;
+  // Check they give password or not
+  if (!password || !password2) {
+    errors.push({ msg: 'Fill all the fields' });
+  }
+  if (password != password2) {
+    errors.push({ msg: 'Passwords do not match' });
+  }
+
+  if (password.length < 6) {
+    errors.push({ msg: 'Password must be at least 6 characters' });
+  }
+
+  if (errors.length > 0) {
+    console.log(errors);
+    res.render('account-details', {
+      errors,
+      user: req.user
+    });
+  } else {
+
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(req.body.password, salt, (err, hash) => {
+        console.log(hash);
+        
+        if (err) throw err;
+        Login.findOne({ id : req.body.id },(err, doc) => {
+          if(err){
+            req.flash(
+              'error_msg',
+              "Your account details doen't updated"
+              );
+              console.log(err);
+              res.redirect('/update');
+            }else{
+              console.log(doc);
+              
+              doc.password = hash;
+              doc.save();
+    
+              req.flash(
+                'success_msg',
+                'Your account details updated'
+              );
+              res.redirect('/update');
+          }
+        });
+      });
+    });
+          
+    
   }
 };

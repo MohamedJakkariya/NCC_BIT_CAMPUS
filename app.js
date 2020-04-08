@@ -20,7 +20,7 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db, {
+  .connect('mongodb://localhost:27017/ncc', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

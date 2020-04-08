@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <base href="/">
+
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
@@ -16,11 +18,24 @@
         <a id="msg" href="#">
             <span class="fa fa-comment"></span>
         </a>
+
+         <!-- Logout Button  -->
+         <a id="logout" href="/student/logout">
+            <span class="fa fa-sign-out"></span>
+        </a>
+        
         <div class="showcase">
-            <img src="../img/uploaded_images/2019-06-05-08-38-36-195.jpg" alt="">
-            <a href="/update" class="fa fa-edit">
-                <span>Edit</span>
-            </a>
+            <% if(user.profile == ''){ %>
+                <img src="../img/modal-profile.jpg" alt="profile name">
+                <a href="/update" class="fa fa-edit">
+                    <span>Edit</span>
+                </a>
+            <% }else{ %>
+                <img src="../img/uploaded_images/<%= user.profile %>" alt="profile name">
+                <a href="/update" class="fa fa-edit">
+                    <span>Edit</span>
+                </a>
+            <% } %>
         </div>
 
         <div class="profile-info row">
