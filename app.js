@@ -4,13 +4,12 @@ const express = require('express'),
     flash = require('connect-flash'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
-    fileUpload = require('express-fileupload'),
-    busboy = require('connect-busboy');
+    fileUpload = require('express-fileupload');
+
 
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
-app.use(busboy());
 
 // Passport Config
 require('./config/passport')(passport);

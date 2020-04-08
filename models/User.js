@@ -150,6 +150,12 @@ const LoginSchema = new mongoose.Schema({
   yearOfJoin: {
     type : Number,
     default: 2016
+  },
+  resetToken: {
+    type : String,
+  },
+  resetTokenExpire : {
+    type : Date
   }
 });
 
