@@ -11,8 +11,6 @@ const express = require('express'),
 
 const app = express();
 
-console.log(process.env.EMAIL);
-
 app.use(express.static(__dirname + '/public'));
 
 // Passport Config
@@ -20,10 +18,10 @@ require('./config/passport')(passport);
 
 // DB Config
 const db = require('./config/keys').mongoURI;
-
+// 'mongodb://localhost:27017/ncc'
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://localhost:27017/ncc', {
+  .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -43,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Express Session configuration
 app.use(
   session({
-    secret: 'Secret',
+    secret: process.env.SESSIONSECRET,
     resave: false,
     saveUninitialized: true,
   })
