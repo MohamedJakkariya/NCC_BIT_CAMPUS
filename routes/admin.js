@@ -93,7 +93,7 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
-router.post('/post-event', ensureAuthenticated, (req, res) => {
+router.get('/event-post', ensureAuthenticated, (req, res) => {
   res.render('event-post');
 });
 
