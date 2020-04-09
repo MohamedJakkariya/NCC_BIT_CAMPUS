@@ -26,7 +26,7 @@ router.get('/update', ensureAuthenticated,(req, res) => {
 });
 
 router.get('/events', (req, res) => {
-  res.render('events');
+  manipulationforAdmin.viewAllEvents(req, res);
 });
 module.exports = router;
  

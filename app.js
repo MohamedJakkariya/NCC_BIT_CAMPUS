@@ -1,5 +1,9 @@
 require('dotenv').config();
 
+let d = new Date()
+
+console.log(d.toLocaleString());
+
 const express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),

@@ -42,6 +42,16 @@
         height: auto;
       }
 
+      .btn-outline-light {
+        display: block;
+        margin: 0.9rem auto;
+      }
+
+      p,
+      h4 {
+        text-align: center;
+      }
+
       .event-slide {
         overflow-x: hidden;
       }
@@ -61,7 +71,7 @@
         position: relative;
       }
 
-      .box-info p-2 {
+      .box-info {
         position: absolute;
         bottom: 0;
         width: 450px;
@@ -70,9 +80,22 @@
       }
 
       @media only screen and (max-width: 600px) {
-        .event-slide img{
+        .event-slide img {
           width: 100%;
           height: 300px;
+        }
+
+        p,
+        h4 {
+          text-align: left;
+        }
+
+        .btn-outline-light {
+          margin: 0.8rem;
+        }
+
+        .box-info {
+          height: 140px;
         }
       }
     </style>
@@ -87,99 +110,71 @@
 
     <h1 class="text-center p-4">All Events</h1>
 
+    <% if(typeof events != 'undefined'){ %>
     <div class="event-slide">
+      <% events.forEach(event => { %>
       <div class="box">
-        <img src="../img/showcase-4.jpg" alt="" />
+        <img src="../img/events/<%= event.imageName %>" alt="Event image" />
         <div class="box-info p-2">
           <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
+            <span class="fa fa-calendar p-2"></span> <%= event.date.toLocaleString() %>
           </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
+          <h4 class="text-white p-0"><%= event.eventName %></h4>
+          <button
+            data-toggle="modal"
+            data-target="#<%= event.id %>"
+            class="btn btn-outline-light"
+          >
+            View Detail
+          </button>
         </div>
       </div>
-      <div>
-        <img src="../img/showcase-5.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
-        </div>
-      </div>
-      <div>
-        <img src="../img/showcase-6.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
-        </div>
-      </div>
-      <div>
-        <img src="../img/modal-4.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
-        </div>
-      </div>
-      <div>
-        <img src="../img/showcase-1.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
-        </div>
-      </div>
-      <div>
-        <img src="../img/showcase-2.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
-        </div>
-      </div>
-      <div>
-        <img src="../img/showcase-3.jpg" alt="" />
-        <div class="box-info p-2">
-          <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> December 18, 2019
-          </p>
-          <h4 class="text-white p-0">Global film festival in BIT</h4>
-          <p class="text-white">
-            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
-            opposite
-          </p>
+      <% }) %>
+    </div>
+
+    <!-- Event Description  -->
+    <% events.forEach(event => { %>
+    <div
+      class="modal fade"
+      id="<%= event.id %>"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="<%= event.id %>"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="<%= event.id %>"><%= event.eventName %></h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="<%= event.id %>"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= event.description %>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <% }) %> 
+
+    <% }else{ %>
+      <h2 class="text-danger">Currently No Events available!</h2>
+    <% } %>
 
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
@@ -190,7 +185,7 @@
       $(document).ready(function () {
         $('.event-slide').slick({
           autoplay: true,
-          speed: 1500,
+          speed: 1000,
           centerMode: true,
           slidesToShow: 3,
           infinite: true,
@@ -199,17 +194,13 @@
             {
               breakpoint: 600,
               settings: {
-                // autoplay: false,
                 arrows: true,
-                // infinite: false,
                 slidesToShow: 1,
-                // slidesToScroll: 3,
                 centerMode: false,
-                // infinite: false,
                 dots: true,
               },
-            }
-          ]
+            },
+          ],
         });
       });
     </script>

@@ -5,6 +5,7 @@ const passport = require('passport');
 // Load User model
 const Admin = require('../models/Admin');
 const Event = require('../models/Event');
+const manipulation = require('../db/manipulationforAdmin');
 const { ensureAuthenticated } = require('../config/auth');
 
 // Login Page
@@ -96,12 +97,10 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/event-post', (req, res) => {
+// Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum accusamus autem tenetur sapiente sint labore adipisci quas praesentium. Praesentium facilis distinctio consequuntur suscipit saepe quasi sit obcaecati sequi temporibus perferendis!
+router.get('/event-post',ensureAuthenticated, (req, res) => {
   res.render('event-post');
 });
-
-// Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi consequuntur quisquam distinctio provident itaque accusamus dolorum corrupti repellat commodi magnam.
-
 router.post('/event-post', (req, res) => {
   let errors = [];
   var files;
@@ -128,7 +127,7 @@ router.post('/event-post', (req, res) => {
   } else {
     errors.push({
       msg:
-        "This image format is not allowed , please upload file with '.png','.jpg'",
+        "This image format is not allowed , please upload image with '.png','.jpg'",
     });
   }
 
@@ -139,14 +138,13 @@ router.post('/event-post', (req, res) => {
     });
   } else {
 
+    // Create Event object 
     const newEvent = new Event({
       eventName : eventname,
       date : dateandtime,
       imageName : files.name,
       description : description
     });
-
-    console.log(newEvent);
     
     newEvent.save((err) => {
       if(err) throw err;
