@@ -24,5 +24,9 @@ router.get('/update', ensureAuthenticated,(req, res) => {
     user : req.user
   });
 });
+
+router.get('/events', (req, res) => {
+  res.render('events');
+});
 module.exports = router;
  

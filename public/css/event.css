@@ -1,0 +1,33 @@
+.row .box img{
+    width: 100%;
+    height: auto;
+}
+
+.event-slide{
+    overflow-x: hidden;
+}
+
+.event-slide img{
+    width: 450px;
+    height: 350px;
+    position: relative;
+}
+
+.event-slide .box-info p{
+    padding: 0;
+    margin: 0.3rem;
+}
+
+.box{
+    position: relative;
+}
+
+.box-info{
+    position: absolute;
+    bottom: 0;
+    width: 450px;
+    z-index: 1;
+    background-color: rgba(52, 58, 64, 0.8);
+}
+
+

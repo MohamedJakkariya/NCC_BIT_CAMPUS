@@ -101,10 +101,17 @@
 }
 
 @media (max-width:600px){
+    #logout{
+        top: unset;
+        bottom: 20%;
+        font-size: 1.8rem;
+    }
+
     #msg{
-        font-size: 2.4rem;
-        right: 0.7rem;
-        bottom: 0.7rem;
+        font-size: 2.1rem;
+        right: unset;
+        left: 0.7rem;
+        bottom: 10%;
     }
 
     #msg::before{

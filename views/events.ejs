@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event panel</title>
+
+    <!-- link stylesheets -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
+
+    <!-- custome stylesheet  -->
+    <link rel="stylesheet" href="../css/event.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- slick theme  -->
+    <link rel="stylesheet" href="../lib/slick-master/slick/slick.css" />
+    <link rel="stylesheet" href="../lib/slick-master/slick/slick-theme.css" />
+
+    <!-- loading animation plugin  -->
+    <link rel="stylesheet" href="../lib/loading-plugin/waitMe.min.css" />
+    <style>
+      .slick-slide {
+        transition: all ease-in-out 0.3s;
+        opacity: 0.2;
+      }
+
+      .slick-active {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+
+      .slick-current {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .row .box img {
+        width: 100%;
+        height: auto;
+      }
+
+      .event-slide {
+        overflow-x: hidden;
+      }
+
+      .event-slide img {
+        width: 450px;
+        height: 350px;
+        position: relative;
+      }
+
+      .event-slide .box-info p-2 p {
+        padding: 0;
+        margin: 0.3rem;
+      }
+
+      .box {
+        position: relative;
+      }
+
+      .box-info p-2 {
+        position: absolute;
+        bottom: 0;
+        width: 450px;
+        z-index: 1;
+        background-color: rgba(52, 58, 64, 0.8);
+      }
+
+      @media only screen and (max-width: 600px) {
+        .event-slide img{
+          width: 100%;
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body class="waitMe_body">
+    <!-- Loading animation  -->
+    <div class="waitMe_container img" style="background: #fff;">
+      <div style="background: url('../lib/loading-plugin/img.svg');"></div>
+    </div>
+
+    <%- include('nav') %>
+
+    <h1 class="text-center p-4">All Events</h1>
+
+    <div class="event-slide">
+      <div class="box">
+        <img src="../img/showcase-4.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/showcase-5.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/showcase-6.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/modal-4.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/showcase-1.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/showcase-2.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+      <div>
+        <img src="../img/showcase-3.jpg" alt="" />
+        <div class="box-info p-2">
+          <p class="text-white">
+            <span class="fa fa-calendar p-2"></span> December 18, 2019
+          </p>
+          <h4 class="text-white p-0">Global film festival in BIT</h4>
+          <p class="text-white">
+            <span class="fa fa-location-arrow p-2"></span> Mustafa mansion
+            opposite
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script Links  -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/slick-master/slick/slick.min.js"></script>
+    <script src="../lib/loading-plugin/waitMe.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.event-slide').slick({
+          autoplay: true,
+          speed: 1500,
+          centerMode: true,
+          slidesToShow: 3,
+          infinite: true,
+          swipeToSlide: true,
+          responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                // autoplay: false,
+                arrows: true,
+                // infinite: false,
+                slidesToShow: 1,
+                // slidesToScroll: 3,
+                centerMode: false,
+                // infinite: false,
+                dots: true,
+              },
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
