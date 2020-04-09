@@ -1,9 +1,5 @@
 require('dotenv').config();
 
-let d = new Date()
-
-console.log(d.toLocaleString());
-
 const express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
@@ -25,7 +21,7 @@ const db = require('./config/keys').mongoURI;
 // 'mongodb://localhost:27017/ncc'
 // Connect to MongoDB
 mongoose
-  .connect('mongodb://localhost:27017/ncc', {
+  .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
