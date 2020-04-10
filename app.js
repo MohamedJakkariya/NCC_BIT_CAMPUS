@@ -23,7 +23,7 @@ const db = require('./config/keys').mongoURI;
 mongoose
   .connect(db, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true,  
     useFindAndModify: false,
     useCreateIndex: true
   })
@@ -61,6 +61,8 @@ app.use(function (req, res, next) {
   res.locals.error = req.flash('error');
   next();
 });
+
+global.event = '';
 
 // Routes
 app.use('/', require('./routes/index.js'));

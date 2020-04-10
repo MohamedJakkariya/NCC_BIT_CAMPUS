@@ -14,6 +14,7 @@ $(document).ready(function () {
       onClose: function () {},
     });
   });
+  
 
   // Slide show
   $('.lazy').slick({

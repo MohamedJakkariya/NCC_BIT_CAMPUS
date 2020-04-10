@@ -14,14 +14,14 @@ exports.showAllStudents = (req, res) => {
 };
 
 // View All Events 
-exports.viewAllEvents = (req, res) => {
+exports.viewAllEvents = (req, res, ejsFile) => {
   Event.find({}, (err, events) => {
       if(err) throw err;
       console.log(events);
-      
-      res.render('events', {
-        events : events
+      res.render(`${ejsFile}`, {
+        events : events  
       });
+      // return events;
   });
 };
 

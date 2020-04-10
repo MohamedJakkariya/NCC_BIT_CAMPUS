@@ -27,12 +27,38 @@
   border-bottom-right-radius: 15px;
 }
 
-.card-img-overlay h5 {
+.img-title{
+  position: absolute;
+  bottom: 5rem;
+  left: 1.6rem;
+  width: 89%;
+  height: 40px;
   text-align: center;
-  margin-top: 0;
+  padding: 0.5rem 1rem;
+  /* overflow: hidden; */
   margin-bottom: 1rem;
-  /* margin-left: 1rem; */
-  font-weight: 700;
-  text-transform:uppercase;
+  text-transform: uppercase;
   color: white;
+  background-color: #3e64ff;
+}
+
+.card-title{
+  font-size: 1rem;
+}
+
+.btn-outline-warning,.btn-outline-danger{
+  width: 100px;
+}
+
+.btn-outline-warning:hover{
+  color: white;
+}
+
+.event-list{
+  width: 50%;
+  margin: auto;
+}
+
+.event-list a{
+  width: 100%;
 }

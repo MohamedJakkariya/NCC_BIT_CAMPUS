@@ -97,10 +97,10 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
-// Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum accusamus autem tenetur sapiente sint labore adipisci quas praesentium. Praesentium facilis distinctio consequuntur suscipit saepe quasi sit obcaecati sequi temporibus perferendis!
 router.get('/event-post',ensureAuthenticated, (req, res) => {
-  res.render('event-post');
+  res.render('event-post', { event: event });
 });
+
 router.post('/event-post', (req, res) => {
   let errors = [];
   var files;
@@ -113,10 +113,10 @@ router.post('/event-post', (req, res) => {
     req.files.uploaded_img.mimetype === 'image/jpeg' ||
     req.files.uploaded_img.mimetype === 'image/png'
     // Store images to server
-    ) {
-      files = req.files.uploaded_img;
-      
-      files.mv('public/img/events/' + files.name, function (err) {
+  ) {
+    files = req.files.uploaded_img;
+
+    files.mv('public/img/events/' + files.name, function (err) {
       if (err) {
         console.log('Something went wrong when the insert!');
         errors.push({
@@ -135,25 +135,122 @@ router.post('/event-post', (req, res) => {
     console.log(errors);
     res.render('event-post', {
       errors,
+      event,
     });
   } else {
-
-    // Create Event object 
+    // Create Event object
     const newEvent = new Event({
-      eventName : eventname,
-      date : dateandtime,
-      imageName : files.name,
-      description : description
+      eventName: eventname,
+      date: dateandtime,
+      imageName: files.name,
+      description: description,
     });
-    
+
     newEvent.save((err) => {
-      if(err) throw err;
+      if (err) throw err;
       req.flash('success_msg', 'Successfully event posted!');
       res.redirect('/admin/event-post');
     });
-
   }
 });
+
+router.get('/event-edit',ensureAuthenticated, (req, res) => {
+  const ejsFile = 'event-edit';
+  manipulation.viewAllEvents(req, res, ejsFile);
+});
+
+router.get('/event-edit/:id',ensureAuthenticated, (req, res) => {
+  console.log(req.params.id);
+
+  Event.findById(req.params.id, (err, event) => {
+    if (err) throw err;
+
+    res.render('event-post', {
+      event: event,
+    });
+  });
+});
+
+router.post('/event-update/:id', (req, res) => {
+  const id = req.params.id;
+  let errors = [];
+  var files;
+
+  console.log(id);
+
+  const { eventname, dateandtime, description } = req.body;
+
+  if (!eventname || !dateandtime || !description || !req.files) {
+    errors.push({ msg: 'Please fill all the fields!' });
+  } else if (
+    req.files.uploaded_img.mimetype === 'image/jpeg' ||
+    req.files.uploaded_img.mimetype === 'image/png'
+  ) {
+    // Store images to server
+    files = req.files.uploaded_img;
+
+    files.mv('public/img/events/' + files.name, function (err) {
+      if (err) {
+        console.log('Something went wrong when the insert!');
+        errors.push({
+          msg: 'Something went wrong to store the image onto the server',
+        });
+      }
+    });
+  } else {
+    errors.push({
+      msg:
+        "This image format is not allowed , please upload image with '.png','.jpg'",
+    });
+  }
+
+  if (errors.length > 0) {
+    console.log(errors);
+    req.flash('error_msg', 'Please fill all the fields!');
+    res.redirect(`/admin/event-edit/${id}`);
+  } else {
+    Event.findOne({_id: id}, (err, event) => {
+      if (err) throw err;
+
+      console.log(event);
+
+      event.eventName = eventname;
+      event.date = dateandtime;
+      event.description = description;
+      event.imageName = files.name;
+
+      event.save((err) => {
+        if (err) throw err;
+        req.flash(
+          'success_msg',
+          'Successfully the Event was updated!'
+        );
+
+        res.render('event-post', {
+          event: event,
+        });
+      });
+    });
+  }
+});
+
+router.get('/event-delete/:id', ensureAuthenticated, (req, res) => {
+  console.log(req.params.id);
+
+  const id = req.params.id;
+  // Delete the document 
+  Event.findByIdAndRemove(id, (err, doc) => {
+    if(err) throw err;
+    req.flash(
+      'success_msg',
+      'Successfully the Event is Deleted!'
+    );
+  
+    res.redirect('/admin/event-edit');
+  });
+
+});
+
 
 // Logout
 router.get('/logout', (req, res) => {

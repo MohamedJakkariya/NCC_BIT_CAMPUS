@@ -29,7 +29,7 @@
       }
 
       .slick-active {
-        opacity: 0.5;
+        opacity: 1;
         transform: scale(0.8);
       }
 
@@ -90,6 +90,10 @@
           text-align: left;
         }
 
+        h1{
+          font-size: 1.5rem;
+        }
+
         .btn-outline-light {
           margin: 0.8rem;
         }
@@ -106,18 +110,22 @@
       <div style="background: url('../lib/loading-plugin/img.svg');"></div>
     </div>
 
-    <%- include('nav') %>
-
-    <h1 class="text-center p-4">All Events</h1>
-
-    <% if(typeof events != 'undefined'){ %>
-    <div class="event-slide">
+    <%- include('nav') %> <% if(typeof events != 'undefined'){ %>
+    <h1 class="text-center p-4 text-muted">
+      Currently
+      <span class="text-primary" style="font-weight: 600;"
+        ><%= events.length %></span
+      >
+      Events available!
+    </h1>
+    <div class="event-slide adaption">
       <% events.forEach(event => { %>
       <div class="box">
         <img src="../img/events/<%= event.imageName %>" alt="Event image" />
         <div class="box-info p-2">
           <p class="text-white">
-            <span class="fa fa-calendar p-2"></span> <%= event.date.toLocaleString() %>
+            <span class="fa fa-calendar p-2"></span> <%=
+            event.date.toLocaleString() %>
           </p>
           <h4 class="text-white p-0"><%= event.eventName %></h4>
           <button
@@ -145,7 +153,9 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="<%= event.id %>"><%= event.eventName %></h5>
+            <h5 class="modal-title" id="<%= event.id %>">
+              <%= event.eventName %>
+            </h5>
             <button
               type="button"
               class="close"
@@ -170,10 +180,8 @@
         </div>
       </div>
     </div>
-    <% }) %> 
-
-    <% }else{ %>
-      <h2 class="text-danger">Currently No Events available!</h2>
+    <% }) %> <% }else{ %>
+    <h2 class="text-danger">Currently No Events available!</h2>
     <% } %>
 
     <!-- Script Links  -->
@@ -183,14 +191,41 @@
     <script src="../lib/loading-plugin/waitMe.min.js"></script>
     <script>
       $(document).ready(function () {
-        $('.event-slide').slick({
-          autoplay: true,
-          speed: 1000,
-          centerMode: true,
-          slidesToShow: 3,
-          infinite: true,
-          swipeToSlide: true,
-          responsive: [
+        let boxes = $('.box').length;
+        console.log(boxes);
+
+        if (boxes <= 3) {
+          $('.adaption').slick({
+            infinite: true,
+            slidesToShow: 3,
+            responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                infinite: true,
+                speed: 1500
+              },
+            },
+          ]
+          });
+        } else {
+          $('.slick-active').css({
+            'opacity' : 0.5,
+            'transform':'scale(' + 0.8 +')'
+          });
+
+
+          $('.event-slide').slick({
+            autoplay: true,
+            speed: 1000,
+            centerMode: true,
+            slidesToShow: 3,
+            infinite: true,
+            swipeToSlide: true,
+            responsive: [
             {
               breakpoint: 600,
               settings: {
@@ -201,7 +236,8 @@
               },
             },
           ],
-        });
+          });
+        }
       });
     </script>
   </body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit</title>
+    <!-- link stylesheets -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/event.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <%- include('nav') %>
+    
+    <div class="event-list">
+      <h1 class="text-center pt-3">Event List</h1>
+      <a href="/dashboard" class="btn btn-outline-primary mb-3">Back to Dashboard</a>
+      <%- include ('partials/messages') %>
+    </div>
+
+    <div class="d-flex container flex-wrap mt-5">
+      <% events.forEach(event => { %>
+      <div class="card col-lg-5 mx-auto">
+        <img
+          class="card-img-top"
+          style="
+            border-radius: 15px;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.5);
+          "
+          src="../img/events/<%= event.imageName %>"
+          alt="Card image cap"
+        />
+        <div class="img-title">
+          <h1 class="mb-4 card-title"><%= event.eventName %></h1>
+        </div>
+        <div class="card-body">
+          <a
+            href="/admin/event-edit/<%= event.id %>"
+            class="btn btn-outline-warning float-left"
+            >Edit</a
+          >
+          <a
+            href="/admin/event-delete/<%= event.id %>"
+            class="btn btn-outline-danger float-right"
+            >Delete</a
+          >
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+    <%- include('footer') %>
+  </body>
+</html>
