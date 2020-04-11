@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { ensureAuthenticated } = require('../config/auth');
+const { } = require('../config/auth');
 const manipulationforAdmin = require('../db/manipulationforAdmin');
 
 
@@ -8,18 +8,19 @@ const manipulationforAdmin = require('../db/manipulationforAdmin');
 router.get('/',(req, res) => res.render('index'));
 
 // Dashboard
-router.get('/dashboard',ensureAuthenticated, (req, res) =>
+router.get('/dashboard', (req, res) =>
   manipulationforAdmin.showAllStudents(req, res)
 );
 
-router.get('/profile',ensureAuthenticated,(req, res) => { 
+router.get('/profile',(req, res) => { 
   res.render('profile', {
     user: req.user
   });
 });
 
 
-router.get('/update', ensureAuthenticated,(req, res) => {
+router.get('/update', (req, res) => {
+  console.log(req.user);
   res.render('update',{
     user : req.user
   });

@@ -1,0 +1,50 @@
+<%- include('header') %>
+
+
+
+    <div class="mt-3" style="overflow: hidden;">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body">          
+            <h1 class="text-center mb-3">
+              <i class="fa fa-upload p-2"></i>Sending Details
+            </h1>
+                              
+            <%- include ('partials/messages') %>
+          <a href="/dashboard" class="btn btn-outline-primary mt-3 mb-3">Back to Dashboard</a>
+
+          <form action="/admin/pdf-post/<%= year %>" method="POST">
+                  <!-- email  -->
+                <div class="form-group row">
+                  <label for="email" class="col-md-5">
+                    <a href="<%= filepath %>" target="_blank" class="text-primary">PDF File</a></label>
+                  <input
+                    type="text"
+                    readonly
+                    value="<%= filename %>"
+                    name="pdfFile"
+                    class="form-control col-md-7"
+                    >
+                </div>  
+    
+                <!-- Email name  -->
+              <div class="form-group row pt-4">
+                <label class="col-md-5">
+                  Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control col-md-7"
+                  autocomplete="on"
+                />
+              </div>
+
+            <button type="submit" class="btn btn-primary btn-block submit">
+              Send
+            </button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+<%- include('footer') %>

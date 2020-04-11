@@ -25,3 +25,7 @@ exports.viewAllEvents = (req, res, ejsFile) => {
   });
 };
 
+// get the particular year based students 
+exports.getYearBasedStudents = (req, res, year) => {
+
+}

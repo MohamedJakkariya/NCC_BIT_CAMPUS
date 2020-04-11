@@ -138,6 +138,19 @@
       </nav>
     </header>
 
+
+    <!-- pdf Icon  -->
+    <form action="#" method="post">
+      <div class="pdf">
+        <span id="close-icon" class="fa fa-close"></span>
+        <span class="fa fa-file-pdf-o" id="pdf"></span>
+        <input type="number" placeholder="Enter the year" id="send" class="btn btn-primary">
+        <button type="submit" id="submit-pdf">
+          <span class="fa fa-send"></span>
+        </button>
+      </div>
+    </form>
+
     <div class="container-box container-fluid">
       <!-- Side Section  -->
       <div class="sidebar container p-3">
@@ -204,30 +217,7 @@
         <div class="header">
           <p class="pl-3"><span id="value">1924</span> members in community</p>
         </div>
-
-        <div class="member">
-          <img src="../img/modal-profile.jpg" />
-
-          <div class="member-detail">
-            <p class="member-name">MOHAMED JAKK A</p>
-            <p >Student class <span class="member-year">2019</span></p>
-            <p>M.Sc Chemistry, <span class="member-department">Chemistry</span></p>
-            <p class="member-home-town">Tiruchirappalli</p>
-          </div>
-        <a href="/view/profile/?id=<%= student.id %>" class="btn btn-outline-primary" type="submit">view profile</a>
-        </div>
-        <div class="member">
-          <img src="../img/modal-profile.jpg" />
-
-          <div class="member-detail">
-            <a href="#" class="member-name">RAJA SEKARAN R</a>
-            <p>Student, class <span class="member-year">2009</span> </p>
-            <p>M.Sc Physics, <span class="member-department">Chemistry</span></p>
-            <p class="member-home-town">Madurai</p>
-          </div>
-        <a href="/profile/?id=<%= student.id %>" class="btn btn-outline-primary" type="submit">view profile</a>
-        </div>
-
+        
         <div class="member">
           <img src="../img/modal-profile.jpg" />
 

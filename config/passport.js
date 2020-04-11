@@ -47,14 +47,23 @@ module.exports = function (passport) {
           if (userpassword) {
           } else {
             // Match password
-            bcrypt.compare(password, user.password, (err, isMatch) => {
+            user.viewBy = 'Student';
+
+            user.save(err => {
               if (err) throw err;
-              if (isMatch) {
-                return done(null, user);
-              } else {
-                return done(null, false, { message: 'Password incorrect' });
-              }
-            });
+
+              console.log('In Student is ' + user);
+
+              bcrypt.compare(password, user.password, (err, isMatch) => {
+                if (err) throw err;
+                if (isMatch) {
+                  return done(null, user);
+                } else {
+                  return done(null, false, { message: 'Password incorrect' });
+                }
+              });
+            })
+            
           }
         })
         .catch((err) => console.log(err));

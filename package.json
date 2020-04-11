@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/mdjacksparrow/Ncc-Bit-campus-#readme",
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
@@ -32,6 +33,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-fileupload": "^1.1.7-alpha.3",
     "express-session": "^1.17.0",
+    "html-pdf": "^2.2.0",
     "mongoose": "^5.9.7",
     "nodemailer": "^6.4.6",
     "passport": "^0.4.1",

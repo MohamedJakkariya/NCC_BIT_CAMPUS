@@ -1,4 +1,29 @@
 $(document).ready(function () {
+  // view pdf input field
+  $('#pdf').click(() => {
+    console.log('clicked');
+    // $('#send').css('display', 'unset');
+    $('#submit-pdf').css('display', 'unset');
+    $('.fa-send').css('display', 'unset');
+    $('#close-icon').css('display', 'unset');
+    $('#pdf-icon').css('display', 'none');
+    $('#pdf').css('display', 'none');
+    $('#send').animate({
+      'left': '-13rem'
+    }, 500);
+    $('#send').focus();
+  });
+
+  $('#close-icon').click(() => {
+    $('#send').animate({
+      'left': '5rem'
+    }, 500);
+    $('#submit-pdf').css('display', 'unset');
+    $('.fa-send').css('display', 'none');
+    $('#close-icon').css('display', 'none');
+    $('#pdf').css('display', 'unset');
+  });
+
   // Button loading animation
   $('.submit').click(() => {
     $('.submit').waitMe({
@@ -14,7 +39,6 @@ $(document).ready(function () {
       onClose: function () {},
     });
   });
-  
 
   // Slide show
   $('.lazy').slick({

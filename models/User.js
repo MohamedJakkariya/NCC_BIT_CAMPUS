@@ -156,6 +156,9 @@ const LoginSchema = new mongoose.Schema({
   },
   resetTokenExpire : {
     type : Date
+  },
+  viewBy : {
+    type : String
   }
 });
 

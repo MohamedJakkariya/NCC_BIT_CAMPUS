@@ -8,7 +8,6 @@ const express = require('express'),
     session = require('express-session'),
     fileUpload = require('express-fileupload');
 
-
 const app = express();
 
 app.use(express.static(__dirname + '/public'));
@@ -21,7 +20,7 @@ const db = require('./config/keys').mongoURI;
 // 'mongodb://localhost:27017/ncc'
 // Connect to MongoDB
 mongoose
-  .connect(db, {
+  .connect('mongodb://localhost:27017/ncc', {
     useNewUrlParser: true,
     useUnifiedTopology: true,  
     useFindAndModify: false,
@@ -68,6 +67,9 @@ global.event = '';
 app.use('/', require('./routes/index.js'));
 app.use('/student', require('./routes/student.js'));
 app.use('/admin', require('./routes/admin.js'));
+
+// Global Variable 
+global.pdfFilename = 'enroll.pdf';
 
 const PORT = process.env.PORT || 4000;
 

@@ -19,10 +19,18 @@
             <span class="fa fa-comment"></span>
         </a>
 
+        <% if(user.viewBy === 'Admin'){ %>
+         <!-- Logout Button  -->
+         <a id="logout" href="/dashboard">
+            <span class="fa fa-sign-out"></span>
+        </a>
+        <% }else{ %>
          <!-- Logout Button  -->
          <a id="logout" href="/student/logout">
             <span class="fa fa-sign-out"></span>
         </a>
+        <% } %>
+
         
         <div class="showcase">
             <% if(user.profile == ''){ %>

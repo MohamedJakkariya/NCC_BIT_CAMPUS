@@ -5,11 +5,11 @@
         <div class="card card-body">          
           <% if(user.type === 'Login'){ %>
             <h1 class="text-center mb-3">
-              <i class="fa fa-user-plus"></i> Basic / <a href="/student/account-details" class="text-info" style="text-decoration: underline;">Login-detail</a>
+              <i class="fa fa-upload p-2"></i> Basic / <a href="/student/account-details" class="text-primary" style="text-decoration: underline;">Login-detail</a>
             </h1>
                               
             <%- include ('partials/messages') %>
-          <a href="/profile" class="btn btn-outline-secondary mt-3 mb-3">Back to profile</a>
+          <a href="/profile" class="btn btn-outline-primary mt-3 mb-3">Back to profile</a>
 
           <form action="/student/update" method="POST" enctype="multipart/form-data">
                   <!-- email  -->

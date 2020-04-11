@@ -14,6 +14,73 @@ a:hover {
   text-decoration: none;
 }
 
+.pdf{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #007BFF;
+  color: white;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+
+.fa-file-pdf-o,.fa-send{
+  color: white;
+   position: absolute;
+  top: 50%;
+  cursor: pointer;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+}
+
+
+.fa-send{
+  display: none;
+}
+
+.pdf input{
+  position: absolute;
+  left: 5rem;
+  /* display: none; */
+  z-index: 1;
+  top: 0.4rem;
+}
+
+.fa-close{
+  position: absolute;
+  left: -14.5rem;
+  cursor: pointer;
+  padding: 3px;
+  top: 0.8rem;
+  border-radius: 3px;
+  display: none;
+  z-index: 2;
+  color: #007BFF;
+
+}
+
+.fa-close:hover{
+  color: #007BFF;
+  background-color: white;
+}
+
+.fa-file-pdf-o:hover{
+  color: white;
+}
+
+.pdf input::placeholder{
+  color: white;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+  cursor: text;
+}
+
 h2 {
   text-align: center;
   margin: 2rem auto;

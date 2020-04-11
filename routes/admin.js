@@ -5,8 +5,10 @@ const passport = require('passport');
 // Load User model
 const Admin = require('../models/Admin');
 const Event = require('../models/Event');
-const manipulation = require('../db/manipulationforAdmin');
-const { ensureAuthenticated } = require('../config/auth');
+const Login = require('../models/User');
+const manipulationforAdmin = require('../db/manipulationforAdmin');
+const {} = require('../config/auth');
+const util = require('../utils/utilityfn');
 
 // Login Page
 router.get('/signup', (req, res) =>
@@ -97,7 +99,7 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
-router.get('/event-post',ensureAuthenticated, (req, res) => {
+router.get('/event-post', (req, res) => {
   res.render('event-post', { event: event });
 });
 
@@ -154,12 +156,12 @@ router.post('/event-post', (req, res) => {
   }
 });
 
-router.get('/event-edit',ensureAuthenticated, (req, res) => {
+router.get('/event-edit', (req, res) => {
   const ejsFile = 'event-edit';
-  manipulation.viewAllEvents(req, res, ejsFile);
+  manipulationforAdmin.viewAllEvents(req, res, ejsFile);
 });
 
-router.get('/event-edit/:id',ensureAuthenticated, (req, res) => {
+router.get('/event-edit/:id', (req, res) => {
   console.log(req.params.id);
 
   Event.findById(req.params.id, (err, event) => {
@@ -209,7 +211,7 @@ router.post('/event-update/:id', (req, res) => {
     req.flash('error_msg', 'Please fill all the fields!');
     res.redirect(`/admin/event-edit/${id}`);
   } else {
-    Event.findOne({_id: id}, (err, event) => {
+    Event.findOne({ _id: id }, (err, event) => {
       if (err) throw err;
 
       console.log(event);
@@ -221,10 +223,7 @@ router.post('/event-update/:id', (req, res) => {
 
       event.save((err) => {
         if (err) throw err;
-        req.flash(
-          'success_msg',
-          'Successfully the Event was updated!'
-        );
+        req.flash('success_msg', 'Successfully the Event was updated!');
 
         res.render('event-post', {
           event: event,
@@ -234,23 +233,58 @@ router.post('/event-update/:id', (req, res) => {
   }
 });
 
-router.get('/event-delete/:id', ensureAuthenticated, (req, res) => {
+router.get('/event-delete/:id', (req, res) => {
   console.log(req.params.id);
 
   const id = req.params.id;
-  // Delete the document 
+  // Delete the document
   Event.findByIdAndRemove(id, (err, doc) => {
-    if(err) throw err;
-    req.flash(
-      'success_msg',
-      'Successfully the Event is Deleted!'
-    );
-  
+    if (err) throw err;
+    req.flash('success_msg', 'Successfully the Event is Deleted!');
+
     res.redirect('/admin/event-edit');
   });
-
 });
 
+// Pdf generation route 
+router.get('/pdfGenerate', (req, res) => {
+  console.log(req.query.year);
+
+  // Filter the document and prepare the html 
+  Login.find({yearOfJoin : req.query.year}, (err, docs) => {
+    if(docs <= 0){  
+      req.flash('error_msg', "This year students doen't found!");
+      res.redirect('/dashboard');
+    }else{
+      util.dynamicHtml(req, res,docs);
+    }
+  });
+});
+
+// Alise name of pdfGenerate route 
+router.get('/pdfGenerateAndSent', (req, res) => {
+  res.render('pdfSend', {
+    year: req.query.year,
+    filename: pdfFilename,
+    filepath: `../pdf/${pdfFilename}`
+  });
+});
+
+// Pdf sent to the mail Route 
+router.post('/pdf-post/:year', (req, res) => {
+  console.log(req.params.year);
+  const email = req.body.email;
+  const year = req.params.year;
+  if (!email) {
+    req.flash('error_msg', 'Please enter the email!');
+
+    res.redirect(`/admin/pdfGenerateAndSent?year=${year}`);
+  } else {
+    req.flash('success_msg', 'Email Successfully sent!');
+
+    res.redirect(`/admin/pdfGenerateAndSent?year=${year}`);
+  }
+});
 
 // Logout
 router.get('/logout', (req, res) => {

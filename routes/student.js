@@ -5,7 +5,7 @@ const express = require('express'),
   manipulation = require('../db/manipulationforStud'),
   crypto = require('crypto-random-string'),
   nodemailer = require('nodemailer'),
-  { ensureAuthenticated } = require('../config/auth');
+  { } = require('../config/auth');
 
 // Load User model
 const Login = require('../models/User');
@@ -222,6 +222,7 @@ router.post('/signin', (req, res, next) => {
   })(req, res, next);
 });
 
+
 // Update route
 router.post('/update', (req, res, next) => {
   console.log(req.body);
@@ -230,27 +231,31 @@ router.post('/update', (req, res, next) => {
 });
 
 // Get profile for particular student
-router.get('/profile', ensureAuthenticated, (req, res, next) => {
+router.get('/profile',  (req, res, next) => {
   var id = req.query.id;
   console.log(id);
-  Login.findById(id, (err, doc) => {
+  Login.findOne({_id : id}, (err, doc) => {
     if (err) throw err;
-
-    console.log(doc);
 
     if (doc.length <= 0) {
       req.flash('error_msg', "The Profile Doesn't Exist");
       res.redirect('/dashboard');
-    }
+    }else{
 
-    res.render('profile', {
-      user: doc,
+    }
+    doc.viewBy = 'Admin';
+    doc.save((err) => {
+      console.log(doc);
+      res.render('profile', {
+        user: doc,
+      });
     });
+
   });
 });
 
 // Update account details
-router.get('/account-details', ensureAuthenticated, (req, res) => {
+router.get('/account-details',  (req, res) => {
   res.render('account-details', {
     user: req.user,
   });

@@ -18,6 +18,19 @@
 ================================================ 
 -->
 
+
+   <!-- pdf Icon  -->
+   <form action="/admin/pdfGenerate" method="get">
+    <div class="pdf">
+      <span id="close-icon" class="fa fa-close"></span>
+      <span class="fa fa-file-pdf-o" id="pdf"></span>
+      <input type="number" placeholder="Enter year" required name="year" id="send" class="btn btn-primary">
+      <button type="submit" id="submit-pdf">
+        <span class="fa fa-send"></span>
+      </button>
+    </div>
+  </form>
+
 <div class="container-box container-fluid">
   <!-- Side Section  -->
   <div class="sidebar container p-3">
@@ -87,11 +100,11 @@
 
   <!-- Main section  -->
   <div class="main">
+    <%- include ('partials/messages') %>
     <div class="header">
-      <p class="pl-3"><span id="value"><%= students.length %></span> members in community</p>
+      <p class="pl-3 mt-2"><span id="value"><%= students.length %></span> members in community</p>
     </div>
 
-    <%- include ('partials/messages') %>
 
     <% students.forEach(student => { %>
       <div class="member">
