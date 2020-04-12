@@ -159,6 +159,10 @@ const LoginSchema = new mongoose.Schema({
   },
   viewBy : {
     type : String
+  },
+  isVerified: {
+    type : Boolean,
+    default: false
   }
 });
 

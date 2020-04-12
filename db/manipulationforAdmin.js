@@ -3,11 +3,11 @@
 const Login = require('../models/User');
 const Event = require('../models/Event');
 
-exports.showAllStudents = (req, res) => {
-  Login.find({}, 'id fullname district degree profile yearOfJoin', (err, docs) => {
+exports.showAllStudents = (req, res, route) => {
+  Login.find({}, 'id fullname district degree profile yearOfJoin isVerified', (err, docs) => {
       if(err) throw err;
       
-      res.render('dashboard', {
+      res.render(route, {
         students : docs
       });
   });

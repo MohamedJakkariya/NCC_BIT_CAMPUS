@@ -3,8 +3,10 @@ const express = require('express'),
   bcrypt = require('bcryptjs'),
   passport = require('passport'),
   manipulation = require('../db/manipulationforStud'),
+  manipulationforAdmin = require('../db/manipulationforAdmin'),
   crypto = require('crypto-random-string'),
   nodemailer = require('nodemailer'),
+  mail = require('../utils/sedingMail'),
   { } = require('../config/auth');
 
 // Load User model
@@ -126,9 +128,10 @@ router.post('/signup', (req, res) => {
     Login.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: 'Email already exists' });
-        res.render('register', {
+        const action = '/student/signin';
+        res.render('signup', {
           errors,
-          name,
+          fullname,
           email,
           password,
           password2,
@@ -198,11 +201,15 @@ router.post('/signup', (req, res) => {
             newUser
               .save()
               .then((user) => {
+                // Profile submit to verification
+                mail.informToAdmin(newUser.email);
+                
                 req.flash(
                   'success_msg',
-                  'You are now registered and can log in'
+                  'Your profile is created and submitted to admin for verification! \n Go to Login...'
                 );
-                res.redirect('/student/signin');
+
+                return res.redirect('/student/signin');
               })
               .catch((err) => console.log(err));
           });
@@ -318,7 +325,7 @@ router.post('/forgot-password', (req, res, next) => {
 
           var mailOptions = {
             to: user.email,
-            from: 'mdjack01122000@gmail.com',
+            from: process.env.EMAIL,
             subject: 'NCC(Bit) Password Reset',
             text:
               'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
@@ -448,7 +455,7 @@ router.post('/password-reset/:token', function (req, res) {
   
                   var mailOptions = {
                     to: user.email,
-                    from: 'mdjack01122000@gmail.com',
+                    from: process.env.EMAIL,
                     subject: 'Your password has been changed',
                     text:
                       'Hello,\n\n' +
@@ -477,6 +484,10 @@ router.post('/password-reset/:token', function (req, res) {
       }
     );
   }
+});
+
+router.get('/unverified', (req, res) => {
+  manipulationforAdmin.showAllStudents(req, res, 'verificationPanel');
 });
 
 // Logout

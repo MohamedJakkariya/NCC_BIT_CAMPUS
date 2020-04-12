@@ -13,11 +13,22 @@
       href="../lib/font-awesome/css/font-awesome.min.css"
     />
 
+    <!-- loading animation plugin  -->
+    <link rel="stylesheet" href="../lib/loading-plugin/waitMe.min.css" />
+
     <!-- custome stylesheet  -->
     <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- popper js plugin  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
   </head>
-  <body>
+  <body class="waitMe_body">
+      <div class="waitMe_container progress" style="background:#fff">
+        <div style="background:#000"></div>
+      </div>
     <!-- 
+
     ================================================
                         Header section 
     ================================================ 
@@ -138,10 +149,14 @@
       </nav>
     </header>
 
+    <!-- Go to Unverified Profile  -->
+    <div class="unverified-profile" data-placement="right" data-toggle="tooltip" title="Unverified Profile Available!">
+      <span id="close-icon" class="fa fa-exclamation-circle text-danger"></span>
+    </div>
 
     <!-- pdf Icon  -->
     <form action="#" method="post">
-      <div class="pdf">
+      <div class="pdf" data-placement="right" data-toggle="tooltip" title="Generate PDF">
         <span id="close-icon" class="fa fa-close"></span>
         <span class="fa fa-file-pdf-o" id="pdf"></span>
         <input type="number" placeholder="Enter the year" id="send" class="btn btn-primary">
@@ -151,7 +166,7 @@
       </div>
     </form>
 
-    <div class="container-box container-fluid">
+    <div class="container-box container-fluid" id="container">
       <!-- Side Section  -->
       <div class="sidebar container p-3">
         <div class="first-search-field pt-3 pb-3">
@@ -227,7 +242,9 @@
             <p>M.Sc Math, <span class="member-department">Math</span></p>
             <p class="member-home-town">Theni</p>
           </div>
-        <a href="/profile/?id=<%= student.id %>" class="btn btn-outline-primary" type="submit">view profile</a>
+        <a href="/profile/?id=<%= student.id %>" class="btn btn-outline-primary submit-pdf view-profile" id="submit-pdf" type="submit">view profile</a>
+        <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-danger decline" type="submit">Decline</a>
+        <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-success verify" type="submit">Verify</a>
         </div>
 
         <div class="member">
@@ -271,7 +288,10 @@
     <!-- Script Links  -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/loading-plugin/waitMe.min.js"></script>
     <script src="../js/main.js"></script>
     <!-- <script src="../js/test.js"></script> -->
+    <script>
+    </script>
   </body>
 </html>

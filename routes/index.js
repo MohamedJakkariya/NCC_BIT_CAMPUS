@@ -9,7 +9,7 @@ router.get('/',(req, res) => res.render('index'));
 
 // Dashboard
 router.get('/dashboard', (req, res) =>
-  manipulationforAdmin.showAllStudents(req, res)
+  manipulationforAdmin.showAllStudents(req, res, 'dashboard')
 );
 
 router.get('/profile',(req, res) => { 

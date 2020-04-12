@@ -18,14 +18,13 @@
 ================================================ 
 -->
 
-
    <!-- pdf Icon  -->
    <form action="/admin/pdfGenerate" method="get">
     <div class="pdf">
       <span id="close-icon" class="fa fa-close"></span>
-      <span class="fa fa-file-pdf-o" id="pdf"></span>
+      <span class="fa fa-file-pdf-o" id="pdf"  data-placement="right" data-toggle="tooltip" title="Generate PDF"></span>
       <input type="number" placeholder="Enter year" required name="year" id="send" class="btn btn-primary">
-      <button type="submit" id="submit-pdf">
+      <button type="submit" class="submit-pdf">
         <span class="fa fa-send"></span>
       </button>
     </div>
@@ -107,22 +106,34 @@
 
 
     <% students.forEach(student => { %>
-      <div class="member">
-
-        <% if(student.profile == ''){ %>
-          <img src="../img/modal-profile.jpg" alt="Profile image" />
-        <% }else{ %>
-          <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
-        <% } %>
-  
-        <div class="member-detail">
-          <p class="member-name"><%= student.fullname %></p>
-          <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
-          <p class="member-department"><%= student.degree %></p>
-          <p class="member-home-town"><%= student.district %></p>
+      <% if(!student.isVerified){ %>
+        <!-- Go to Unverified Profile  -->
+        <div class="unverified-profile" data-placement="right" data-toggle="tooltip" title="Unverified Profiles here!">
+          <a href="/student/unverified">
+            <span id="close-icon" class="fa fa-exclamation-circle text-danger"></span>
+          </a>
         </div>
-        <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary" type="submit">view profile</a>
-      </div>
+        <% } %>
+        
+      <% if(student.isVerified){ %>
+        <div class="member">
+
+          <% if(student.profile == ''){ %>
+            <img src="../img/modal-profile.jpg" alt="Profile image" />
+          <% }else{ %>
+            <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+          <% } %>
+    
+          <div class="member-detail">
+            <p class="member-name"><%= student.fullname %></p>
+            <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
+            <p class="member-department"><%= student.degree %></p>
+            <p class="member-home-town"><%= student.district %></p>
+          </div>
+          <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile" type="submit">view profile</a>
+        </div>
+      <% } %>
+      
     <% }) %>
     
   </div>

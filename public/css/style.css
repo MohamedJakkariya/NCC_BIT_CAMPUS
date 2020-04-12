@@ -14,7 +14,7 @@ a:hover {
   text-decoration: none;
 }
 
-.pdf{
+.pdf, .unverified-profile{
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -24,10 +24,35 @@ a:hover {
   height: 50px;
   z-index: 1;
   border-radius: 50%;
+  /* box-shadow: 0.3px 1px 6px rgb(114, 114, 116); */
+}
+
+.unverified-profile{
+  bottom: 5rem;
+  background: none;
+  animation: verify 0.5s linear infinite alternate;
 }
 
 
-.fa-file-pdf-o,.fa-send{
+
+@keyframes verify{
+  0% {
+    right: 1.3rem;
+  }
+  50%{
+    right: 1rem;
+    
+  }
+  70%{
+    right: 1.3rem;
+  }
+  100%{
+    right: 1rem;
+  }
+}
+
+
+.fa-file-pdf-o,.fa-send,.fa-exclamation-circle{
   color: white;
    position: absolute;
   top: 50%;
@@ -37,6 +62,9 @@ a:hover {
   font-size: 1.3rem;
 }
 
+.fa-exclamation-circle{
+  font-size: 2rem;
+}
 
 .fa-send{
   display: none;
@@ -651,18 +679,43 @@ footer {
   font-size: 14px;
 }
 
-.main .member a {
+.main .member .view-profile, .main .member .decline,.main .member .verify{
   background: none;
   position: absolute;
-  border: none;
-  outline: none;
   right: 20px;
-  top: 1rem;
+  top: 2.2rem;
   padding: 0.3rem 0.4rem;
   cursor: pointer;
-  color: white;
-  background: #007BFF;
 }
+
+.main .member a{
+  width: 100px;
+}
+
+.main .member .view-profile:hover{
+  background: #007BFF;
+  color: white;
+  /* outline: none; */
+}
+  
+.main .member .decline{
+  right: 14%;
+}
+
+.main .member .verify{
+  right: 26%;
+}
+
+.main .member .decline:hover{
+  background: #DC3545;
+  color: white;
+}
+
+.main .member .verify:hover{
+  background: #28A745;
+  color: white;
+}
+
 
 .main .member button:hover {
   background-color: #007BFF;

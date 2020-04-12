@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  // Bootstrap plugin 
+  $('[data-toggle="tooltip"]').tooltip();
+
+
   // view pdf input field
   $('#pdf').click(() => {
     console.log('clicked');
@@ -37,6 +41,32 @@ $(document).ready(function () {
       fontSize: '',
       source: '',
       onClose: function () {},
+    });
+  });
+
+  // container loading animation 
+  $('.submit-pdf').click(() => {
+    if(document.getElementById('send').value != ''){
+      $('.container-box').waitMe({
+        effect: 'win8',
+        text: 'Generation takes couple of minutes...',
+        bg: 'rgba(255,255,255,0.7)',
+        color: '#000',
+        waitTime: -1,
+        textPos: 'vertical',
+      });
+    }
+  });
+  
+   // container loading animation 
+   $('.send-pdf').click(() => {
+    $('.waitForSend').waitMe({
+      effect: 'win8',
+      text: 'Generation takes couple of minutes...',
+      bg: 'rgba(255,255,255,0.7)',
+      color: '#000',
+      waitTime: -1,
+      textPos: 'vertical',
     });
   });
 

@@ -1,14 +1,17 @@
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
-const passport = require('passport');
+const express = require('express'),
+    router = express.Router(),
+    bcrypt = require('bcryptjs'),
+    passport = require('passport'),
 // Load User model
-const Admin = require('../models/Admin');
-const Event = require('../models/Event');
-const Login = require('../models/User');
-const manipulationforAdmin = require('../db/manipulationforAdmin');
-const {} = require('../config/auth');
-const util = require('../utils/utilityfn');
+    Admin = require('../models/Admin'),
+    Event = require('../models/Event'),
+    Login = require('../models/User'),
+    manipulationforAdmin = require('../db/manipulationforAdmin'),
+    {} = require('../config/auth'),
+    util = require('../utils/dynamicHtml'),
+    mail = require('../utils/sedingMail'),
+    nodemailer = require('nodemailer');
+
 
 // Login Page
 router.get('/signup', (req, res) =>
@@ -279,11 +282,61 @@ router.post('/pdf-post/:year', (req, res) => {
     req.flash('error_msg', 'Please enter the email!');
 
     res.redirect(`/admin/pdfGenerateAndSent?year=${year}`);
-  } else {
-    req.flash('success_msg', 'Email Successfully sent!');
+  } else { 
 
+    // Call the mail send function asynchronisely
+    mail.pdfToMail(email, year);
+    
+    req.flash('success_msg', 'Email Successfully sent!');
     res.redirect(`/admin/pdfGenerateAndSent?year=${year}`);
+
   }
+});
+
+router.get('/verified', (req, res) => {
+  console.log(req.query.id);
+  const message = 'Hello,\n\n' +' - This is a Inform mail to you about signup the Ncc cadet in BIT portal and your profile was verified successfully! \n';
+
+  var id = req.query.id;
+  console.log(id);
+  Login.findOne({_id : id}, (err, doc) => {
+    if (err) throw err;
+
+    if (doc.length <= 0) {
+      req.flash('error_msg', "The Profile Doesn't Exist");
+      res.redirect('/dashboard');
+    }else{
+
+      doc.isVerified = true;
+
+      // Inform to student
+      mail.informToStudent(message, doc.email);
+
+      doc.save((err) => {
+        console.log(doc); 
+        req.flash('success_msg', 'The profile was successfully reviewed and verified!');
+  
+        res.redirect('/student/unverified');
+      });
+    }
+  });
+});
+
+router.get('/declined', (req, res) => {
+  console.log(req.query.id);
+
+  const message = 'Hello,\n\n' +' - This is a Inform mail to you about signup the Ncc cadet in BIT portal and your profile was declined of some bad information or like spam!\n Please contact our Admin by the following email --> bitcampusannauniversity@gmail.com \n Thank you! \n';
+
+  Login.findByIdAndRemove({_id : req.query.id}, (err, doc) => {
+    if(err) throw err;
+
+    console.log('The removed id is ' + doc.id);
+    mail.informToStudent(message, doc.email);
+
+    req.flash('error_msg', 'The profile was successfully Declined!');
+    res.redirect('/student/unverified');
+  });
+
 });
 
 // Logout

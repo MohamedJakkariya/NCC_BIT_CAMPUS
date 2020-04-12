@@ -1,0 +1,123 @@
+
+<!-- 
+================================================
+                    Header section 
+================================================ 
+-->
+<%- include('header') %>
+
+<!-- 
+================================================
+                    Navbar  
+================================================ 
+-->
+<%- include('nav') %>
+
+<!-- 
+================================================
+                    Container  
+================================================ 
+-->
+
+<div class="container-box container-fluid">
+  <!-- Side Section  -->
+  <div class="sidebar container p-3">
+    <div class="first-search-field pt-3 pb-3">
+      <span class="eventLabel">Post an Event/
+      <a href="/admin/event-edit" class="text-primary">Edit</a></span>
+      <a href="/admin/event-post" id="eventPostButton">
+        <span class="fa fa-plus"></span>
+      </a>
+    </div>
+
+    <h3>Keyword</h3>
+
+    <div class="first-search-field">
+      <input type="text" id="getKeyword" placeholder="Enter keyword" class="top-search" />
+      <span class="fa fa-search"></span>
+    </div>
+
+    <h3>Filters</h3>
+
+    <div class="first-search-field">
+      <input
+        type="text"
+        class="top-search"
+        id="getName"
+        placeholder="Name"
+      />
+      <button type="button"><span class="fa fa-search"></span></button>
+    </div>
+
+    <div class="first-search-field">
+      <input
+        type="text"
+        class="top-search"
+        id="getPlace"
+        placeholder="Place"
+      />
+      <button type="button"><span class="fa fa-search"></span></button>
+    </div>
+    
+
+    <div class="first-search-field">
+      <input
+        type="text"
+        class="top-search"
+        id="getYear"
+        placeholder="Year"
+      />
+      <button type="button"><span class="fa fa-search"></span></button>
+    </div>
+
+    <div class="first-search-field">
+      <input
+        type="text"
+        class="top-search"
+        id="getDepartment"
+        placeholder="Department"
+      />
+      <button type="button"><span class="fa fa-search"></span></button>
+    </div>
+
+    <!-- Go to Dashboard  -->
+    <div class="first-search-field">
+      <a href="/dashboard" type="button" class="w-100 p-1 text-center btn btn-block btn-primary submit" >Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Main section  -->
+  <div class="main">
+    <%- include ('partials/messages') %>
+
+    <% students.forEach(student => { %>
+      <% if(!student.isVerified){ %>
+        <div class="member">
+
+          <% if(student.profile == ''){ %>
+            <img src="../img/modal-profile.jpg" alt="Profile image" />
+          <% }else{ %>
+            <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+          <% } %>
+    
+          <div class="member-detail">
+            <p class="member-name"><%= student.fullname %></p>
+            <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
+            <p class="member-department"><%= student.degree %></p>
+            <p class="member-home-town"><%= student.district %></p>
+          </div>
+          <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile" type="submit">view profile</a>
+          <a href="/admin/declined/?id=<%= student.id %>" class="btn btn-outline-danger decline" type="submit">Decline</a>
+          <a href="/admin/verified/?id=<%= student.id %>" class="btn btn-outline-success verify" type="submit">Verified</a>
+        </div>
+      <% } %>
+    <% }) %>
+    
+  </div>
+</div>
+
+<!-- =================================
+                FOOTER 
+====================================== -->
+<script src="../js/search.js"></script>
+<%- include('footer') %> 
