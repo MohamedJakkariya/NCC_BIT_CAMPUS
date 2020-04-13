@@ -4,11 +4,23 @@ const Login = require('../models/User');
 const Event = require('../models/Event');
 
 exports.showAllStudents = (req, res, route) => {
-  Login.find({}, 'id fullname district degree profile yearOfJoin isVerified', (err, docs) => {
+  let noOfVerified = 0, noOfUnverified = 0;
+
+  Login.find({}, 'id fullname district degree profile yearOfJoin isVerified', async (err, docs) => {
       if(err) throw err;
+
+      await docs.forEach(doc => {
+        if(doc.isVerified){
+          noOfVerified++;
+        }else{
+          noOfUnverified++;
+        }
+      });
       
-      res.render(route, {
-        students : docs
+      await res.render(route, {
+        students : docs,
+        noOfVerified: noOfVerified,
+        noOfUnverified: noOfUnverified
       });
   });
 };

@@ -9,8 +9,7 @@ const express = require('express'),
     manipulationforAdmin = require('../db/manipulationforAdmin'),
     {} = require('../config/auth'),
     util = require('../utils/dynamicHtml'),
-    mail = require('../utils/sedingMail'),
-    nodemailer = require('nodemailer');
+    mail = require('../utils/sedingMail');
 
 
 // Login Page

@@ -101,14 +101,13 @@
   <div class="main">
     <%- include ('partials/messages') %>
     <div class="header">
-      <p class="pl-3 mt-2"><span id="value"><%= students.length %></span> members in community</p>
+      <p class="pl-3 mt-2"><span id="value"><%= noOfVerified %></span> members in our community</p>
     </div>
-
 
     <% students.forEach(student => { %>
       <% if(!student.isVerified){ %>
         <!-- Go to Unverified Profile  -->
-        <div class="unverified-profile" data-placement="right" data-toggle="tooltip" title="Unverified Profiles here!">
+        <div class="unverified-profile" data-placement="right" data-toggle="tooltip" title="<%= noOfUnverified %> Unverified Profiles here!">
           <a href="/student/unverified">
             <span id="close-icon" class="fa fa-exclamation-circle text-danger"></span>
           </a>
@@ -116,21 +115,27 @@
         <% } %>
         
       <% if(student.isVerified){ %>
-        <div class="member">
+        <div class="member row  justify-content-sm-center">
 
           <% if(student.profile == ''){ %>
-            <img src="../img/modal-profile.jpg" alt="Profile image" />
-          <% }else{ %>
-            <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+            <div class="col-lg-2 col-sm-12">
+              <img src="../img/modal-profile.jpg" />
+            </div>
+            <% }else{ %>
+              <div class="col-lg-2 col-sm-12">
+                <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+              </div>
           <% } %>
     
-          <div class="member-detail">
+          <div class="member-detail col-lg-5 col-sm-12 pt-4">
             <p class="member-name"><%= student.fullname %></p>
-            <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
+            <p>Joined at, <span class="member-year"><%= student.yearOfJoin %></span> </p>
             <p class="member-department"><%= student.degree %></p>
             <p class="member-home-town"><%= student.district %></p>
           </div>
-          <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile" type="submit">view profile</a>
+          <div class="col-lg-5 btn-box mt-2">
+            <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile  " type="submit">view profile</a>
+          </div>
         </div>
       <% } %>
       

@@ -14,11 +14,12 @@ a:hover {
   text-decoration: none;
 }
 
-.pdf, .unverified-profile{
+.pdf,
+.unverified-profile {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   width: 50px;
   height: 50px;
@@ -27,34 +28,32 @@ a:hover {
   /* box-shadow: 0.3px 1px 6px rgb(114, 114, 116); */
 }
 
-.unverified-profile{
+.unverified-profile {
   bottom: 5rem;
   background: none;
   animation: verify 0.5s linear infinite alternate;
 }
 
-
-
-@keyframes verify{
+@keyframes verify {
   0% {
     right: 1.3rem;
   }
-  50%{
+  50% {
     right: 1rem;
-    
   }
-  70%{
+  70% {
     right: 1.3rem;
   }
-  100%{
+  100% {
     right: 1rem;
   }
 }
 
-
-.fa-file-pdf-o,.fa-send,.fa-exclamation-circle{
+.fa-file-pdf-o,
+.fa-send,
+.fa-exclamation-circle {
   color: white;
-   position: absolute;
+  position: absolute;
   top: 50%;
   cursor: pointer;
   left: 50%;
@@ -62,15 +61,15 @@ a:hover {
   font-size: 1.3rem;
 }
 
-.fa-exclamation-circle{
+.fa-exclamation-circle {
   font-size: 2rem;
 }
 
-.fa-send{
+.fa-send {
   display: none;
 }
 
-.pdf input{
+.pdf input {
   position: absolute;
   left: 5rem;
   /* display: none; */
@@ -78,7 +77,7 @@ a:hover {
   top: 0.4rem;
 }
 
-.fa-close{
+.fa-close {
   position: absolute;
   left: -14.5rem;
   cursor: pointer;
@@ -87,24 +86,24 @@ a:hover {
   border-radius: 3px;
   display: none;
   z-index: 2;
-  color: #007BFF;
-
+  color: #007bff;
 }
 
-.fa-close:hover{
-  color: #007BFF;
+.fa-close:hover {
+  color: #007bff;
   background-color: white;
 }
 
-.fa-file-pdf-o:hover{
+.fa-file-pdf-o:hover {
   color: white;
 }
 
-.pdf input::placeholder{
+.pdf input::placeholder {
   color: white;
 }
 
-input::-webkit-inner-spin-button, input::-webkit-outer-spin-button{
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   cursor: text;
 }
@@ -198,7 +197,7 @@ h5 {
   /* margin-top: 90px; */
   position: fixed;
   width: 25%;
-  background: #007BFF;
+  background: #007bff;
   height: 100%;
   z-index: 1;
 }
@@ -266,7 +265,7 @@ h5 {
   height: 250px;
 }
 
-.center-slide .slick-current img{
+.center-slide .slick-current img {
   scale: 2;
 }
 
@@ -326,13 +325,12 @@ h5 {
 =============================================== */
 
 /* Invalid handling  */
-#invalid{
+#invalid {
   border-radius: 5px;
   height: 40px;
 }
 
-
-#invalid p{
+#invalid p {
   text-align: center;
   padding: 6px 0;
   color: white;
@@ -340,7 +338,7 @@ h5 {
   text-align: left;
 }
 
-#invalid p i{
+#invalid p i {
   color: white;
 }
 
@@ -425,8 +423,8 @@ h5 {
   font-size: 0.9rem;
   border-radius: 20px;
   outline: none;
-  background-color: #007BFF;
-  border: 1px solid #007BFF;
+  background-color: #007bff;
+  border: 1px solid #007bff;
   color: white;
   text-transform: capitalize;
 }
@@ -462,7 +460,7 @@ h5 {
 }
 
 .dropdown-item:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
 }
 
@@ -625,33 +623,43 @@ footer {
   height: 100%;
   padding: 2rem;
   padding-top: 0;
+  position: relative;
   margin-left: 22rem;
 }
 
 .main .header {
-  width: 100%;
-  padding-top: 10px;
-  background-color: #007BFF;
+  width: 57rem;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  position: absolute;
+  background-color: #007bff;
   color: white;
   line-height: 20px;
   height: 40px;
+  right: 2rem;
 }
 
 .main .member {
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-  
-  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
-  height: 100px;
+  /* height: 130px; */
   position: relative;
   transition: 0.5s;
 }
 
+.main .member:nth-child(2) {
+  margin-top: 3rem;
+}
+
 .main .member img {
-  padding: 1rem;
-  border-radius: 100px;
-  width: 100px;
-  height: 100px;
+  padding: auto 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  border-radius: 10px;
+  height: 130px;
 }
 
 .main .member .member-detail {
@@ -667,7 +675,6 @@ footer {
 .main .member .member-detail p {
   text-decoration: none;
   line-height: 16px;
-  /* font-weight: 700; */
   font-size: 14px;
 }
 
@@ -679,47 +686,8 @@ footer {
   font-size: 14px;
 }
 
-.main .member .view-profile, .main .member .decline,.main .member .verify{
-  background: none;
-  position: absolute;
-  right: 20px;
-  top: 2.2rem;
-  padding: 0.3rem 0.4rem;
-  cursor: pointer;
-}
-
-.main .member a{
-  width: 100px;
-}
-
-.main .member .view-profile:hover{
-  background: #007BFF;
-  color: white;
-  /* outline: none; */
-}
-  
-.main .member .decline{
-  right: 14%;
-}
-
-.main .member .verify{
-  right: 26%;
-}
-
-.main .member .decline:hover{
-  background: #DC3545;
-  color: white;
-}
-
-.main .member .verify:hover{
-  background: #28A745;
-  color: white;
-}
-
-
-.main .member button:hover {
-  background-color: #007BFF;
-  color: white;
+.main .member .member-detail {
+  padding: 1rem 0;
 }
 
 .main .member .member-detail input[type='text'] {
@@ -728,7 +696,19 @@ footer {
   outline: none;
   font-size: 0.8rem;
   color: #aaa4a4;
-  caret-color: #007BFF;
+  caret-color: #007bff;
+}
+
+.main .member .member-detail p {
+  margin: 0;
+}
+
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-success {
+  width: 105px;
+  text-align: center;
+  margin-top: 3rem;
 }
 
 #eventPostButton {
@@ -738,7 +718,7 @@ footer {
   position: relative;
   font-size: 1.3rem;
   color: white;
-  background-color: #007BFF;
+  background-color: #007bff;
 }
 
 #eventPostButton:hover {
@@ -798,14 +778,29 @@ footer {
     margin: 0;
     width: 100%;
   }
-  .main .member button {
-    display: none;
+
+  .main .header {
+    width: 250px;
   }
-  .main .member {
-    width: 100%;
+
+  .main .member img {
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 170px;
   }
+
   .main .member .member-detail {
-    padding: 0;
+    margin: 0.5rem;
+    justify-content: center;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .btn-outline-primary {
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
   }
 }
 
@@ -846,4 +841,3 @@ footer {
     max-width: 100%;
   }
 }
-

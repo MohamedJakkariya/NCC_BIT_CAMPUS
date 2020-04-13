@@ -92,23 +92,30 @@
 
     <% students.forEach(student => { %>
       <% if(!student.isVerified){ %>
-        <div class="member">
+        <div class="member row  justify-content-sm-center">
 
           <% if(student.profile == ''){ %>
-            <img src="../img/modal-profile.jpg" alt="Profile image" />
-          <% }else{ %>
-            <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+            <div class="col-lg-2 col-sm-12">
+              <img src="../img/modal-profile.jpg" />
+            </div>
+            <% }else{ %>
+              <div class="col-lg-2 col-sm-12">
+                <img src="../img/uploaded_images/<%= student.profile %>" alt="Profile image" />
+              </div>
           <% } %>
     
-          <div class="member-detail">
+          <div class="member-detail col-lg-5 col-sm-12 pt-4">
             <p class="member-name"><%= student.fullname %></p>
-            <p>Student, class <span class="member-year"><%= student.yearOfJoin %></span> </p>
+            <p>Joined at, <span class="member-year"><%= student.yearOfJoin %></span> </p>
             <p class="member-department"><%= student.degree %></p>
             <p class="member-home-town"><%= student.district %></p>
           </div>
-          <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile" type="submit">view profile</a>
-          <a href="/admin/declined/?id=<%= student.id %>" class="btn btn-outline-danger decline" type="submit">Decline</a>
-          <a href="/admin/verified/?id=<%= student.id %>" class="btn btn-outline-success verify" type="submit">Verified</a>
+          <div class="col-lg-5 btn-box mt-2">
+            <a href="/student/profile/?id=<%= student.id %>" class="btn btn-outline-primary view-profile  mt-1" type="submit">view profile</a>
+            <a href="/admin/declined/?id=<%= student.id %>" class="btn btn-outline-danger decline  mt-1" type="submit">Decline</a>
+            <a href="/admin/verified/?id=<%= student.id %>" class="btn btn-outline-success verify  mt-1" type="submit">Verified</a>
+          </div>
+
         </div>
       <% } %>
     <% }) %>
