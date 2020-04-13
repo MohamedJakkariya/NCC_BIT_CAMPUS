@@ -338,6 +338,20 @@ router.get('/declined', (req, res) => {
 
 });
 
+// Announcement route 
+router.post('/announcement', (req, res) => {
+  const message = req.body.message;
+
+  // Send message to all asynchronously 
+  manipulationforAdmin.announcement(message);
+
+  // Set the timout 2s and response to client 
+  setTimeout(() => {
+    req.flash('success_msg', 'The annoucement sent successfully!');
+    res.redirect('/dashboard');
+  }, 1000);
+});
+
 // Logout
 router.get('/logout', (req, res) => {
   req.logout();

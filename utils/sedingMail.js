@@ -80,3 +80,33 @@ exports.informToStudent = (message, studentEmail) => {
     console.log('successfully mail send to Student!');
   });
 }
+
+
+exports.bulkMail = (emails, message) => {
+
+        // Send confirmation mail to student
+        var transporter = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
+          },
+        });
+
+        var mailOptions = {
+          to: emails, ///Admin mail put here to inform it
+          from: process.env.EMAIL,
+          subject: 'Announcement',
+          text:
+            'Hi students!,\n\n' + 'This is for Ncc cadets\n\n' +
+            message + '\n\n From anna university(Bit campus)'
+        };
+
+        transporter.sendMail(mailOptions, function (err) {
+          if(err){
+            console.log(err);
+          }
+          console.log('successfully mail sen bulk mail!');
+        });
+
+}

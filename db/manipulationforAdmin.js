@@ -1,7 +1,8 @@
 // Load the user model
 // const Admin = require('../models/Admin');
-const Login = require('../models/User');
-const Event = require('../models/Event');
+const Login = require('../models/User'),
+      Event = require('../models/Event'),
+      mail = require('../utils/sedingMail');
 
 exports.showAllStudents = (req, res, route) => {
   let noOfVerified = 0, noOfUnverified = 0;
@@ -37,7 +38,17 @@ exports.viewAllEvents = (req, res, ejsFile) => {
   });
 };
 
-// get the particular year based students 
-exports.getYearBasedStudents = (req, res, year) => {
+exports.announcement = (message) => {
+  let emails = [];
+  
+  Login.find({},async (err, students) => {
+    if(err) throw err;
 
+    await students.forEach(student => {
+      // Push into the emails stack 
+      emails.push(student.email);
+    });
+
+    await mail.bulkMail(emails, message);
+  });
 }

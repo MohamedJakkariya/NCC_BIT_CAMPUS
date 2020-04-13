@@ -6,10 +6,9 @@ $(document).ready(function () {
   // view pdf input field
   $('#pdf').click(() => {
     console.log('clicked');
-    // $('#send').css('display', 'unset');
     $('#submit-pdf').css('display', 'unset');
-    $('.fa-send').css('display', 'unset');
-    $('#close-icon').css('display', 'unset');
+    $('#close-pdf').css('display', 'unset');
+    $('#fa-send').css('display', 'unset');
     $('#pdf-icon').css('display', 'none');
     $('#pdf').css('display', 'none');
     $('#send').animate({
@@ -18,15 +17,38 @@ $(document).ready(function () {
     $('#send').focus();
   });
 
-  $('#close-icon').click(() => {
+  $('#close-pdf').click(() => {
     $('#send').animate({
       'left': '5rem'
     }, 500);
-    $('#submit-pdf').css('display', 'unset');
-    $('.fa-send').css('display', 'none');
-    $('#close-icon').css('display', 'none');
+    $('#submit-pdf').css('display', 'none');
+    $('#fa-send').css('display', 'none');
+    $('#close-pdf').css('display', 'none');
     $('#pdf').css('display', 'unset');
   });
+
+  // view announcment input field
+  $('#announcement').click(() => {
+    console.log('clicked');
+    $('#submit-msg').css('display', 'unset');
+    $('#close-announcement').css('display', 'unset');
+    $('#announcement').css('display', 'none');
+    $('#send-announcement').animate({
+      'left': '-16rem'
+    }, 500);
+    $('#send-announcement').focus();
+  });
+
+  $('#close-announcement').click(() => {
+    $('#send-announcement').animate({
+      'left': '5rem'
+    }, 500);
+    $('#submit-msg').css('display', 'none');
+    $('#announcement').css('display', 'unset');
+    $('#close-announcement').css('display', 'none');
+    $('#pdf').css('display', 'unset');
+  });
+
 
   // Button loading animation
   $('.submit').click(() => {
@@ -58,6 +80,18 @@ $(document).ready(function () {
     }
   });
   
+  $('.submit-announcement').click(() => {
+    if(document.getElementById('send-announcement').value != ''){
+      $('.container-box').waitMe({
+        effect: 'win8',
+        text: 'Wait for preparing mails ...',
+        bg: 'rgba(255,255,255,0.7)',
+        color: '#000',
+        waitTime: -1,
+        textPos: 'vertical',
+      });
+    }
+  });
    // container loading animation 
    $('.send-pdf').click(() => {
     $('.waitForSend').waitMe({
