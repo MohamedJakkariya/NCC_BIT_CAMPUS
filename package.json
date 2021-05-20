@@ -33,7 +33,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-fileupload": "^1.1.9",
     "express-session": "^1.17.0",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "mongoose": "^5.9.7",
     "nodemailer": "^6.4.6",
     "passport": "^0.4.1",
